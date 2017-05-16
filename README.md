@@ -1,2 +1,0 @@
-# nimo-site
-Personal site
