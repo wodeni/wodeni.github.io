@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+    
+    <url>
+      <loc>http://www.columbia.edu/~wn2155//2017/hello-world-chn/</loc>
+      
+        <lastmod>2017-05-16T04:32:23-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://www.columbia.edu/~wn2155//2017/hello-world/</loc>
+      
+        <lastmod>2017-05-16T04:28:23-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+  
+    
+    <url>
+      <loc>http://www.columbia.edu/~wn2155//categories/</loc>
+      
+        <lastmod>2017-06-21T13:26:06-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://www.columbia.edu/~wn2155//feed.xml</loc>
+      
+        <lastmod>2017-06-21T13:26:06-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://www.columbia.edu/~wn2155//</loc>
+      
+        <lastmod>2017-06-21T13:26:06-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://www.columbia.edu/~wn2155//js/main.js</loc>
+      
+        <lastmod>2017-06-21T13:26:06-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+  
+    
+    <url>
+      <loc>http://www.columbia.edu/~wn2155//tags/</loc>
+      
+        <lastmod>2017-06-21T13:26:06-04:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+</urlset>

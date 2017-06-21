@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wode &quot;Nimo&quot; Ni</title>
+    <description></description>
+    <link>http://www.columbia.edu/~wn2155///</link>
+    <atom:link href="http://www.columbia.edu/~wn2155///feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 21 Jun 2017 13:26:06 -0400</pubDate>
+    <lastBuildDate>Wed, 21 Jun 2017 13:26:06 -0400</lastBuildDate>
+    <generator>Jekyll v3.0.2</generator>
+    
+      <item>
+        <title>你好, 世界</title>
+        <description>&lt;p&gt;我试试看能不能用中文发，要是不能的话我大概会很伤心的。好困。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;printk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KERN_INFO&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;%s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 16 May 2017 04:32:23 -0400</pubDate>
+        <link>http://www.columbia.edu/~wn2155///2017/hello-world-chn/</link>
+        <guid isPermaLink="true">http://www.columbia.edu/~wn2155///2017/hello-world-chn/</guid>
+        
+        <category>random</category>
+        
+        
+        <category>non-tech</category>
+        
+      </item>
+    
+      <item>
+        <title>Hello, World</title>
+        <description>&lt;p&gt;I can now use &lt;code class=&quot;highlighter-rouge&quot;&gt;markdown&lt;/code&gt; to blog. Now I am very happy.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 16 May 2017 04:28:23 -0400</pubDate>
+        <link>http://www.columbia.edu/~wn2155///2017/hello-world/</link>
+        <guid isPermaLink="true">http://www.columbia.edu/~wn2155///2017/hello-world/</guid>
+        
+        <category>random</category>
+        
+        
+        <category>non-tech</category>
+        
+      </item>
+    
+  </channel>
+</rss>
