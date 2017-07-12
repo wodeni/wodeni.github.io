@@ -5,7 +5,7 @@ categories: [non-tech]
 tags: [random]
 ---
 
-I can now use `markdown` to blog. Now I am very happy.
+Welcome to Nimo's website! This site is a work-in-progress. I will finish migrating from the old blog hopefully before the end of July. Stay tuned!
 
 ```c
 #include <stdio.h>
