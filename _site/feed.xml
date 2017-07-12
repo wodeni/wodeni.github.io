@@ -5,13 +5,13 @@
     <description></description>
     <link>http://www.columbia.edu/~wn2155//</link>
     <atom:link href="http://www.columbia.edu/~wn2155//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 12 Jul 2017 17:36:06 -0400</pubDate>
-    <lastBuildDate>Wed, 12 Jul 2017 17:36:06 -0400</lastBuildDate>
+    <pubDate>Wed, 12 Jul 2017 17:59:00 -0400</pubDate>
+    <lastBuildDate>Wed, 12 Jul 2017 17:59:00 -0400</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>Hello, World</title>
-        <description>&lt;p&gt;I can now use &lt;code class=&quot;highlighter-rouge&quot;&gt;markdown&lt;/code&gt; to blog. Now I am very happy.&lt;/p&gt;
+        <description>&lt;p&gt;Welcome to Nimo’s website! This site is a work-in-progress. I will finish migrating from the old blog hopefully before the end of July. Stay tuned!&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
 &lt;/span&gt;
