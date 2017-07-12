@@ -1,10 +1,10 @@
 # Site settings
 title: Wode "Nimo" Ni
 description: ''
-# url: 'http://wodeni.github.io'
-# baseurl: '/'
-url: 'http://www.columbia.edu'
-baseurl: '/~wn2155/'
+url: 'http://wodeni.github.io'
+baseurl: '/'
+# url: 'http://www.columbia.edu'
+# baseurl: '/~wn2155/'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
