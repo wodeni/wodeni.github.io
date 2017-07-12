@@ -3,34 +3,11 @@
   <channel>
     <title>Wode &quot;Nimo&quot; Ni</title>
     <description></description>
-    <link>http://www.columbia.edu/~wn2155/</link>
-    <atom:link href="http://www.columbia.edu/~wn2155/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 12 Jul 2017 16:18:12 -0400</pubDate>
-    <lastBuildDate>Wed, 12 Jul 2017 16:18:12 -0400</lastBuildDate>
+    <link>http://wodeni.github.io//</link>
+    <atom:link href="http://wodeni.github.io//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 12 Jul 2017 16:39:46 -0400</pubDate>
+    <lastBuildDate>Wed, 12 Jul 2017 16:39:46 -0400</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
-    
-      <item>
-        <title>你好, 世界</title>
-        <description>&lt;p&gt;我试试看能不能用中文发，要是不能的话我大概会很伤心的。好困。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;printk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KERN_INFO&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;%s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Tue, 16 May 2017 04:32:23 -0400</pubDate>
-        <link>http://www.columbia.edu/~wn2155/2017/hello-world-chn/</link>
-        <guid isPermaLink="true">http://www.columbia.edu/~wn2155/2017/hello-world-chn/</guid>
-        
-        <category>random</category>
-        
-        
-        <category>non-tech</category>
-        
-      </item>
     
       <item>
         <title>Hello, World</title>
@@ -46,8 +23,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 16 May 2017 04:28:23 -0400</pubDate>
-        <link>http://www.columbia.edu/~wn2155/2017/hello-world/</link>
-        <guid isPermaLink="true">http://www.columbia.edu/~wn2155/2017/hello-world/</guid>
+        <link>http://wodeni.github.io//2017/hello-world/</link>
+        <guid isPermaLink="true">http://wodeni.github.io//2017/hello-world/</guid>
         
         <category>random</category>
         
