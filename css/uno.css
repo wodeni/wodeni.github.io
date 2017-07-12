@@ -917,6 +917,9 @@ body {
 .icon-zoom-out:before {
 	content: "\f21a"; }
 
+.icon-cv:before {
+	content: "CV"; }
+
 html, body {
 	height: 100%; }
 
