@@ -3,10 +3,10 @@
   <channel>
     <title>Wode &quot;Nimo&quot; Ni</title>
     <description></description>
-    <link>http://www.columbia.edu/~wn2155/</link>
-    <atom:link href="http://www.columbia.edu/~wn2155/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 12 Jul 2017 17:19:00 -0400</pubDate>
-    <lastBuildDate>Wed, 12 Jul 2017 17:19:00 -0400</lastBuildDate>
+    <link>http://www.columbia.edu/~wn2155//</link>
+    <atom:link href="http://www.columbia.edu/~wn2155//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 12 Jul 2017 17:31:01 -0400</pubDate>
+    <lastBuildDate>Wed, 12 Jul 2017 17:31:01 -0400</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -23,8 +23,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 16 May 2017 04:28:23 -0400</pubDate>
-        <link>http://www.columbia.edu/~wn2155/2017/hello-world/</link>
-        <guid isPermaLink="true">http://www.columbia.edu/~wn2155/2017/hello-world/</guid>
+        <link>http://www.columbia.edu/~wn2155//2017/hello-world/</link>
+        <guid isPermaLink="true">http://www.columbia.edu/~wn2155//2017/hello-world/</guid>
         
         <category>random</category>
         
