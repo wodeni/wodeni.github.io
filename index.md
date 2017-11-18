@@ -24,7 +24,7 @@ __Wode Ni__.<br> _Dickinson College Honors Theses. Paper 221._
 
 ## My Name
 
-My name is 倪沃德 ([:sound: ní wò dé](https://translate.google.com/translate_tts?ie=UTF-8&q=%E5%80%AA%E6%B2%83%E5%BE%B7&tl=zh-CN&total=1&idx=0&textlen=3&tk=240836.379729&client=t&prev=input)) in Chinese. __"Nimo"__ has been my alias since high school, during which I was a street dancer ([Popping](https://en.wikipedia.org/wiki/Popping)) and competed under this alias. In my early days in the US, my legal name, often printed as "Wode", caused a lot of confusion, because it looks like a single word. I have trouble answering "[Wode](https://translate.google.com/translate_tts?ie=UTF-8&q=wode&tl=en&total=1&idx=0&textlen=4&tk=872591.735002&client=t&prev=input)".
+My name is 倪沃德 ([<i class="icon icon-volume"></i> ní wò dé](https://translate.google.com/translate_tts?ie=UTF-8&q=%E5%80%AA%E6%B2%83%E5%BE%B7&tl=zh-CN&total=1&idx=0&textlen=3&tk=240836.379729&client=t&prev=input)) in Chinese. __"Nimo"__ has been my alias since high school, during which I was a street dancer ([Popping](https://en.wikipedia.org/wiki/Popping)) and competed under this alias. In my early days in the US, my legal name, often printed as "Wode", caused a lot of confusion, because it looks like a single word. I have trouble answering "[Wode](https://translate.google.com/translate_tts?ie=UTF-8&q=wode&tl=en&total=1&idx=0&textlen=4&tk=872591.735002&client=t&prev=input)".
 If you have trouble pronouncing [ní wò dé](https://translate.google.com/translate_tts?ie=UTF-8&q=%E5%80%AA%E6%B2%83%E5%BE%B7&tl=zh-CN&total=1&idx=0&textlen=3&tk=240836.379729&client=t&prev=input), I go by __"Nimo"__.
 
 ## News
