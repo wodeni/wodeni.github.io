@@ -6,17 +6,11 @@ layout: default
 <h1>About Me</h1>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
-        {{ page.sections['intro'] | markdownify }}
-    </div>
-    <div class="col-md-8">
-        <img src="images/nimo.jpg" height="300px">
-    </div>
+    <img src="images/nimo.jpg" class="pull-right" height="300px" style="margin:0px 30px">
+    {{ page.sections['intro'] | markdownify }}
+    {% include contact.html %}
   </div>
-  <div class="row">
-    <div class="col">
-        {{ content }}
-    </div>
+    {{ content }}
   </div>
 </div>
 
