@@ -5,15 +5,14 @@ sections:
       I am an undergraduate senior at Columbia University, studying __Computer Science__.
 ---
 
-<!-- style="margin-right: 10px;"> -->
 ## Research
 
 I am interested in __computer graphics, computer vision, and programming languages__. As a visual learner who happens to like designing and implementing programming languages, I would like to design new languages for graphics/vision applications.
 
 ## Education
 
-B.S., Computer Science, __Dickinson College__ <br>
-B.S., Computer Science, __Columbia University__ <br>
+B.S. in Computer Science, __Dickinson College__ <br>
+B.S. in Computer Science, __Columbia University__ <br>
 
 ## Publication
 
