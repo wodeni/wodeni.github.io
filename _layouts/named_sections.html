@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<link href="css/grid24.css" rel="stylesheet" type="text/css">
+<h1>About Me</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        {{ page.sections['intro'] | markdownify }}
+    </div>
+    <div class="col-md-8">
+        <img src="images/nimo.jpg" height="300px">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        {{ content }}
+    </div>
+  </div>
+</div>
+
+<!-- <div style="overflow=auto; clear=both; height=400px">
+    <div style="float: left; width: 400px">
+    </div>
+    <div style="float: right; width: 200px">
+    </div>
+</div> -->
