@@ -5,6 +5,11 @@ sections:
       I am an undergraduate senior at Columbia University, studying __Computer Science__.
 ---
 
+## News
+
+- __October 2017__  Gave a talk at [DSLDI 2017](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams) in Vancouver Canada
+- __May 2017__  Started [REU-SE](http://isri.cmu.edu/education/reu-se/), a summer research program, at Carnegie Mellon University.
+
 ## Research
 
 I am interested in __computer graphics, computer vision, and programming languages__. As a visual learner who happens to like designing and implementing programming languages, I would like to design new languages for graphics/vision applications.
@@ -26,8 +31,3 @@ __Wode Ni__.<br> _Dickinson College Honors Theses. Paper 221._
 
 My name is 倪沃德 ([<i class="icon icon-volume"></i> ní wò dé](https://translate.google.com/translate_tts?ie=UTF-8&q=%E5%80%AA%E6%B2%83%E5%BE%B7&tl=zh-CN&total=1&idx=0&textlen=3&tk=240836.379729&client=t&prev=input)) in Chinese. __"Nimo"__ has been my alias since high school, during which I was a street dancer ([Popping](https://en.wikipedia.org/wiki/Popping)) and competed under this alias. In my early days in the US, my legal name, often printed as "Wode", caused a lot of confusion, because it looks like a single word. I have trouble answering "[Wode](https://translate.google.com/translate_tts?ie=UTF-8&q=wode&tl=en&total=1&idx=0&textlen=4&tk=872591.735002&client=t&prev=input)".
 If you have trouble pronouncing [ní wò dé](https://translate.google.com/translate_tts?ie=UTF-8&q=%E5%80%AA%E6%B2%83%E5%BE%B7&tl=zh-CN&total=1&idx=0&textlen=3&tk=240836.379729&client=t&prev=input), I go by __"Nimo"__.
-
-## News
-
-- __October 2017__  Gave a talk at [DSLDI 2017](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams) in Vancouver Canada
-- __May 2017__  Started [REU-SE](http://isri.cmu.edu/education/reu-se/), a summer research program, at Carnegie Mellon University.
