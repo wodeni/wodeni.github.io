@@ -918,7 +918,8 @@ body {
 	content: "\f21a"; }
 
 .icon-cv:before {
-	content: "CV"; }
+	content: "CV";
+}
 
 html, body {
 	height: 100%; }
@@ -1322,6 +1323,17 @@ hr {
 	.btn:hover, .navigation__item a:hover {
 		color: #b9301c;
 		border-color: #b9301c; }
+
+.btn, .navigation__cv a {
+	padding: 10px 20px;
+	border: 1px solid #e25440;
+	border-radius: 20px;
+	font-size: .9em;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-shadow: none;
+	color: #e25440;
+	-webkit-font-smoothing: antialiased; }
 
 .btn-secondary {
 	border-color: #5ba4e5;
