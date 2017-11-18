@@ -20,7 +20,7 @@ B.S. in Computer Science, __Columbia University__ <br>
 __Wode, Ni\*__, Katherine Ye*, Joshua Sunshine, Jonathan Aldrich, and Keenan Crane.<br>  _Domain-Specific Language Design and Implementation (DSLDI 2017),  co-located with SPLASH._
 
 #### [__Whiteboard Scanning Using Super-Resolution__](http://scholar.dickinson.edu/student_honors/221/)
-__Wode Ni__.<br> Dickinson College Honors Theses. Paper 221.
+__Wode Ni__.<br> _Dickinson College Honors Theses. Paper 221._
 
 ## My Name
 
