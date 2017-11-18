@@ -5,18 +5,27 @@ layout: default
 <link href="css/grid24.css" rel="stylesheet" type="text/css">
 <h1>About Me</h1>
 <div class="container-fluid">
-  <div class="row">
-    <img src="images/nimo.jpg" class="pull-right" height="300px" style="margin:0px 30px">
-    {{ page.sections['intro'] | markdownify }}
-    {% include contact.html %}
-  </div>
-    {{ content }}
-  </div>
+    <div class="row">
+        <div class="col-md-15">
+            {{ page.sections['intro'] | markdownify }}
+            {% include contact.html %}
+            <br>
+        </div>
+        <div class="col-md-6">
+            <img src="images/nimo.jpg" class="pull-left" height="300px" style="margin:0px 10px">
+        </col>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{ content }}
+        </div>
+    </div>
+</div>
 </div>
 
 <!-- <div style="overflow=auto; clear=both; height=400px">
-    <div style="float: left; width: 400px">
-    </div>
-    <div style="float: right; width: 200px">
-    </div>
+<div style="float: left; width: 400px">
+</div>
+<div style="float: right; width: 200px">
+</div>
 </div> -->
