@@ -2,7 +2,7 @@
 layout: named_sections
 sections:
   intro: |
-      I am an undergraduate senior at Columbia University, studying __Computer Science__.
+      I am an undergraduate senior at Columbia University, studying __Computer Science__. 
 ---
 
 ## News
@@ -12,7 +12,7 @@ sections:
 
 ## Research
 
-I am interested in __computer graphics, computer vision, and programming languages__. As a visual learner who happens to like designing and implementing programming languages, I would like to design new languages for graphics/vision applications.
+I am interested in __computer graphics, computer vision, and programming languages__. As a visual learner who happens to like designing and implementing programming languages, I aspire to create new languages for graphics/vision applications. Currently, I am working on [Penrose](penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
 
 ## Education
 
@@ -27,18 +27,21 @@ __Wode, Ni\*__, Katherine Ye*, Joshua Sunshine, Jonathan Aldrich, and Keenan Cra
 #### [__Whiteboard Scanning Using Super-Resolution__](http://scholar.dickinson.edu/student_honors/221/)
 __Wode Ni__.<br> _Dickinson College Honors Theses. Paper 221._
 
-## My Name
+## Personal
 
 My name is 倪沃德 (
     <audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio>
     <a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>
 )
-in Chinese. __"Nimo"__ has been my alias since high school, during which I was a street dancer ([Popping](https://en.wikipedia.org/wiki/Popping)) and competed under this alias. In my early days in the US, my legal name, often written as "Wode", caused a lot of confusion, because it looks like a single word and people often pronounce it that way. Sadly, I have trouble answering to "
+in Chinese. __"Nimo"__ has been my alias since high school, during which I was a street dancer ([Popping](https://en.wikipedia.org/wiki/Popping)) and competed under this alias. My first name, often written as "Wode", looks like a single word and people often pronounce it that way. Sadly, I have trouble answering to "
     <audio id="wode"><source src="assets/wode.mp3" type="audio/mpeg"></audio>
     <a class="icon icon-volume" onclick="document.getElementById('wode').play();"> Wode</a>
-" in all conditions.
-If you cannot pronounce (
+" in all environments. If you find it hard to pronounce (
     <audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio>
     <a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>
 )
- easily, try __"Nimo"__.
+ , try __"Nimo"__.
+
+I have been playing [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo) since elementary school, and won provisional contests. I mostly do [1A](http://yoyo.wikia.com/wiki/Styles_Of_Play). Broadly speaking, I am interested in many forms of [Object manipulation](https://en.wikipedia.org/wiki/Object_manipulation), such as Zippo tricks and pen spinning.
+
+I love billiards, especially [Snooker](https://en.wikipedia.org/wiki/Snooker).
