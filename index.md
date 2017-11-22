@@ -2,7 +2,7 @@
 layout: named_sections
 sections:
   intro: |
-      I am an undergraduate senior at Columbia University, studying __Computer Science__. 
+      I am an undergraduate senior at Columbia University, studying __Computer Science__.
 ---
 
 ## News
@@ -42,6 +42,6 @@ in Chinese. __"Nimo"__ has been my alias since high school, during which I was a
 )
  , try __"Nimo"__.
 
-I have been playing [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo) since elementary school, and won provisional contests. I mostly do [1A](http://yoyo.wikia.com/wiki/Styles_Of_Play). Broadly speaking, I am interested in many forms of [Object manipulation](https://en.wikipedia.org/wiki/Object_manipulation), such as Zippo tricks and pen spinning.
+I have been playing [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo) since elementary school, and won provincial contests. I mostly do [1A](http://yoyo.wikia.com/wiki/Styles_Of_Play). Broadly speaking, I am interested in many forms of [Object manipulation](https://en.wikipedia.org/wiki/Object_manipulation), such as Zippo tricks and pen spinning.
 
 I love billiards, especially [Snooker](https://en.wikipedia.org/wiki/Snooker).
