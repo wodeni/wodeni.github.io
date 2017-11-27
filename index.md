@@ -8,16 +8,16 @@ sections:
 ## News
 
 - __October 2017__  Gave a talk at [DSLDI 2017](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams) in Vancouver Canada
-- __May 2017__  Started [REU-SE](http://isri.cmu.edu/education/reu-se/), a summer research program, at Carnegie Mellon University.
+- __May 2017__  Joined [REU-SE](http://isri.cmu.edu/education/reu-se/), a summer research program, at Carnegie Mellon University.
 
 ## Research
 
-I am interested in __computer graphics, computer vision, and programming languages__. As a visual learner who happens to like designing and implementing programming languages, I aspire to create new languages for graphics/vision applications. Currently, I am working on [Penrose](penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
+I am interested in __programming languages, computer graphics, and computer vision__. As a visual learner who happens to like designing and implementing programming languages, I aspire to create new languages for graphics/vision applications. Currently, I am working on [Penrose](penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
 
 ## Education
 
-B.S. in Computer Science, __Dickinson College__ <br>
 B.S. in Computer Science, __Columbia University__ <br>
+B.S. in Computer Science, __Dickinson College__ <br>
 
 ## Publication
 
@@ -33,10 +33,10 @@ My name is 倪沃德 (
     <audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio>
     <a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>
 )
-in Chinese. __"Nimo"__ has been my alias since high school, during which I was a street dancer ([Popping](https://en.wikipedia.org/wiki/Popping)) and competed under this alias. My first name, often written as "Wode", looks like a single word and people often pronounce it that way. Sadly, I have trouble answering to "
+in Chinese. __"Nimo"__ has been my alias since high school, during which I was a street dancer ([Popping](https://en.wikipedia.org/wiki/Popping)) and competed under this alias. My first name, often written as "Wode", looks like a single word in English and people often pronounce it that way. Sadly, I have trouble answering to "
     <audio id="wode"><source src="assets/wode.mp3" type="audio/mpeg"></audio>
     <a class="icon icon-volume" onclick="document.getElementById('wode').play();"> Wode</a>
-" in all environments. If you find it hard to pronounce (
+" under all circumstances. If you find it hard to pronounce (
     <audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio>
     <a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>
 )
