@@ -24,7 +24,7 @@ B.S. in Computer Science, __Dickinson College__ <br>
 #### [__Substance and Style: domain-specific languages for mathematical diagrams__](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams)
 __Wode Ni\*__, Katherine Ye*, Joshua Sunshine, Jonathan Aldrich, and Keenan Crane.<br>  _Domain-Specific Language Design and Implementation (DSLDI 2017),  co-located with SPLASH._ <br>
 [[PDF](assets/dsldi.pdf)]
-[[Slides](assest/dsldi-presentation.pdf)]
+[[Slides](assets/dsldi-presentation.pdf)]
 
 #### [__Whiteboard Scanning Using Super-Resolution__](http://scholar.dickinson.edu/student_honors/221/)
 __Wode Ni__.<br> _Dickinson College Honors Theses. Paper 221._<br>
