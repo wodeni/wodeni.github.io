@@ -24,7 +24,10 @@ B.S. in Computer Science, __Dickinson College__ <br>
 #### [__Substance and Style: domain-specific languages for mathematical diagrams__](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams)
 __Wode Ni\*__, Katherine Ye*, Joshua Sunshine, Jonathan Aldrich, and Keenan Crane.<br>  _Domain-Specific Language Design and Implementation (DSLDI 2017),  co-located with SPLASH._ <br>
 [[PDF](assets/dsldi.pdf)]
-[[Slides](assets/dsldi-presentation.pdf)]
+[[slides](assets/dsldi-presentation.pdf)]
+<!-- [Slides: [PDF](assets/dsldi-presentation.pdf), [Keynote(annotated)](assets/dsldi-presentation.key)] -->
+[[www](http://penrose.ink)]
+[[repo](https://github.com/penrose/penrose)]
 
 #### [__Whiteboard Scanning Using Super-Resolution__](http://scholar.dickinson.edu/student_honors/221/)
 __Wode Ni__.<br> _Dickinson College Honors Theses. Paper 221._<br>
@@ -45,6 +48,6 @@ in Chinese. __"Nimo"__ has been my alias since high school, during which I was a
 )
  , try __"Nimo"__.
 
-I have been playing [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo) since elementary school, and won provincial contests. I mostly do [1A](http://yoyo.wikia.com/wiki/Styles_Of_Play). Broadly speaking, I am interested in many forms of [Object manipulation](https://en.wikipedia.org/wiki/Object_manipulation), such as Zippo tricks and pen spinning.
+I play [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo), and have won provincial contests. I mostly do [1A](http://yoyo.wikia.com/wiki/Styles_Of_Play). Broadly speaking, I am interested in many forms of [Object manipulation](https://en.wikipedia.org/wiki/Object_manipulation), such as Zippo tricks and pen spinning.
 
 I love billiards, especially [Snooker](https://en.wikipedia.org/wiki/Snooker).
