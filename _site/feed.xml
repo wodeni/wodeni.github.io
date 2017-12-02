@@ -3,10 +3,10 @@
   <channel>
     <title>Wode &quot;Nimo&quot; Ni</title>
     <description>In the ocean of code, I swim.</description>
-    <link>http://www.columbia.edu/~wn2155/</link>
-    <atom:link href="http://www.columbia.edu/~wn2155/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 02 Dec 2017 07:38:48 -0500</pubDate>
-    <lastBuildDate>Sat, 02 Dec 2017 07:38:48 -0500</lastBuildDate>
+    <link>http://www.columbia.edu/~wn2155//</link>
+    <atom:link href="http://www.columbia.edu/~wn2155//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 02 Dec 2017 07:39:09 -0500</pubDate>
+    <lastBuildDate>Sat, 02 Dec 2017 07:39:09 -0500</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -23,8 +23,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 16 May 2017 04:28:23 -0400</pubDate>
-        <link>http://www.columbia.edu/~wn2155/2017/hello-world/</link>
-        <guid isPermaLink="true">http://www.columbia.edu/~wn2155/2017/hello-world/</guid>
+        <link>http://www.columbia.edu/~wn2155//2017/hello-world/</link>
+        <guid isPermaLink="true">http://www.columbia.edu/~wn2155//2017/hello-world/</guid>
         
         <category>random</category>
         
