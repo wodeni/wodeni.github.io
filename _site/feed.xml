@@ -3,23 +3,23 @@
   <channel>
     <title>Wode &quot;Nimo&quot; Ni</title>
     <description>In the ocean of code, I swim.</description>
-    <link>http://wodeni.github.io/</link>
-    <atom:link href="http://wodeni.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 10 Jan 2018 18:14:49 -0500</pubDate>
-    <lastBuildDate>Wed, 10 Jan 2018 18:14:49 -0500</lastBuildDate>
+    <link>http://www.columbia.edu/~wn2155//</link>
+    <atom:link href="http://www.columbia.edu/~wn2155//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 10 Jan 2018 18:21:27 -0500</pubDate>
+    <lastBuildDate>Wed, 10 Jan 2018 18:21:27 -0500</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>Introducing MPL: Matrix Processing Language</title>
         <description>&lt;p&gt;&lt;img src=&quot;/images/mpl-logo.png&quot; alt=&quot;&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;I know. The name is pretty lame, because we had to come up with a name before we start the project and even learn anything about compilers and programming language design. In retrospect, I would have called it something like “Moore” or “Cell” (probably not good names either &lt;img class=&quot;emoji&quot; title=&quot;:disappointed:&quot; alt=&quot;:disappointed:&quot; src=&quot;https://assets.github.com/images/icons/emoji/unicode/1f61e.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;).&lt;/p&gt;
+&lt;p&gt;I know. The name is pretty lame, because we had to come up with a name before we start the project and even learn anything about compilers and programming language design. In retrospect, I would have called it something like “Moore” or “Cell” (probably not good names either :disappointed:).&lt;/p&gt;
 
 &lt;p&gt;MPL is a programming language that I, along with 3 other fellow classmates, designed and implemented. It is a Domain Specific Language (DSL), meaning it does not work for everything. Instead, MPL deals with matrices and images. We wanted it to be concise, cool, and reasonable to implement because this is a ~2-month course project.&lt;/p&gt;
 </description>
         <pubDate>Tue, 30 May 2017 00:00:00 -0400</pubDate>
-        <link>http://wodeni.github.io/2017/introducing-mpl/</link>
-        <guid isPermaLink="true">http://wodeni.github.io/2017/introducing-mpl/</guid>
+        <link>http://www.columbia.edu/~wn2155//2017/introducing-mpl/</link>
+        <guid isPermaLink="true">http://www.columbia.edu/~wn2155//2017/introducing-mpl/</guid>
         
         <category>PL</category>
         
@@ -39,13 +39,13 @@
         <description>&lt;p&gt;Welcome. This blog contains both Chinese and English contents, mostly related to CS.&lt;/p&gt;
 
 &lt;p&gt;In the past 23 years, I made dozens of attempts to write blog/journal/articles regularly, and it never worked. Therefore, I decided not to make that promise again. I will post things whenever I like.
-&lt;!-- I do think, however, the frequency of writing ($$\mu$$) is positively correlated with the quality of my life ($$Q$$). I hope $$\mu \rightarrow \infty$$ &lt;img class=&#39;emoji&#39; title=&#39;:grin:&#39; alt=&#39;:grin:&#39; src=&#39;https://assets.github.com/images/icons/emoji/unicode/1f601.png&#39; height=&#39;20&#39; width=&#39;20&#39; align=&#39;absmiddle&#39; /&gt;. --&gt;&lt;/p&gt;
+&lt;!-- I do think, however, the frequency of writing ($$\mu$$) is positively correlated with the quality of my life ($$Q$$). I hope $$\mu \rightarrow \infty$$ :grin:. --&gt;&lt;/p&gt;
 
 &lt;p&gt;I will migrate some old posts in Chinese from &lt;code class=&quot;highlighter-rouge&quot;&gt;nimoni.org&lt;/code&gt;, my last failed attempt to blog. I didn’t really speak English back then, sorry.&lt;/p&gt;
 </description>
         <pubDate>Tue, 16 May 2017 04:28:23 -0400</pubDate>
-        <link>http://wodeni.github.io/2017/hello-world/</link>
-        <guid isPermaLink="true">http://wodeni.github.io/2017/hello-world/</guid>
+        <link>http://www.columbia.edu/~wn2155//2017/hello-world/</link>
+        <guid isPermaLink="true">http://www.columbia.edu/~wn2155//2017/hello-world/</guid>
         
         <category>random</category>
         
@@ -67,8 +67,8 @@
 &lt;p&gt;从那以后我心里大概总是有这么一座鬼城。挂念得人总在我肩畔，喜欢喝的茶总在手边，转头就能看见自己喜欢的场景们空荡荡地凑在一起。现在我好像理解为什么古代坐拥江山的统治者们总是希望建造微缩的山水，集成的天下了，他们估计也是想把自己喜欢的东西摆在一块吧。&lt;/p&gt;
 </description>
         <pubDate>Fri, 29 Nov 2013 00:00:00 -0500</pubDate>
-        <link>http://wodeni.github.io/2013/ghost-town/</link>
-        <guid isPermaLink="true">http://wodeni.github.io/2013/ghost-town/</guid>
+        <link>http://www.columbia.edu/~wn2155//2013/ghost-town/</link>
+        <guid isPermaLink="true">http://www.columbia.edu/~wn2155//2013/ghost-town/</guid>
         
         <category>random</category>
         
