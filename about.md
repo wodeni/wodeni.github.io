@@ -1,8 +1,17 @@
 ---
 layout: named_sections
+robots: noindex
+permalink: about.html
 sections:
   intro: |
       I am an undergraduate senior at Columbia University, studying __Computer Science__.
+  raytra: |
+      #### [__Raytra__](https://github.com/wodeni/raytra)
+      For a Computer Graphics class, I implemented a ray tracing renderer from scratch. Raytra employs __Monte-Carlo ray tracing__ and scene-wide acceleration using __BVH-tree__.
+  mpl: |
+      #### [__MPL__](https://github.com/wodeni/MPL)
+      Matrix Processing Language (MPL) is a domain specific language that focuses on matrix computations. Using MPL, we bulit a simulation of Conway’s Game of Life in less than 30 lines.
+
 ---
 
 ## News
@@ -32,6 +41,11 @@ __Wode Ni\*__, Katherine Ye*, Joshua Sunshine, Jonathan Aldrich, and Keenan Cran
 #### [__Whiteboard Scanning Using Super-Resolution__](http://scholar.dickinson.edu/student_honors/221/)
 __Wode Ni__.<br> _Dickinson College Honors Theses. Paper 221._<br>
 [[PDF](assets/superres.pdf)]
+
+## Projects
+
+{% include mpl.html %}
+{% include raytra.html %}
 
 ## Personal
 
