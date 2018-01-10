@@ -5,13 +5,9 @@ categories: [non-tech]
 tags: [random]
 ---
 
-Welcome to Nimo's website! This site is a work-in-progress. I will finish migrating from the old blog hopefully before the end of July. Stay tuned!
+Welcome. This blog contains both Chinese and English contents, mostly related to CS. 
 
-```c
-#include <stdio.h>
+In the past 23 years, I made dozens of attempts to write blog/journal/articles regularly, and it never worked. Therefore, I decided not to make that promise again. I will post things whenever I like.
+<!-- I do think, however, the frequency of writing ($$\mu$$) is positively correlated with the quality of my life ($$Q$$). I hope $$\mu \rightarrow \infty$$ :grin:. -->
 
-int main() {
-    printf("%s\n", "Hello, World");
-    return 0;
-}
-```
+I will migrate some old posts in Chinese from `nimoni.org`, my last failed attempt to blog. I didn't really speak English back then, sorry.
