@@ -22,6 +22,8 @@ I am interested in __programming languages, computer graphics, and computer visi
 B.S. in Computer Science, __Columbia University__ <br>
 B.S. in Computer Science, __Dickinson College__ <br>
 
+Yes, I have two bachelor's degrees because I participate in the [Combined Plan Program](https://undergrad.admissions.columbia.edu/learn/academiclife/engineering/combined-plan-program).
+
 ## Publication
 
 #### [__Substance and Style: domain-specific languages for mathematical diagrams__](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams)
