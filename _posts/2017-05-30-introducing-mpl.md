@@ -5,7 +5,7 @@ categories: [Technical, PL]
 tags: [PL, Columbia, OCaml]
 ---
 
-![]({{ "/images/mpl-logo.png" | absolute-url}}){: .center-image}
+![]({{ site.url }}/images/mpl-logo.png){: .center-image}
 
 I know. The name is pretty lame, because we had to come up with a name before we start the project and even learn anything about compilers and programming language design. In retrospect, I would have called it something like "Moore" or "Cell" (probably not good names either :disappointed:).
 
