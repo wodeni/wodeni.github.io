@@ -157,9 +157,56 @@
   <section class="post">
     <p><img src="/~wn2155//images/mpl-logo.png" alt="" class="center-image" /></p>
 
-<p>I know. The name is pretty lame, because we had to come up with a name before we start the project and even learn anything about compilers and programming language design. In retrospect, I would have called it something like “Moore” or “Cell” (probably not good names either <img class="emoji" title=":disappointed:" alt=":disappointed:" src="https://assets.github.com/images/icons/emoji/unicode/1f61e.png" height="20" width="20" align="absmiddle" />).</p>
+<p>I know. The name is pretty lame, because we had to come up with a name before we start the project and even learn anything about compilers and programming language design. In retrospect, I would have called it something like “Moore” or “Cell” (okay, probably not good names either <img class="emoji" title=":disappointed:" alt=":disappointed:" src="https://assets.github.com/images/icons/emoji/unicode/1f61e.png" height="20" width="20" align="absmiddle" />).</p>
 
-<p>MPL is a programming language that I, along with 3 other fellow classmates, designed and implemented. It is a Domain Specific Language (DSL), meaning it does not work for everything. Instead, MPL deals with matrices and images. We wanted it to be concise, cool, and reasonable to implement because this is a ~2-month course project.</p>
+<p>MPL is a programming language that I, along with 3 other fellow classmates, designed and implemented for COMS 4115 - Programming languages and Translator. It is a Domain Specific Language (DSL), meaning it does not work for everything. Instead, MPL deals with matrices and images. We wanted it to be concise, cool, and reasonable to implement because this is a ~2-month course project.</p>
+
+<p>We designed the language to be light-weight. Something like a scripting language using which we can quickly load images and run image processing operations on them. A simple example is blurring:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">blur</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="n">sum</span> <span class="o">=</span> <span class="err">#</span><span class="n">NW</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="err">#</span><span class="n">N</span> <span class="o">+</span> <span class="err">#</span><span class="n">NE</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="err">#</span><span class="n">W</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="err">#</span><span class="n">E</span> <span class="o">+</span> <span class="err">#</span><span class="n">SW</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="err">#</span><span class="n">S</span> <span class="o">+</span> <span class="err">#</span><span class="n">SE</span><span class="p">;</span>
+    <span class="n">sum</span> <span class="o">=</span> <span class="err">#</span><span class="n">C</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">16</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Mat</span> <span class="n">img</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">pgmread</span><span class="p">(</span><span class="s">"lena.pgm"</span><span class="p">,</span> <span class="n">img</span><span class="p">);</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">blur</span> <span class="err">@</span> <span class="n">img</span><span class="p">;</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">pgmwrite</span><span class="p">(</span><span class="s">"lena-out.pgm"</span><span class="p">,</span> <span class="n">img</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>The program converts the image to the left to the one to the right, as shown here:</p>
+
+<p><img src="/~wn2155//images/2017-05-30-introducing-mpl-73576.png" alt="" class="center-image" /></p>
+
+<p>The one line that does the trick is</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">blur</span> <span class="err">@</span> <span class="n">img</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>We call <code class="highlighter-rouge">@</code> the <strong>apply operator</strong>, read as “apply to”. This line “applies” the <code class="highlighter-rouge">blur</code> function on a matrix, which represents an image. The <code class="highlighter-rouge">blur</code> function is not a normal function you see in C and Java. Instead, like all other MPL functions, <code class="highlighter-rouge">blur</code> is an <strong>entry function</strong>, which can only be “applied” to a matrix.</p>
+
+<p>It turns out that mathematically, the blurring procedure can be modeled as a “convolution” between a kernel and matrix. (TODO: give a viz for this). Inside of <code class="highlighter-rouge">blur</code> is essentially a kernel. In MPL, each entry function has access to its immediate neighbors. This might sound insufficient, but it turns out that local operations on small neighborhood can achieve a great deal! In MPL, we are using 8-neighborhood, also called <strong>Moore Neighborhood</strong> (hence the alternative name).</p>
+
+<p>Of course, people have thought about this idea in PLT a long time ago and came up with syntax for convolution. In MPL, we generalized this idea to support conditionals, which is more than convolution (technically, not LSIS (TODO: explain)).</p>
+
+<p>One day David (TODO: link) showed me this epic video of Conway’s game of life (TODO: link to vid). I was amazed by the complexity of the scenes and also the simplicity of the game itself. This turned out to be the final demo. We did a glider gun, which regularly shoots out “gliders”. We resolved edges by wrap-around. That’s why you see the glides come back to destroy the gun.</p>
+
+<p><img src="/~wn2155//images/gun.gif" alt="" class="center-image" /></p>
+
+<p>Here is a spaceship that we simulated (this thing is quite huge, the console can’t keep up with the refresh rate all the time <img class="emoji" title=":grin:" alt=":grin:" src="https://assets.github.com/images/icons/emoji/unicode/1f601.png" height="20" width="20" align="absmiddle" />):</p>
+
+<p><img src="/~wn2155//images/ship.gif" alt="" class="center-image" /></p>
+
+<p>The language is far from complete due to the time limit and the fact that I was taking OS at the same time (maybe I’ll talk about the pain and gain in that class later). I still like it a lot because we built a complete compiler from scratch, which turned out to be an extremely fun process, and we got some visually pleasant results at the end. Hope one day I can come back to PLT as a TA.</p>
 
   </section>
   

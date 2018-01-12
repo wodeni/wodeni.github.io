@@ -5,17 +5,64 @@
     <description>In the ocean of code, I swim.</description>
     <link>http://www.columbia.edu/~wn2155//</link>
     <atom:link href="http://www.columbia.edu/~wn2155//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 11 Jan 2018 14:12:21 -0500</pubDate>
-    <lastBuildDate>Thu, 11 Jan 2018 14:12:21 -0500</lastBuildDate>
+    <pubDate>Thu, 11 Jan 2018 23:44:06 -0500</pubDate>
+    <lastBuildDate>Thu, 11 Jan 2018 23:44:06 -0500</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>Introducing MPL: Matrix Processing Language</title>
         <description>&lt;p&gt;&lt;img src=&quot;/~wn2155//images/mpl-logo.png&quot; alt=&quot;&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;I know. The name is pretty lame, because we had to come up with a name before we start the project and even learn anything about compilers and programming language design. In retrospect, I would have called it something like “Moore” or “Cell” (probably not good names either &lt;img class=&quot;emoji&quot; title=&quot;:disappointed:&quot; alt=&quot;:disappointed:&quot; src=&quot;https://assets.github.com/images/icons/emoji/unicode/1f61e.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;).&lt;/p&gt;
+&lt;p&gt;I know. The name is pretty lame, because we had to come up with a name before we start the project and even learn anything about compilers and programming language design. In retrospect, I would have called it something like “Moore” or “Cell” (okay, probably not good names either &lt;img class=&quot;emoji&quot; title=&quot;:disappointed:&quot; alt=&quot;:disappointed:&quot; src=&quot;https://assets.github.com/images/icons/emoji/unicode/1f61e.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;).&lt;/p&gt;
 
-&lt;p&gt;MPL is a programming language that I, along with 3 other fellow classmates, designed and implemented. It is a Domain Specific Language (DSL), meaning it does not work for everything. Instead, MPL deals with matrices and images. We wanted it to be concise, cool, and reasonable to implement because this is a ~2-month course project.&lt;/p&gt;
+&lt;p&gt;MPL is a programming language that I, along with 3 other fellow classmates, designed and implemented for COMS 4115 - Programming languages and Translator. It is a Domain Specific Language (DSL), meaning it does not work for everything. Instead, MPL deals with matrices and images. We wanted it to be concise, cool, and reasonable to implement because this is a ~2-month course project.&lt;/p&gt;
+
+&lt;p&gt;We designed the language to be light-weight. Something like a scripting language using which we can quickly load images and run image processing operations on them. A simple example is blurring:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NW&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;W&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;E&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SW&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Mat&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pgmread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;lena.pgm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;blur&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pgmwrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;lena-out.pgm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The program converts the image to the left to the one to the right, as shown here:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/~wn2155//images/2017-05-30-introducing-mpl-73576.png&quot; alt=&quot;&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The one line that does the trick is&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;blur&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We call &lt;code class=&quot;highlighter-rouge&quot;&gt;@&lt;/code&gt; the &lt;strong&gt;apply operator&lt;/strong&gt;, read as “apply to”. This line “applies” the &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt; function on a matrix, which represents an image. The &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt; function is not a normal function you see in C and Java. Instead, like all other MPL functions, &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt; is an &lt;strong&gt;entry function&lt;/strong&gt;, which can only be “applied” to a matrix.&lt;/p&gt;
+
+&lt;p&gt;It turns out that mathematically, the blurring procedure can be modeled as a “convolution” between a kernel and matrix. (TODO: give a viz for this). Inside of &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt; is essentially a kernel. In MPL, each entry function has access to its immediate neighbors. This might sound insufficient, but it turns out that local operations on small neighborhood can achieve a great deal! In MPL, we are using 8-neighborhood, also called &lt;strong&gt;Moore Neighborhood&lt;/strong&gt; (hence the alternative name).&lt;/p&gt;
+
+&lt;p&gt;Of course, people have thought about this idea in PLT a long time ago and came up with syntax for convolution. In MPL, we generalized this idea to support conditionals, which is more than convolution (technically, not LSIS (TODO: explain)).&lt;/p&gt;
+
+&lt;p&gt;One day David (TODO: link) showed me this epic video of Conway’s game of life (TODO: link to vid). I was amazed by the complexity of the scenes and also the simplicity of the game itself. This turned out to be the final demo. We did a glider gun, which regularly shoots out “gliders”. We resolved edges by wrap-around. That’s why you see the glides come back to destroy the gun.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/~wn2155//images/gun.gif&quot; alt=&quot;&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is a spaceship that we simulated (this thing is quite huge, the console can’t keep up with the refresh rate all the time &lt;img class=&quot;emoji&quot; title=&quot;:grin:&quot; alt=&quot;:grin:&quot; src=&quot;https://assets.github.com/images/icons/emoji/unicode/1f601.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/~wn2155//images/ship.gif&quot; alt=&quot;&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The language is far from complete due to the time limit and the fact that I was taking OS at the same time (maybe I’ll talk about the pain and gain in that class later). I still like it a lot because we built a complete compiler from scratch, which turned out to be an extremely fun process, and we got some visually pleasant results at the end. Hope one day I can come back to PLT as a TA.&lt;/p&gt;
 </description>
         <pubDate>Tue, 30 May 2017 00:00:00 -0400</pubDate>
         <link>http://www.columbia.edu/~wn2155//2017/introducing-mpl/</link>
