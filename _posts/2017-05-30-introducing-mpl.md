@@ -44,11 +44,17 @@ blur @ img;
 
 We call `@` the __apply operator__, read as "apply to". This line "applies" the `blur` function on a matrix, which represents an image. The `blur` function is not a normal function you see in C and Java. Instead, like all other MPL functions, `blur` is an __entry function__, which can only be "applied" to a matrix.
 
-It turns out that mathematically, the blurring procedure can be modeled as a "convolution" between a kernel and matrix. (TODO: give a viz for this). Inside of `blur` is essentially a kernel. In MPL, each entry function has access to its immediate neighbors. This might sound insufficient, but it turns out that local operations on small neighborhood can achieve a great deal! In MPL, we are using 8-neighborhood, also called __Moore Neighborhood__ (hence the alternative name).
+It turns out that mathematically, the blurring procedure can be modeled as a "convolution" between a kernel and matrix. Inside of `blur` is essentially a kernel. See [here](http://setosa.io/ev/image-kernels/) for an excellent visual explanation.
 
-Of course, people have thought about this idea in PLT a long time ago and came up with syntax for convolution. In MPL, we generalized this idea to support conditionals, which is more than convolution (technically, not LSIS (TODO: explain)).
+In MPL, each entry function has access to its immediate neighbors. This might sound insufficient, but it turns out that local operations on small neighborhood can achieve a great deal! In MPL, we are using 8-neighborhood, also called [__Moore Neighborhood__](https://en.wikipedia.org/wiki/Moore_neighborhood) (hence the alternative name).
 
-One day David (TODO: link) showed me this epic video of Conway's game of life (TODO: link to vid). I was amazed by the complexity of the scenes and also the simplicity of the game itself. This turned out to be the final demo. We did a glider gun, which regularly shoots out "gliders". We resolved edges by wrap-around. That's why you see the glides come back to destroy the gun.
+Of course, people have thought about this idea in PLT a long time ago and came up with syntax for convolution. In MPL, we generalized this idea to support conditionals, which is more than convolution (technically, not linear shift invariant).
+
+One day a teammate showed me this epic video of Conway's game of life. I was amazed by the complexity of the scenes and also the simplicity of the game itself.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C2vgICfQawE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+This turned out to be the final demo. We did a glider gun, which regularly shoots out "gliders". We resolved edges by wrap-around. That's why you see the glides come back to destroy the gun.
 
 ![]({{ site.baseurl }}/images/gun.gif){: .center-image}
 
@@ -56,4 +62,4 @@ Here is a spaceship that we simulated (this thing is quite huge, the console can
 
 ![]({{ site.baseurl }}/images/ship.gif){: .center-image}
 
-The language is far from complete due to the time limit and the fact that I was taking OS at the same time (maybe I'll talk about the pain and gain in that class later). I still like it a lot because we built a complete compiler from scratch, which turned out to be an extremely fun process, and we got some visually pleasant results at the end. Hope one day I can come back to PLT as a TA.
+The language is far from complete due to the time limit and the fact that I was taking OS at the same time (maybe I'll talk about the pain and gain in that class later). I still like it a lot because we built a complete compiler from scratch, which turned out to be an extremely fun process, and we got some visually pleasant results at the end.

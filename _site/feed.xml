@@ -5,8 +5,8 @@
     <description>In the ocean of code, I swim.</description>
     <link>http://www.columbia.edu/~wn2155//</link>
     <atom:link href="http://www.columbia.edu/~wn2155//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 11 Jan 2018 23:44:06 -0500</pubDate>
-    <lastBuildDate>Thu, 11 Jan 2018 23:44:06 -0500</lastBuildDate>
+    <pubDate>Thu, 11 Jan 2018 23:54:42 -0500</pubDate>
+    <lastBuildDate>Thu, 11 Jan 2018 23:54:42 -0500</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -50,11 +50,17 @@
 
 &lt;p&gt;We call &lt;code class=&quot;highlighter-rouge&quot;&gt;@&lt;/code&gt; the &lt;strong&gt;apply operator&lt;/strong&gt;, read as “apply to”. This line “applies” the &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt; function on a matrix, which represents an image. The &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt; function is not a normal function you see in C and Java. Instead, like all other MPL functions, &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt; is an &lt;strong&gt;entry function&lt;/strong&gt;, which can only be “applied” to a matrix.&lt;/p&gt;
 
-&lt;p&gt;It turns out that mathematically, the blurring procedure can be modeled as a “convolution” between a kernel and matrix. (TODO: give a viz for this). Inside of &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt; is essentially a kernel. In MPL, each entry function has access to its immediate neighbors. This might sound insufficient, but it turns out that local operations on small neighborhood can achieve a great deal! In MPL, we are using 8-neighborhood, also called &lt;strong&gt;Moore Neighborhood&lt;/strong&gt; (hence the alternative name).&lt;/p&gt;
+&lt;p&gt;It turns out that mathematically, the blurring procedure can be modeled as a “convolution” between a kernel and matrix. Inside of &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt; is essentially a kernel. See &lt;a href=&quot;http://setosa.io/ev/image-kernels/&quot;&gt;here&lt;/a&gt; for an excellent visual explanation.&lt;/p&gt;
 
-&lt;p&gt;Of course, people have thought about this idea in PLT a long time ago and came up with syntax for convolution. In MPL, we generalized this idea to support conditionals, which is more than convolution (technically, not LSIS (TODO: explain)).&lt;/p&gt;
+&lt;p&gt;In MPL, each entry function has access to its immediate neighbors. This might sound insufficient, but it turns out that local operations on small neighborhood can achieve a great deal! In MPL, we are using 8-neighborhood, also called &lt;a href=&quot;https://en.wikipedia.org/wiki/Moore_neighborhood&quot;&gt;&lt;strong&gt;Moore Neighborhood&lt;/strong&gt;&lt;/a&gt; (hence the alternative name).&lt;/p&gt;
 
-&lt;p&gt;One day David (TODO: link) showed me this epic video of Conway’s game of life (TODO: link to vid). I was amazed by the complexity of the scenes and also the simplicity of the game itself. This turned out to be the final demo. We did a glider gun, which regularly shoots out “gliders”. We resolved edges by wrap-around. That’s why you see the glides come back to destroy the gun.&lt;/p&gt;
+&lt;p&gt;Of course, people have thought about this idea in PLT a long time ago and came up with syntax for convolution. In MPL, we generalized this idea to support conditionals, which is more than convolution (technically, not linear shift invariant).&lt;/p&gt;
+
+&lt;p&gt;One day a teammate showed me this epic video of Conway’s game of life. I was amazed by the complexity of the scenes and also the simplicity of the game itself.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/C2vgICfQawE?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This turned out to be the final demo. We did a glider gun, which regularly shoots out “gliders”. We resolved edges by wrap-around. That’s why you see the glides come back to destroy the gun.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/~wn2155//images/gun.gif&quot; alt=&quot;&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
@@ -62,7 +68,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/~wn2155//images/ship.gif&quot; alt=&quot;&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The language is far from complete due to the time limit and the fact that I was taking OS at the same time (maybe I’ll talk about the pain and gain in that class later). I still like it a lot because we built a complete compiler from scratch, which turned out to be an extremely fun process, and we got some visually pleasant results at the end. Hope one day I can come back to PLT as a TA.&lt;/p&gt;
+&lt;p&gt;The language is far from complete due to the time limit and the fact that I was taking OS at the same time (maybe I’ll talk about the pain and gain in that class later). I still like it a lot because we built a complete compiler from scratch, which turned out to be an extremely fun process, and we got some visually pleasant results at the end.&lt;/p&gt;
 </description>
         <pubDate>Tue, 30 May 2017 00:00:00 -0400</pubDate>
         <link>http://www.columbia.edu/~wn2155//2017/introducing-mpl/</link>
