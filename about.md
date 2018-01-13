@@ -1,21 +1,19 @@
 ---
-layout: named_sections
+layout: about_layout
 robots: noindex
 permalink: about.html
 sections:
-  raytra: |
-      #### [__Raytra__](https://github.com/wodeni/raytra)
-      For a Computer Graphics class, I implemented a ray tracing renderer from scratch. Raytra employs __Monte-Carlo ray tracing__ and scene-wide acceleration using __BVH-tree__.
 ---
 
 ## News
 
+- __January 2018__  I will be one of the TAs for COMS 4115 again in Spring 2018!
 - __October 2017__  Gave a talk at [DSLDI 2017](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams) in Vancouver Canada
 - __May 2017__  Joined [REU-SE](http://isri.cmu.edu/education/reu-se/), a summer research program, at Carnegie Mellon University.
 
 ## Research
 
-I am interested in __programming languages, computer graphics, and computer vision__. As a visual learner who happens to like designing and implementing programming languages, I aspire to create new languages for graphics/vision applications. Currently, I am working on [Penrose](penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
+I am interested in __programming languages, computer graphics, and computer vision__. As a visual thinker who loves designing and implementing programming languages, I aspire to create new languages for graphics/vision applications. Currently, I am working on [Penrose](penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
 
 ## Education
 

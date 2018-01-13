@@ -54,7 +54,7 @@ One day a teammate showed me this epic video of Conway's game of life. I was ama
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/C2vgICfQawE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-This turned out to be the final demo. We did a glider gun, which regularly shoots out "gliders". We resolved edges by wrap-around. That's why you see the glides come back to destroy the gun.
+This turned out to be the final demo. We did a glider gun, which regularly shoots out "gliders". We resolved edges by wrap-around. That's why you see the gliders come back to destroy the gun.
 
 ![]({{ site.baseurl }}/images/gun.gif){: .center-image}
 

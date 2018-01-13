@@ -5,8 +5,8 @@
     <description>In the ocean of code, I swim.</description>
     <link>http://www.columbia.edu/~wn2155//</link>
     <atom:link href="http://www.columbia.edu/~wn2155//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 12 Jan 2018 00:01:34 -0500</pubDate>
-    <lastBuildDate>Fri, 12 Jan 2018 00:01:34 -0500</lastBuildDate>
+    <pubDate>Fri, 12 Jan 2018 22:01:09 -0500</pubDate>
+    <lastBuildDate>Fri, 12 Jan 2018 22:01:09 -0500</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -60,7 +60,7 @@
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/C2vgICfQawE?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;This turned out to be the final demo. We did a glider gun, which regularly shoots out “gliders”. We resolved edges by wrap-around. That’s why you see the glides come back to destroy the gun.&lt;/p&gt;
+&lt;p&gt;This turned out to be the final demo. We did a glider gun, which regularly shoots out “gliders”. We resolved edges by wrap-around. That’s why you see the gliders come back to destroy the gun.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/~wn2155//images/gun.gif&quot; alt=&quot;&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
