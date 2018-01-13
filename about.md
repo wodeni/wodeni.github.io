@@ -17,10 +17,10 @@ I am interested in __programming languages, computer graphics, and computer visi
 
 ## Education
 
-B.S. in Computer Science, __Columbia University__ <br>
-B.S. in Computer Science, __Dickinson College__ <br>
+B.S. in Computer Science, __Columbia University__ (Expected 2018) <br>
+B.S. in Computer Science, __Dickinson College__ (Expected 2018) <br>
 
-Yes, I have two bachelor's degrees because I participate in the [Combined Plan Program](https://undergrad.admissions.columbia.edu/learn/academiclife/engineering/combined-plan-program).
+Yes, I will have two bachelor's degrees because I participate in the [Combined Plan Program](https://undergrad.admissions.columbia.edu/learn/academiclife/engineering/combined-plan-program).
 
 ## Publication
 
