@@ -5,8 +5,8 @@
     <description>In the ocean of code, I swim.</description>
     <link>http://www.columbia.edu/~wn2155//</link>
     <atom:link href="http://www.columbia.edu/~wn2155//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 12 Jan 2018 22:04:31 -0500</pubDate>
-    <lastBuildDate>Fri, 12 Jan 2018 22:04:31 -0500</lastBuildDate>
+    <pubDate>Sun, 14 Jan 2018 15:27:57 -0500</pubDate>
+    <lastBuildDate>Sun, 14 Jan 2018 15:27:57 -0500</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -68,7 +68,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/~wn2155//images/ship.gif&quot; alt=&quot;&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The language is far from complete due to the time limit and the fact that I was taking OS at the same time (maybe I’ll talk about the pain and gain in that class later). I still like it a lot because we built a complete compiler from scratch, which turned out to be an extremely fun process, and we got some visually pleasant results at the end.&lt;/p&gt;
+&lt;p&gt;The language is far from complete due to the time limit and the fact that I was taking OS at the same time (maybe I’ll talk about the pain and gain in that class later). I still like it a lot because we built a complete compiler from scratch, which turned out to be an extremely fun process, and we got some visually pleasing results at the end.&lt;/p&gt;
 </description>
         <pubDate>Tue, 30 May 2017 00:00:00 -0400</pubDate>
         <link>http://www.columbia.edu/~wn2155//2017/introducing-mpl/</link>
@@ -83,7 +83,7 @@
         
         <category>Technical</category>
         
-        <category>PL</category>
+        <category>Programming Languages</category>
         
       </item>
     

@@ -1,7 +1,7 @@
 ---
 title:  "Introducing MPL: Matrix Processing Language"
 date:   2017-05-30
-categories: [Technical, PL]
+categories: [Technical, Programming Languages]
 tags: [PL, Columbia, OCaml]
 ---
 
@@ -62,4 +62,4 @@ Here is a spaceship that we simulated (this thing is quite huge, the console can
 
 ![]({{ site.baseurl }}/images/ship.gif){: .center-image}
 
-The language is far from complete due to the time limit and the fact that I was taking OS at the same time (maybe I'll talk about the pain and gain in that class later). I still like it a lot because we built a complete compiler from scratch, which turned out to be an extremely fun process, and we got some visually pleasant results at the end.
+The language is far from complete due to the time limit and the fact that I was taking OS at the same time (maybe I'll talk about the pain and gain in that class later). I still like it a lot because we built a complete compiler from scratch, which turned out to be an extremely fun process, and we got some visually pleasing results at the end.
