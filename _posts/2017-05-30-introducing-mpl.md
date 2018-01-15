@@ -52,7 +52,10 @@ Of course, people have thought about this idea in PLT a long time ago and came u
 
 One day a teammate showed me this epic video of Conway's game of life. I was amazed by the complexity of the scenes and also the simplicity of the game itself.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/C2vgICfQawE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div class="embed-responsive embed-responsive-4by3">
+    <iframe class="embed-responsive-item"
+     src="https://www.youtube.com/embed/C2vgICfQawE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
 This turned out to be the final demo. We did a glider gun, which regularly shoots out "gliders". We resolved edges by wrap-around. That's why you see the gliders come back to destroy the gun.
 
