@@ -5,8 +5,8 @@
     <description>In the ocean of code, I swim.</description>
     <link>http://www.columbia.edu/~wn2155//</link>
     <atom:link href="http://www.columbia.edu/~wn2155//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 14 Jan 2018 20:52:08 -0500</pubDate>
-    <lastBuildDate>Sun, 14 Jan 2018 20:52:08 -0500</lastBuildDate>
+    <pubDate>Wed, 17 Jan 2018 20:14:39 -0500</pubDate>
+    <lastBuildDate>Wed, 17 Jan 2018 20:14:39 -0500</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -58,9 +58,7 @@
 
 &lt;p&gt;One day a teammate showed me this epic video of Conway’s game of life. I was amazed by the complexity of the scenes and also the simplicity of the game itself.&lt;/p&gt;
 
-&lt;div class=&quot;embed-responsive embed-responsive-4by3&quot;&gt;
-    &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/C2vgICfQawE?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/C2vgICfQawE?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;This turned out to be the final demo. We did a glider gun, which regularly shoots out “gliders”. We resolved edges by wrap-around. That’s why you see the gliders come back to destroy the gun.&lt;/p&gt;
 
