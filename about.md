@@ -1,5 +1,6 @@
 ---
 layout: about_layout
+title: About Me
 robots: noindex
 permalink: about.html
 sections:
