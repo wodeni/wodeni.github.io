@@ -14,7 +14,7 @@ sections:
 
 ## Research
 
-I am interested in __programming languages, computer graphics, and computer vision__. As a visual thinker who loves designing and implementing programming languages, I aspire to create new languages for graphics/vision applications. Currently, I am working on [Penrose](penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
+I am interested in __programming languages, computer graphics, and computer vision__. As a visual thinker who loves designing and implementing programming languages, I aspire to create new languages for graphics/vision applications. Currently, I am working on [Penrose](http://penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
 
 ## Education
 
@@ -57,6 +57,12 @@ in Chinese. __"Nimo"__ has been my alias since high school, during which I was a
 )
  , try __"Nimo"__.
 
-I play [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo), and have won provincial contests. I mostly do [1A](http://yoyo.wikia.com/wiki/Styles_Of_Play). Broadly speaking, I am interested in many forms of [Object manipulation](https://en.wikipedia.org/wiki/Object_manipulation), such as Zippo tricks and pen spinning.
+I play [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo), and have won provincial contests. I mostly do [1A](http://yoyo.wikia.com/wiki/Styles_Of_Play). Here are 4 different ways to form a [Green's Triangle](http://yoyo.wikia.com/wiki/Green_Triangle):
+
+<video width="480" height="270" controls loop autoplay>
+  <source src="assets/yoyo.mp4" type="video/mp4">
+</video>
+
+Broadly speaking, I am interested in many forms of [Object manipulation](https://en.wikipedia.org/wiki/Object_manipulation), such as Zippo tricks and pen spinning.
 
 I love billiards, especially [Snooker](https://en.wikipedia.org/wiki/Snooker).

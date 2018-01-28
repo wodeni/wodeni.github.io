@@ -27,10 +27,10 @@ $(document).ready(function () {
     $('.panel-cover').addClass('panel-cover--collapsed')
   }
 
-  if (window.location.pathname !== '/~wn2155///'
-      && window.location.pathname !== '/~wn2155//'
-      && window.location.pathname !== '/~wn2155/'
-      && window.location.pathname !== '/~wn2155/index.html') {
+  if (window.location.pathname !== '//'
+      && window.location.pathname !== '/'
+      && window.location.pathname !== ''
+      && window.location.pathname !== 'index.html') {
     $('.panel-cover').addClass('panel-cover--collapsed')
   }
 
