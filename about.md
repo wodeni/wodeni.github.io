@@ -57,7 +57,7 @@ in Chinese. __"Nimo"__ has been my alias since high school, during which I was a
 )
  , try __"Nimo"__.
 
-I play [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo), and have won provincial contests. I mostly do [1A](http://yoyo.wikia.com/wiki/Styles_Of_Play). Here are 4 different ways to form a [Green's Triangle](http://yoyo.wikia.com/wiki/Green_Triangle):
+I play [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo), and have won provincial contests. I mostly do [1A](http://yoyo.wikia.com/wiki/Styles_Of_Play). Here are 4 different ways to form a [Green Triangle](http://yoyo.wikia.com/wiki/Green_Triangle):
 
 <center>
 <video width="480" height="270" controls loop autoplay>
