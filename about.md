@@ -8,6 +8,7 @@ sections:
 
 ## News
 
+- __March 2018__ I am visiting the Ph.D. programs at University of Chicago, CMU, and Stanford :airplane:
 - __January 2018__  I will be one of the TAs for COMS 4115 again in Spring 2018.
 - __October 2017__  Gave a talk at [DSLDI 2017](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams) in Vancouver, Canada.
 - __May 2017__  Joined [REU-SE](http://isri.cmu.edu/education/reu-se/), a summer research program, at Carnegie Mellon University.
