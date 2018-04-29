@@ -8,7 +8,7 @@ sections:
 
 ## News
 
-- __April 2018__ I will join CMU as a Ph.D. student! 
+- __April 2018__ I will join CMU as a Ph.D. student!
 - __March 2018__ I am visiting the Ph.D. programs at University of Chicago, CMU, and Stanford :airplane:
 - __January 2018__  I will be one of the TAs for COMS 4115 again in Spring 2018.
 - __October 2017__  Gave a talk at [DSLDI 2017](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams) in Vancouver, Canada.
@@ -41,7 +41,10 @@ __Wode Ni__.<br> _Dickinson College Honors Theses. Paper 221._<br>
 
 ## Selected Projects
 
+{% include anipp.html %}
+
 {% include mpl.html %}
+
 {% include raytra.html %}
 
 ## Personal
