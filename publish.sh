@@ -1,8 +1,7 @@
 #! /bin/sh
 
-JEKYLL_ENV=production bundle exec jekyll build --config "_config-columbia.yml"
+JEKYLL_ENV=production bundle exec jekyll build --config "_config-cmu.yml"
 git add -A
-git ci -m "uploading to Columbia server"
+git ci -m "uploading to CMU server"
 git push
-# rsync -v -r -e ssh ~/dev/nimo-site/_site/ cunix:~/public_html
 ssh cunix "cd ~; sh publish.sh"
