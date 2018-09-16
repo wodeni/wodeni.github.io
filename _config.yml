@@ -41,3 +41,4 @@ exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
 gems:
     - jekyll-paginate
     - jemoji
+

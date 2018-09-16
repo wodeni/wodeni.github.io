@@ -15,7 +15,9 @@ sections:
 
 ## Research
 
-I am interested in __programming languages, computer graphics, and computer vision__. As a visual thinker who loves designing and implementing programming languages, I aspire to create new languages for graphics/vision applications. Currently, I am working on [Penrose](http://penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
+I am interested in __programming languages, visualization, and human-computer interaction__. I am fascinated how well-designed languages enable people to succinctly express abstract ideas in various domains (e.g. math, computer science, and beyond!), and how visual representations help people understand and reason about them. I aspire to __help people understand the abstract world__ by designing and building powerful, useable languages and tools.
+
+I am working on [__Penrose__](http://penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
 
 ## Education
 
