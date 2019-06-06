@@ -8,6 +8,7 @@ sections:
 
 ## News
 
+- __May 2019__ I finished 7th at the 2019 [ACUI Collegiate Nine-ball National Championship](https://en.wikipedia.org/wiki/ACUI_Collegiate_Pocket_Billiards_National_Championship):8ball:!
 - __May 2019__ Anael Kuperwajs, [Courtney Miller](https://www.linkedin.com/in/courtney-e-miller/), [Max Krieger](https://a9.io/) will join us as [REUSE](https://www.cmu.edu/scs/isr/reuse/) students this summer. Welcome!
 - __April 2018__ I will join CMU as a Ph.D. student!
 - __January 2018__  I will be one of the TAs for COMS 4115 again in Spring 2018.

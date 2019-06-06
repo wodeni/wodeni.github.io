@@ -38,7 +38,7 @@ kramdown:
   hard_wrap: false
 
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
-gems:
-    - jekyll-paginate
-    - jemoji
+plugins:
+  - jemoji
+  - jekyll-paginate
 
