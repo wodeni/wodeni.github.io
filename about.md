@@ -10,6 +10,7 @@ sections:
 
 <!-- - **May 2019** Anael's and Max's paper -->
 
+- **Oct 2019** I presented our papers at [PLATEAU 2019](http://plateau-workshop.org/) with Max and Anael!
 - **May 2019** I finished 7th at the 2019 [ACUI Collegiate Nine-ball National Championship](https://en.wikipedia.org/wiki/ACUI_Collegiate_Pocket_Billiards_National_Championship):8ball:!
 - **May 2019** Anael Kuperwajs, [Courtney Miller](https://www.linkedin.com/in/courtney-e-miller/), [Max Krieger](https://a9.io/) will join us as [REUSE](https://www.cmu.edu/scs/isr/reuse/) students this summer. Welcome!
   <!-- - **April 2018** I will join CMU as a Ph.D. student! -->
@@ -33,15 +34,19 @@ B.S. in Computer Science, **Dickinson College**, _Summa cum laude_ <br>
 
 ## Publications
 
-#### **Defining Visual Narratives for Mathematics Declaratively**
+### [**Defining Visual Narratives for Mathematics Declaratively**](http://plateau-workshop.org/assets/papers-2019/9.pdf)
 
 Max Krieger, **Wode Ni**, and Joshua Sunshine.<br>
-_Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST_
+_Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST_<br>
+[[PDF](http://plateau-workshop.org/assets/papers-2019/9.pdf)]
+[[slides](assets/plateau-19-presentation.pdf)]
 
-#### **Designing Declarative Language Tutorials: a Guided and Individualized Approach**
+### [**Designing Declarative Language Tutorials: a Guided and Individualized Approach**](http://plateau-workshop.org/assets/papers-2019/2.pdf)
 
 Anael Kuperwajs Cohen, **Wode Ni**, and Joshua Sunshine.<br>
-_Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST_
+_Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST_<br>
+[[PDF](http://plateau-workshop.org/assets/papers-2019/2.pdf)]
+[[slides](assets/plateau-19-presentation.pdf)]
 
 #### [**Substance and Style: domain-specific languages for mathematical diagrams**](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams)
 
