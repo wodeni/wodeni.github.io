@@ -34,14 +34,14 @@ B.S. in Computer Science, **Dickinson College**, _Summa cum laude_ <br>
 
 ## Publications
 
-### [**Defining Visual Narratives for Mathematics Declaratively**](http://plateau-workshop.org/assets/papers-2019/9.pdf)
+#### [**Defining Visual Narratives for Mathematics Declaratively**](http://plateau-workshop.org/assets/papers-2019/9.pdf)
 
 Max Krieger, **Wode Ni**, and Joshua Sunshine.<br>
 _Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST_<br>
 [[PDF](http://plateau-workshop.org/assets/papers-2019/9.pdf)]
 [[slides](assets/plateau-19-presentation.pdf)]
 
-### [**Designing Declarative Language Tutorials: a Guided and Individualized Approach**](http://plateau-workshop.org/assets/papers-2019/2.pdf)
+#### [**Designing Declarative Language Tutorials: a Guided and Individualized Approach**](http://plateau-workshop.org/assets/papers-2019/2.pdf)
 
 Anael Kuperwajs Cohen, **Wode Ni**, and Joshua Sunshine.<br>
 _Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST_<br>
