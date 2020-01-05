@@ -6,10 +6,17 @@ permalink: about.html
 sections:
 ---
 
+<style type="text/css">
+  h3 {
+    font-size: 1.2em
+  }
+</style>
+
 ## News
 
 <!-- - **May 2019** Anael's and Max's paper -->
 
+- **Jan 2020** Our paper _"How Domain Experts Create Conceptual Diagrams and Implications for Tool Design"_ was conditionally accepted by [CHI 2020](http://chi2020.acm.org/)🏖️!
 - **Oct 2019** I presented our papers at [PLATEAU 2019](http://plateau-workshop.org/) with Max and Anael!
 - **May 2019** I finished 7th at the 2019 [ACUI Collegiate Nine-ball National Championship](https://en.wikipedia.org/wiki/ACUI_Collegiate_Pocket_Billiards_National_Championship):8ball:!
 - **May 2019** Anael Kuperwajs, [Courtney Miller](https://www.linkedin.com/in/courtney-e-miller/), [Max Krieger](https://a9.io/) will join us as [REUSE](https://www.cmu.edu/scs/isr/reuse/) students this summer. Welcome!
@@ -20,7 +27,7 @@ sections:
 
 ## Research
 
-I am interested in **programming languages, visualization, and human-computer interaction**. I am fascinated by how well-designed languages enable people to succinctly express abstract ideas in various domains (e.g. math, computer science, and beyond!), and how visual representations help people understand and reason about them. I aspire to **help people understand the abstract world** by designing and building powerful, useable languages and tools.
+I am interested in **programming languages, visualization, and human-computer interaction**. I am fascinated by how well-designed languages enable people to succinctly express abstract ideas in various domains, and how visual representations help people understand and reason about them. I aspire to **help people understand the abstract world** by designing and building powerful, useable languages and tools.
 
 I am working on [**Penrose**](http://penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
 
@@ -30,25 +37,28 @@ Ph.D. in Software Engineering, **Carnegie Mellon University**,
 B.S. in Computer Science, **Columbia University**, _Magna cum laude_ <br>
 B.S. in Computer Science, **Dickinson College**, _Summa cum laude_ <br>
 
-<!-- Yes, I have two bachelor's degrees because I did the [Combined Plan Program](https://undergrad.admissions.columbia.edu/learn/academiclife/engineering/combined-plan-program). -->
-
 ## Publications
 
-#### [**Defining Visual Narratives for Mathematics Declaratively**](http://plateau-workshop.org/assets/papers-2019/9.pdf)
+### **How Domain Experts Create Conceptual Diagrams and Implications for Tool Design**
+
+**Wode Ni\***, Dor Ma'ayan\*, Katherine Ye, Chinmay Kulkarni, Joshua Sunshine<br>
+_In Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (CHI'20), to appear._
+
+### [**Defining Visual Narratives for Mathematics Declaratively**](http://plateau-workshop.org/assets/papers-2019/9.pdf)
 
 Max Krieger, **Wode Ni**, and Joshua Sunshine.<br>
 _Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST_<br>
 [[PDF](http://plateau-workshop.org/assets/papers-2019/9.pdf)]
 [[slides](assets/plateau-19-presentation.pdf)]
 
-#### [**Designing Declarative Language Tutorials: a Guided and Individualized Approach**](http://plateau-workshop.org/assets/papers-2019/2.pdf)
+### [**Designing Declarative Language Tutorials: a Guided and Individualized Approach**](http://plateau-workshop.org/assets/papers-2019/2.pdf)
 
 Anael Kuperwajs Cohen, **Wode Ni**, and Joshua Sunshine.<br>
 _Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST_<br>
 [[PDF](http://plateau-workshop.org/assets/papers-2019/2.pdf)]
 [[slides](assets/plateau-19-presentation.pdf)]
 
-#### [**Substance and Style: domain-specific languages for mathematical diagrams**](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams)
+### [**Substance and Style: domain-specific languages for mathematical diagrams**](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams)
 
 **Wode Ni\***, Katherine Ye\*, Joshua Sunshine, Jonathan Aldrich, and Keenan Crane.<br> _Domain-Specific Language Design and Implementation (DSLDI 2017), co-located with SPLASH._ <br>
 [[PDF](assets/dsldi.pdf)]
@@ -56,7 +66,7 @@ _Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-
 [[www](http://penrose.ink)]
 [[repo](https://github.com/penrose/penrose)]
 
-#### [**Whiteboard Scanning Using Super-Resolution**](http://scholar.dickinson.edu/student_honors/221/)
+### [**Whiteboard Scanning Using Super-Resolution**](http://scholar.dickinson.edu/student_honors/221/)
 
 **Wode Ni**.<br> _Dickinson College Honors Theses. Paper 221._<br>
 [[PDF](assets/superres.pdf)]
@@ -84,3 +94,5 @@ I also enjoy playing [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo). Here are 4 di
   <source src="assets/yoyo.mp4" type="video/mp4">
 </video>
 </center>
+
+
