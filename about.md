@@ -14,9 +14,7 @@ sections:
 
 ## News
 
-<!-- - **May 2019** Anael's and Max's paper -->
-
-- **Jan 2020** Our paper _"How Domain Experts Create Conceptual Diagrams and Implications for Tool Design"_ was conditionally accepted by [CHI 2020](http://chi2020.acm.org/)🏖️!
+- **Jan 2020** Our paper _"How Domain Experts Create Conceptual Diagrams and Implications for Tool Design"_ was ~~conditionally~~ accepted by [CHI 2020](http://chi2020.acm.org/)🏖️!
 - **Oct 2019** I presented our papers at [PLATEAU 2019](http://plateau-workshop.org/) with Max and Anael!
 - **May 2019** I finished 7th at the 2019 [ACUI Collegiate Nine-ball National Championship](https://en.wikipedia.org/wiki/ACUI_Collegiate_Pocket_Billiards_National_Championship):8ball:!
 - **May 2019** Anael Kuperwajs, [Courtney Miller](https://www.linkedin.com/in/courtney-e-miller/), [Max Krieger](https://a9.io/) will join us as [REUSE](https://www.cmu.edu/scs/isr/reuse/) students this summer. Welcome!
@@ -29,7 +27,7 @@ sections:
 
 I am interested in **programming languages, visualization, and human-computer interaction**. I am fascinated by how well-designed languages enable people to succinctly express abstract ideas in various domains, and how visual representations help people understand and reason about them. I aspire to **help people understand the abstract world** by designing and building powerful, useable languages and tools.
 
-I am working on [**Penrose**](http://penrose.ink), a system that visualizes mathematics from high-level, declarative programs.
+I am working on [**Penrose**](http://penrose.ink), a language-based platform for math visualizations.
 
 ## Education
 
@@ -39,10 +37,11 @@ B.S. in Computer Science, **Dickinson College**, _Summa cum laude_ <br>
 
 ## Publications
 
-### **How Domain Experts Create Conceptual Diagrams and Implications for Tool Design**
+### [**How Domain Experts Create Conceptual Diagrams and Implications for Tool Design**](assets/chi-20-natural-diagramming.pdf)
 
 **Wode Ni\***, Dor Ma'ayan\*, Katherine Ye, Chinmay Kulkarni, Joshua Sunshine<br>
 _In Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (CHI'20), to appear._
+[[PDF](assets/chi-20-natural-diagramming.pdf)]
 
 ### [**Defining Visual Narratives for Mathematics Declaratively**](http://plateau-workshop.org/assets/papers-2019/9.pdf)
 
@@ -85,7 +84,7 @@ My name is 倪沃德 (<audio id="pronounce"><source src="assets/niwode.mp3" type
 <a class="icon icon-volume" onclick="documentkk.getElementById('pronounce').play();"> ní wò dé</a>)
 in Chinese. **"Nimo"** has been my alias since high school, during which I was a street dancer ([Popping](https://en.wikipedia.org/wiki/Popping)) and competed under this alias. My first name, often written as "Wode", looks like a single word in English and people often pronounce it that way. Sadly, I have trouble answering to "<audio id="wode"><source src="assets/wode.mp3" type="audio/mpeg"></audio> <a class="icon icon-volume" onclick="document.getElementById('wode').play();"> Wode</a> " under all circumstances. If you find it hard to pronounce ( <audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio> <a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>), try **"Nimo"**.
 
-If I'm not working, I play billiards. Coming from a [Snooker](https://en.wikipedia.org/wiki/Snooker) background, I recently began to enjoy 9/8-ball as well. I am a member of CMU Pool Team and play competitively in [ACUI tournaments](https://www.acui.org/billiards/).
+If I'm not working, I play billiards. I am a member of CMU Pool Team and play competitively in [ACUI tournaments](https://www.acui.org/billiards/).
 
 I also enjoy playing [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo). Here are 4 different ways to form a [Green Triangle](http://yoyo.wikia.com/wiki/Green_Triangle):
 
