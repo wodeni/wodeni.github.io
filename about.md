@@ -31,7 +31,7 @@ I am working on [**Penrose**](http://penrose.ink), a language-based platform for
 
 ## Education
 
-Ph.D. in Software Engineering, **Carnegie Mellon University**,
+Ph.D. in Software Engineering, **Carnegie Mellon University** <br>
 B.S. in Computer Science, **Columbia University**, _Magna cum laude_ <br>
 B.S. in Computer Science, **Dickinson College**, _Summa cum laude_ <br>
 
