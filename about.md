@@ -37,11 +37,12 @@ B.S. in Computer Science, **Dickinson College**, _Summa cum laude_ <br>
 
 ## Publications
 
-### [**How Domain Experts Create Conceptual Diagrams and Implications for Tool Design**](assets/chi-20-natural-diagramming.pdf)
+<!-- ### [**How Domain Experts Create Conceptual Diagrams and Implications for Tool Design**](assets/chi-20-natural-diagramming.pdf) -->
+### **How Domain Experts Create Conceptual Diagrams and Implications for Tool Design**
 
 **Wode Ni\***, Dor Ma'ayan\*, Katherine Ye, Chinmay Kulkarni, Joshua Sunshine<br>
 _In Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (CHI'20), to appear._<br>
-[[PDF](assets/chi-20-natural-diagramming.pdf)]
+<!-- [[PDF](assets/chi-20-natural-diagramming.pdf)] -->
 
 ### [**Defining Visual Narratives for Mathematics Declaratively**](http://plateau-workshop.org/assets/papers-2019/9.pdf)
 
