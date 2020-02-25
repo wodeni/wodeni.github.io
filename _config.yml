@@ -1,11 +1,11 @@
 # Site settings
 title: Wode "Nimo" Ni
-description: 'In the ocean of code, I swim.'
-url: 'http://wodeni.github.io'
-baseurl: ''
+description: "In the ocean of code, I swim."
+url: "http://wodeni.github.io"
+baseurl: ""
 # url: 'http://www.columbia.edu'
 # baseurl: '/~wn2155/'
-google_analytics: 'UA-112343565-2'
+google_analytics: "UA-112343565-2"
 # disqus_shortname: 'your-disqus-name'
 
 author:
@@ -13,21 +13,21 @@ author:
   email: wn2155@columbia.edu
   # twitter_username: joshgerdes
   # facebook_username: joshgerdes
-  github_username:  wodeni
-  linkedin_username:  wode-ni
+  github_username: wodeni
+  linkedin_username: wode-ni
 
 defaults:
-  -
-    scope:
-      path: ''
-      type: 'posts'
+  - scope:
+      path: ""
+      type: "posts"
     values:
-        layout: 'post'
+      layout: "post"
 
 # Build settings
 destination: _site
 paginate: 10
-permalink: /:year/:title/
+paginate_path: "/blog/:title"
+permalink: /blog/:title/
 markdown: kramdown
 highlighter: rouge
 
@@ -37,8 +37,7 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
+exclude: ["README.md", "Gemfile", "Gemfile.lock", "screenshot.png"]
 plugins:
   - jemoji
   - jekyll-paginate
-
