@@ -81,11 +81,12 @@ _Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-
 
 ## Personal
 
-My name is 倪沃德 (<audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio>
-<a class="icon icon-volume" onclick="documentkk.getElementById('pronounce').play();"> ní wò dé</a>)
-in Chinese. **"Nimo"** has been my alias since high school, during which I was a street dancer ([Popping](https://en.wikipedia.org/wiki/Popping)) and competed under this alias. My first name, often written as "Wode", looks like a single word in English and people often pronounce it that way. Sadly, I have trouble answering to "<audio id="wode"><source src="assets/wode.mp3" type="audio/mpeg"></audio> <a class="icon icon-volume" onclick="document.getElementById('wode').play();"> Wode</a> " under all circumstances. If you find it hard to pronounce ( <audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio> <a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>), try **"Nimo"**.
+<audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio>
 
-If I'm not working, I play billiards. I am a member of CMU Pool Team and play competitively in [ACUI tournaments](https://www.acui.org/billiards/).
+My name is 倪沃德 (<a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>)
+in Chinese. **"Nimo"** has been my alias since my [street dancing](https://en.wikipedia.org/wiki/Popping) days. My first name, often written as "Wode", looks like a single word in English and people often pronounce it that way. If you find it hard to pronounce (<a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>), try **"Nimo"**.
+
+If I'm not working, I play billiards. I am a member of CMU Pool Team and play in [ACUI tournaments](https://www.acui.org/billiards/).
 
 I also enjoy playing [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo). Here are 4 different ways to form a [Green Triangle](http://yoyo.wikia.com/wiki/Green_Triangle):
 
