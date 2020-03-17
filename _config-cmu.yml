@@ -9,8 +9,7 @@ google_analytics: "UA-112343565-3"
 author:
   name: 'Wode "Nimo" Ni'
   email: woden@cs.cmu.edu
-  # twitter_username: joshgerdes
-  # facebook_username: joshgerdes
+  twitter_username: wodenimoni
   github_username: wodeni
   linkedin_username: wode-ni
 
@@ -39,3 +38,4 @@ exclude: ["README.md", "Gemfile", "Gemfile.lock", "screenshot.png"]
 plugins:
   - jekyll-paginate
   - jemoji
+  - jekyll-font-awesome-sass
