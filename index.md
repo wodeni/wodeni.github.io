@@ -13,14 +13,15 @@ sections:
 
 ## News
 
+- **May 2020** I will start as a Research Intern with [PROSE](https://microsoft.github.io/prose/) @ Microsoft Research this summer!
 - **Jan 2020** Our paper _"How Domain Experts Create Conceptual Diagrams and Implications for Tool Design"_ was ~~conditionally~~ accepted by [CHI 2020](http://chi2020.acm.org/)🏖️!
 - **Oct 2019** I presented our papers at [PLATEAU 2019](http://plateau-workshop.org/) with Max and Anael!
 - **May 2019** I finished 7th at the 2019 [ACUI Collegiate Nine-ball National Championship](https://en.wikipedia.org/wiki/ACUI_Collegiate_Pocket_Billiards_National_Championship):8ball:!
-- **May 2019** Anael Kuperwajs, [Courtney Miller](https://www.linkedin.com/in/courtney-e-miller/), [Max Krieger](https://a9.io/) will join us as [REUSE](https://www.cmu.edu/scs/isr/reuse/) students this summer. Welcome!
-  <!-- - **April 2018** I will join CMU as a Ph.D. student! -->
-  <!-- - **January 2018** I will be one of the TAs for COMS 4115 again in Spring 2018. -->
-  <!-- - **October 2017** Gave a talk at [DSLDI 2017](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams) in Vancouver, Canada. -->
-    <!-- - __May 2017__  Joined [REU-SE](http://isri.cmu.edu/education/reu-se/), a summer research program, at Carnegie Mellon University. -->
+<!-- - **May 2019** Anael Kuperwajs, [Courtney Miller](https://www.linkedin.com/in/courtney-e-miller/), [Max Krieger](https://a9.io/) will join us as [REUSE](https://www.cmu.edu/scs/isr/reuse/) students this summer. Welcome! -->
+<!-- - **April 2018** I will join CMU as a Ph.D. student! -->
+<!-- - **January 2018** I will be one of the TAs for COMS 4115 again in Spring 2018. -->
+<!-- - **October 2017** Gave a talk at [DSLDI 2017](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams) in Vancouver, Canada. -->
+<!-- - __May 2017__  Joined [REU-SE](http://isri.cmu.edu/education/reu-se/), a summer research program, at Carnegie Mellon University. -->
 
 ## Research
 
