@@ -14,6 +14,7 @@ sections:
 ## News
 
 - **May 2020** I will start as a Research Intern with [PROSE](https://microsoft.github.io/prose/) @ Microsoft Research this summer!
+- **Mar 2020** Our CHI paper won a Best Paper Honourable Mention award🏆!
 - **Jan 2020** Our paper _"How Domain Experts Create Conceptual Diagrams and Implications for Tool Design"_ was ~~conditionally~~ accepted by [CHI 2020](http://chi2020.acm.org/)🏖️!
 - **Oct 2019** I presented our papers at [PLATEAU 2019](http://plateau-workshop.org/) with Max and Anael!
 - **May 2019** I finished 7th at the 2019 [ACUI Collegiate Nine-ball National Championship](https://en.wikipedia.org/wiki/ACUI_Collegiate_Pocket_Billiards_National_Championship):8ball:!
@@ -36,24 +37,27 @@ B.S. in Computer Science, **Columbia University**, _Magna cum laude_ <br>
 B.S. in Computer Science, **Dickinson College**, _Summa cum laude_ <br>
 
 ## Publications
+_(*indicates equal contributions)_
 
 ### [**How Domain Experts Create Conceptual Diagrams and Implications for Tool Design**](assets/chi-20-natural-diagramming.pdf)
 
-**Wode Ni\***, Dor Ma'ayan\*, Katherine Ye, Chinmay Kulkarni, and Joshua Sunshine<br>
+Dor Ma'ayan\*, **Wode Ni\***, Katherine Ye, Chinmay Kulkarni, and Joshua Sunshine<br>
+<i class="fas fa-award"></i> <strong>Best Paper Honourable Mention</strong><br>
 _In Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (CHI'20), to appear._<br>
 [[PDF](assets/chi-20-natural-diagramming.pdf)]
+[[BibTeX](assets/chi-20-natural-diagramming.txt)]
 
 ### [**Defining Visual Narratives for Mathematics Declaratively**](http://plateau-workshop.org/assets/papers-2019/9.pdf)
 
 Max Krieger, **Wode Ni**, and Joshua Sunshine.<br>
-_Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST_<br>
+_Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST._<br>
 [[PDF](http://plateau-workshop.org/assets/papers-2019/9.pdf)]
 [[slides](assets/plateau-19-presentation.pdf)]
 
 ### [**Designing Declarative Language Tutorials: a Guided and Individualized Approach**](http://plateau-workshop.org/assets/papers-2019/2.pdf)
 
 Anael Kuperwajs Cohen, **Wode Ni**, and Joshua Sunshine.<br>
-_Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST_<br>
+_Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST._<br>
 [[PDF](http://plateau-workshop.org/assets/papers-2019/2.pdf)]
 [[slides](assets/plateau-19-presentation.pdf)]
 
@@ -80,11 +84,12 @@ _Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-
 
 ## Personal
 
-My name is 倪沃德 (<audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio>
-<a class="icon icon-volume" onclick="documentkk.getElementById('pronounce').play();"> ní wò dé</a>)
-in Chinese. **"Nimo"** has been my alias since high school, during which I was a street dancer ([Popping](https://en.wikipedia.org/wiki/Popping)) and competed under this alias. My first name, often written as "Wode", looks like a single word in English and people often pronounce it that way. Sadly, I have trouble answering to "<audio id="wode"><source src="assets/wode.mp3" type="audio/mpeg"></audio> <a class="icon icon-volume" onclick="document.getElementById('wode').play();"> Wode</a> " under all circumstances. If you find it hard to pronounce ( <audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio> <a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>), try **"Nimo"**.
+<audio id="pronounce"><source src="assets/niwode.mp3" type="audio/mpeg"></audio>
 
-If I'm not working, I play billiards. I am a member of CMU Pool Team and play competitively in [ACUI tournaments](https://www.acui.org/billiards/).
+My name is 倪沃德 (<a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>)
+in Chinese. **"Nimo"** has been my alias since my [street dancing](https://en.wikipedia.org/wiki/Popping) days. My first name, often written as "Wode", looks like a single word in English and people often pronounce it that way. If you find it hard to pronounce (<a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>), try **"Nimo"**.
+
+If I'm not working, I play billiards. I am a member of CMU Pool Team and play in [ACUI tournaments](https://www.acui.org/billiards/).
 
 I also enjoy playing [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo). Here are 4 different ways to form a [Green Triangle](http://yoyo.wikia.com/wiki/Green_Triangle):
 
