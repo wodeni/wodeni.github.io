@@ -1,6 +1,6 @@
 ---
 layout: about_layout
-title: About Me
+title: Wode "Nimo" Ni - Ph.D. student @ CMU
 # permalink: index.html
 sections:
 ---
@@ -13,8 +13,9 @@ sections:
 
 ## News
 
-- **May 2020** I will start as a Research Intern with [PROSE](https://microsoft.github.io/prose/) @ Microsoft Research this summer!
-- **Mar 2020** Our CHI paper won a Best Paper Honourable Mention award🏆!
+- **May 2020** I'll join [PROSE](https://microsoft.github.io/prose/) @ Microsoft Research as a Research Intern this summer!
+- **Apr 2020** The first conference paper on [Penrose](https://github.com/penrose/penrose), _"Penrose: From Mathematical Notation to Beautiful Diagrams,"_ was accepted by [SIGGRAPH 2020](https://s2020.siggraph.org/)!
+- **Mar 2020** The CHI paper won a Best Paper Honourable Mention award🏆!
 - **Jan 2020** Our paper _"How Domain Experts Create Conceptual Diagrams and Implications for Tool Design"_ was ~~conditionally~~ accepted by [CHI 2020](http://chi2020.acm.org/)🏖️!
 - **Oct 2019** I presented our papers at [PLATEAU 2019](http://plateau-workshop.org/) with Max and Anael!
 - **May 2019** I finished 7th at the 2019 [ACUI Collegiate Nine-ball National Championship](https://en.wikipedia.org/wiki/ACUI_Collegiate_Pocket_Billiards_National_Championship):8ball:!
@@ -26,9 +27,9 @@ sections:
 
 ## Research
 
-I am interested in **programming languages, visualization, and human-computer interaction**. I am fascinated by how well-designed languages enable people to succinctly express abstract ideas in various domains, and how visual representations help people understand and reason about them. I aspire to **help people understand the abstract world** by designing and building powerful, useable languages and tools.
+I am interested in **human-computer interaction**, **programming languages**, and **visualization**. I am fascinated by how well-designed languages enable people to succinctly express abstract ideas in various domains, and how visual representations help people understand and reason about them. I aspire to **help people understand the abstract world** by designing and building powerful, useable languages and tools.
 
-I am working on [**Penrose**](http://penrose.ink), a language-based platform for math visualizations.
+In the past few years, I have been studying [how people make conceptual diagrams](assets/chi-20-natural-diagramming.pdf) and building [**Penrose**](http://penrose.ink), a language-based platform for math diagramming. 
 
 ## Education
 
@@ -39,11 +40,16 @@ B.S. in Computer Science, **Dickinson College**, _Summa cum laude_ <br>
 ## Publications
 _(*indicates equal contributions)_
 
+### **Penrose: From Mathematical Notation to Beautiful Diagrams**
+Katherine Ye, **Wode Ni**, Max Krieger, Dor Ma'ayan, Joshua Sunshine, Jonathan Aldrich, and Keenan Crane.<br> 
+_ACM Transactions on Graphics (SIGGRAPH'20), to appear._<br>
+[[BibTeX](assets/siggraph20-penrose.txt)]
+
 ### [**How Domain Experts Create Conceptual Diagrams and Implications for Tool Design**](assets/chi-20-natural-diagramming.pdf)
 
-Dor Ma'ayan\*, **Wode Ni\***, Katherine Ye, Chinmay Kulkarni, and Joshua Sunshine<br>
+Dor Ma'ayan\*, **Wode Ni\***, Katherine Ye, Chinmay Kulkarni, and Joshua Sunshine.<br>
 <i class="fas fa-award"></i> <strong>Best Paper Honourable Mention</strong><br>
-_In Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (CHI'20), to appear._<br>
+_In Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (CHI'20)._<br>
 [[PDF](assets/chi-20-natural-diagramming.pdf)]
 [[BibTeX](assets/chi-20-natural-diagramming.txt)]
 
