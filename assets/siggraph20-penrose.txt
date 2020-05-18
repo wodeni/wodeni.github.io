@@ -1,0 +1,10 @@
+@article{Ye:2020:PFM,
+  author = {Ye, Katherine and Ni, Wode and Krieger, Max and Ma'ayan, Dor and Wise, Jenna and Aldrich, Jonathan and Sunshine, Joshua and Crane, Keenan},
+  title = {Penrose: From Mathematical Notation to Beautiful Diagrams},
+  journal = {ACM Trans. Graph.},
+  volume = {39},
+  number = {4},
+  year = {2020},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+}
