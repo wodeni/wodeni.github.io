@@ -54,6 +54,7 @@ Dor Ma'ayan\*, **Wode Ni\***, Katherine Ye, Chinmay Kulkarni, and Joshua Sunshin
 <i class="fas fa-award"></i> <strong>Best Paper Honourable Mention</strong><br>
 _In Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (CHI'20)._<br>
 [[PDF](assets/chi-20-natural-diagramming.pdf)]
+[[Talk](https://youtu.be/O60RuV2gBMk)]
 [[BibTeX](assets/chi-20-natural-diagramming.txt)]
 
 ### [**Defining Visual Narratives for Mathematics Declaratively**](http://plateau-workshop.org/assets/papers-2019/9.pdf)
