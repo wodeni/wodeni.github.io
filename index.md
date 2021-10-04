@@ -41,9 +41,10 @@ B.S. in Computer Science, **Dickinson College**, _Summa cum laude_ <br>
 ## Publications
 _(*indicates equal contributions)_
 
-### **reCode: A Lightweight Find-and-Replace Interaction in the IDE for Transforming Code by Example**
+### [**reCode: A Lightweight Find-and-Replace Interaction in the IDE for Transforming Code by Example**](assets/uist-21-recode.pdf)
 **Wode Ni**, Joshua Sunshine, Vu Le, Sumit Gulwani, and Titus Barik.<br> 
 _In Proceedings of the 34th ACM Symposium on User Interface Software and Technology (UIST'21), to appear._ <br>
+[[PDF](assets/uist-21-recode.pdf)]
 
 ### [**Penrose: From Mathematical Notation to Beautiful Diagrams**](http://penrose.ink/media/Penrose_SIGGRAPH2020.pdf)
 Katherine Ye, **Wode Ni**, Max Krieger, Dor Ma'ayan, Joshua Sunshine, Jonathan Aldrich, and Keenan Crane.<br> 
