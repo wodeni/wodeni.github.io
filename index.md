@@ -66,14 +66,14 @@ _In Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems
 [[talk](https://youtu.be/O60RuV2gBMk)]
 [[BibTeX](assets/chi-20-natural-diagramming.txt)]
 
-### [**Defining Visual Narratives for Mathematics Declaratively**](http://plateau-workshop.org/assets/papers-2019/9.pdf)
+### [**Defining Visual Narratives for Mathematics Declaratively**](http://2019.plateau-workshop.org/assets/papers-2019/9.pdf)
 
 Max Krieger, **Wode Ni**, and Joshua Sunshine.<br>
 _Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST._<br>
 [[PDF](http://plateau-workshop.org/assets/papers-2019/9.pdf)]
 [[slides](assets/plateau-19-presentation.pdf)]
 
-### [**Designing Declarative Language Tutorials: a Guided and Individualized Approach**](http://plateau-workshop.org/assets/papers-2019/2.pdf)
+### [**Designing Declarative Language Tutorials: a Guided and Individualized Approach**](http://2019.plateau-workshop.org/assets/papers-2019/2.pdf)
 
 Anael Kuperwajs Cohen, **Wode Ni**, and Joshua Sunshine.<br>
 _Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-located with UIST._<br>
