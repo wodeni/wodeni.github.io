@@ -106,7 +106,7 @@ _Evaluation and Usability of Programming Languages and Tools (PLATEAU 2019), co-
 My name is 倪沃德 (<a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>)
 in Chinese. **"Nimo"** has been my alias since my [street dancing](https://en.wikipedia.org/wiki/Popping) days. My first name, often written as "Wode", looks like a single word in English and people often pronounce it that way. If you find it hard to pronounce (<a class="icon icon-volume" onclick="document.getElementById('pronounce').play();"> ní wò dé</a>), try **"Nimo"**.
 
-If I'm not working, I play billiards. I am a member of CMU Pool Team and play in [ACUI tournaments](https://www.acui.org/billiards/).
+If I'm not working, I play billiards. I am a member of the CMU Pool Team and play in [ACUI tournaments](https://www.acui.org/billiards/), [BCA 8-ball league](https://www.playcsipool.com/bcapl-home.html) and [USAPL 9-ball league](https://www.playcsipool.com/usapl-home.html).
 
 I also enjoy playing [Yo-yo](https://en.wikipedia.org/wiki/Yo-yo). Here are 4 different ways to form a [Green Triangle](http://yoyo.wikia.com/wiki/Green_Triangle):
 
