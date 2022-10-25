@@ -1,6 +1,6 @@
 ---
 layout: about_layout
-title: Wode "Nimo" Ni - Ph.D. student @ CMU
+title: Wode "Nimo" Ni - Ph.D. candidate @ CMU
 # permalink: index.html
 sections:
 ---
@@ -13,11 +13,13 @@ sections:
 
 ## News
 
+- **August 2022** Spent the summer as an intern in Machine Intelligence at Apple . Stay tuned for more updates on the work!
+- **April 2022** I [proposed](assets/thesis-proposal-talk.pdf) my dissertation. Officially a PhD candidate now!
 - **July 2021** My work at Microsoft, _"reCode: A Lightweight Find-and-Replace Interaction in the IDE for Transforming Code by Example,"_ was conditionally accepted by [UIST 2021](https://uist.acm.org/uist2021/)!
-- **May 2020** I'll join [PROSE](https://microsoft.github.io/prose/) @ Microsoft Research as a Research Intern this summer!
-- **Apr 2020** The first conference paper on [Penrose](https://github.com/penrose/penrose), _"Penrose: From Mathematical Notation to Beautiful Diagrams,"_ was accepted by [SIGGRAPH 2020](https://s2020.siggraph.org/)!
-- **Mar 2020** The CHI paper won a Best Paper Honourable Mention award🏆!
-- **Jan 2020** Our paper _"How Domain Experts Create Conceptual Diagrams and Implications for Tool Design"_ was ~~conditionally~~ accepted by [CHI 2020](http://chi2020.acm.org/)🏖️!
+<!-- - **May 2020** I'll join [PROSE](https://microsoft.github.io/prose/) @ Microsoft Research as a Research Intern this summer! -->
+<!-- - **Apr 2020** The first conference paper on [Penrose](https://github.com/penrose/penrose), _"Penrose: From Mathematical Notation to Beautiful Diagrams,"_ was accepted by [SIGGRAPH 2020](https://s2020.siggraph.org/)! -->
+<!-- - **Mar 2020** The CHI paper won a Best Paper Honourable Mention award🏆! -->
+<!-- - **Jan 2020** Our paper _"How Domain Experts Create Conceptual Diagrams and Implications for Tool Design"_ was ~~conditionally~~ accepted by [CHI 2020](http://chi2020.acm.org/)🏖️! -->
 <!-- - **Oct 2019** I presented our papers at [PLATEAU 2019](http://plateau-workshop.org/) with Max and Anael! -->
 <!-- - **May 2019** I finished 7th at the 2019 [ACUI Collegiate Nine-ball National Championship](https://en.wikipedia.org/wiki/ACUI_Collegiate_Pocket_Billiards_National_Championship):8ball:! -->
 <!-- - **May 2019** Anael Kuperwajs, [Courtney Miller](https://www.linkedin.com/in/courtney-e-miller/), [Max Krieger](https://a9.io/) will join us as [REUSE](https://www.cmu.edu/scs/isr/reuse/) students this summer. Welcome! -->
