@@ -1,7 +1,0 @@
-@inproceedings{2020-natural-diagramming,
- title = {How Domain Experts Create Conceptual Diagrams and Implications for Tool Design},
- author = {Dor Ma'ayan AND Wode Ni AND Katherine Ye AND Chinmay Kulkarni AND Joshua Sunshine},
- booktitle = {ACM Human Factors in Computing Systems (CHI)},
- year = {2020},
- url = {http://www.cs.cmu.edu/~woden/assets/chi-20-natural-diagramming.pdf},
-}
