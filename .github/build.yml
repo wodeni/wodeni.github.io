@@ -1,0 +1,27 @@
+deploy:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup
+      uses: ./.github/actions/setup
+    - name: Build deps
+      run: yarn
+    - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      name: Deploy website
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages
+        folder: dist
+        target-folder: .
+    - name: Add .nojekyll
+      run: |
+        mkdir extra/
+        touch extra/.nojekyll
+    - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      name: Deploy .nojekyll
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages
+        folder: dist
+        clean: false
