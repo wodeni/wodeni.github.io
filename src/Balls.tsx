@@ -155,7 +155,7 @@ export default ({ color }: { color: string }) => {
         <Clump numBalls={20} color={color} />
         <Room />
       </Physics>
-      <Environment files="/adamsbridge.hdr" />
+      <Environment files={new URL("/adamsbridge.hdr", import.meta.url).href} />
       <EffectComposer disableNormalPass multisampling={0}>
         <N8AO
           color="black"
