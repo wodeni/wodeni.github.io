@@ -196,10 +196,17 @@ a {
     flex-direction: column;
   }
   .RightPanel {
-    margin: 0
+    margin: 0;
+    padding: 0 2em 1em 2em;  
   }
   .Social {
     margin-left: 0;
+  }
+  .divider {
+    visibility: hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
   }
 }
 
@@ -209,10 +216,6 @@ a {
   }
   .RightPanel {
     padding: 0 1em
-  }
-  .divider {
-    visibility: hidden;
-    position: absolute;
   }
 }
 
