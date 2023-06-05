@@ -33,7 +33,7 @@ const entries: Papers = {
   "recode-ni-2021": {
     icon: "",
     type: "conference",
-    pdf: "/assets/uist-21-recode.pdf",
+    pdf: new URL("/assets/uist-21-recode.pdf", import.meta.url).href,
     talk: "https://youtu.be/_GQ8E7EMMws",
   },
   "penrose-2020": {
@@ -45,7 +45,8 @@ const entries: Papers = {
   "diagramming-2020": {
     icon: "",
     type: "conference",
-    pdf: "/assets/chi-20-natural-diagramming.pdf",
+    pdf: new URL("/assets/chi-20-natural-diagramming.pdf", import.meta.url)
+      .href,
     talk: "https://youtu.be/O60RuV2gBMk",
     coauthors: ["Wode Ni", "Dor Ma'ayan"],
   },

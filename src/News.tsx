@@ -14,8 +14,15 @@ const news: News[] = [
     time: new Date("2022-04-30"),
     msg: (
       <>
-        I <A href="/assets/thesis-proposal-talk.pdf">proposed</A> my
-        dissertation. Officially a PhD candidate now!
+        I{" "}
+        <A
+          href={
+            new URL("/assets/thesis-proposal-talk.pdf", import.meta.url).href
+          }
+        >
+          proposed
+        </A>{" "}
+        my dissertation. Officially a PhD candidate now!
       </>
     ),
   },
