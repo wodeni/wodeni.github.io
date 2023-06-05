@@ -1,34 +1,22 @@
-## Usage
+# Personal site
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+This is the repo for my [personal site](https://www.cs.cmu.edu/~woden/). 
+## Getting started
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+* Run `yarn` to install dependencies.
+* Run `yarn dev` to start the development server locally.
+* Run `yarn build` to produce a production build.
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+## What the site does
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+* BibTeX parsing: use [bibtex-js](https://github.com/digitalheir/bibtex-js) to load a `.bib` file of your publications to display them automatically.
+* Fun hero widget using [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction).
+  * For now, I'm using a version of [this demo](https://codesandbox.io/s/ssbdsw) with some collision detection added.
+* Styling and basic responsiveness via pure CSS.
+* JSX and some minimal React for content.
 
-## Available Scripts
+## Future
 
-In the project directory, you can run:
-
-### `npm dev` or `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+* [ ] Pool page
+* [ ] Make the widget more interesting
+* [ ] Create a light-weight template from this site for others?
