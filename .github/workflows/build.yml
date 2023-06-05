@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup
-        uses: ./.github/actions/setup
       - name: Build deps
         run: yarn
+      - name: Build the website
+        run: yarn build
       - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         name: Deploy website
         uses: JamesIves/github-pages-deploy-action@4.1.4
