@@ -7,6 +7,19 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2023-06-01"),
+    msg: (
+      <>
+        <A href="https://www.cmu.edu/scs/s3d/reuse/">REUSE</A> students{" "}
+        <A href="https://www.linkedin.com/in/rijul-jain-585a62191">
+          Rijul Jain
+        </A>{" "}
+        and <A href="https://ravenrothkopf.github.io/">Raven Rothkopf</A> joined
+        Penrose this summer. Welcome!
+      </>
+    ),
+  },
+  {
     time: new Date("2022-08-30"),
     msg: "Spent the summer as an intern in Machine Intelligence at Apple. Stay tuned for more updates on our work!",
   },

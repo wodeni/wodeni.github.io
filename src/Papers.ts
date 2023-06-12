@@ -9,12 +9,13 @@ import {
 
 const bibliography = parseBibFile(bib);
 
-type PaperType = "conference" | "journal";
+type PaperType = "conference" | "journal" | "workshop";
 interface PaperMeta {
   icon: string;
   type: PaperType;
   pdf?: string;
   talk?: string;
+  slides?: string;
   coauthors?: string[];
 }
 interface Papers {
@@ -50,10 +51,29 @@ const entries: Papers = {
     talk: "https://youtu.be/O60RuV2gBMk",
     coauthors: ["Wode Ni", "Dor Ma'ayan"],
   },
+  "narrative-2019": {
+    icon: "",
+    type: "workshop",
+    pdf: "https://2019.plateau-workshop.org/assets/papers-2019/9.pdf",
+    slides: "/assets/plateau-19-presentation.pdf",
+  },
+  "tutorial-2019": {
+    icon: "",
+    type: "workshop",
+    pdf: "https://drops.dagstuhl.de/opus/volltexte/2020/11958/pdf/OASIcs-PLATEAU-2019-4.pdf",
+    slides: "/assets/plateau-19-presentation.pdf",
+  },
+  "substy-2017": {
+    icon: "",
+    type: "workshop",
+    pdf: "/assets/dsldi.pdf",
+    slides: "/assets/dsldi-presentation.pdf",
+  },
 };
 
 const getVenue = (type: PaperType, entry: BibEntry): string => {
   switch (type) {
+    case "workshop":
     case "conference":
       return normalizeFieldValue(entry.getField("booktitle")!) as string;
     case "journal":

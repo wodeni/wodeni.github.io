@@ -15,13 +15,14 @@ import {
   FaRegFilePdf,
   FaRegPlayCircle,
 } from "react-icons/fa";
+import { BiSlideshow } from "react-icons/bi";
 import { BsBookmarkCheck } from "react-icons/bs";
 import Project from "./Project";
 
 const NewsFeed = () => (
   <>
-    {news.map(({ time, msg }) => (
-      <div className={styles.NewsEntry}>
+    {news.map(({ time, msg }, i) => (
+      <div className={styles.NewsEntry} key={`news-${i}`}>
         <div className={styles.Date}>
           {time.toLocaleString("default", { month: "long", year: "numeric" })}
         </div>
@@ -80,10 +81,11 @@ const Publications = () => (
         talk,
         coauthors,
         series,
+        slides,
         id,
         bibtex,
       }: Paper) => (
-        <p key={id}>
+        <div key={id} className={styles.PaperEntry}>
           <a href={pdf}>
             <span className={styles.PaperTitle}>{title}</span>
           </a>
@@ -121,8 +123,14 @@ const Publications = () => (
                 <A href={talk}>talk</A>
               </div>
             )}
+            {slides && (
+              <div className={styles.PaperAsset}>
+                <BiSlideshow />
+                <A href={slides}>slides</A>
+              </div>
+            )}
           </div>
-        </p>
+        </div>
       )
     )}
   </div>
