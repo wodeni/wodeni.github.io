@@ -19,19 +19,28 @@ import { BiSlideshow } from "react-icons/bi";
 import { BsBookmarkCheck } from "react-icons/bs";
 import Project from "./Project";
 
-const NewsFeed = () => (
-  <>
-    {news.map(({ time, msg }, i) => (
-      <div className={styles.NewsEntry} key={`news-${i}`}>
-        <div className={styles.Date}>
-          {time.toLocaleString("default", { month: "long", year: "numeric" })}
-        </div>
-        {msg}
-      </div>
-    ))}
-  </>
-);
-
+const NewsFeed = () => {
+  const today = new Date();
+  return (
+    <>
+      {news
+        .filter(
+          ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
+        )
+        .map(({ time, msg }, i) => (
+          <div className={styles.NewsEntry} key={`news-${i}`}>
+            <div className={styles.Date}>
+              {time.toLocaleString("default", {
+                month: "long",
+                year: "numeric",
+              })}
+            </div>
+            {msg}
+          </div>
+        ))}
+    </>
+  );
+};
 export const Copy = ({
   data,
   children,

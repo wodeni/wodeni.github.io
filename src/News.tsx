@@ -27,15 +27,22 @@ const news: News[] = [
     time: new Date("2022-04-30"),
     msg: (
       <>
-        I{" "}
-        <A
-          href={
-            new URL("/assets/thesis-proposal-talk.pdf", import.meta.url).href
-          }
-        >
-          proposed
-        </A>{" "}
-        my dissertation. Officially a PhD candidate now!
+        I <A href="/assets/thesis-proposal-talk.pdf">proposed</A> my
+        dissertation. Officially a PhD candidate now!
+      </>
+    ),
+  },
+  {
+    time: new Date("2021-07-01"),
+    msg: (
+      <>
+        My work at Microsoft,{" "}
+        <i>
+          "reCode: A Lightweight Find-and-Replace Interaction in the IDE for
+          Transforming Code by Example,"
+        </i>{" "}
+        was conditionally accepted by{" "}
+        <A href="https://uist.acm.org/uist2021/">UIST 2021</A>!
       </>
     ),
   },
@@ -43,7 +50,6 @@ const news: News[] = [
 
 export default news;
 
-// - **July 2021** My work at Microsoft, _"reCode: A Lightweight Find-and-Replace Interaction in the IDE for Transforming Code by Example,"_ was conditionally accepted by [UIST 2021](https://uist.acm.org/uist2021/)!
 // <!-- - **May 2020** I'll join [PROSE](https://microsoft.github.io/prose/) @ Microsoft Research as a Research Intern this summer! -->
 // <!-- - **Apr 2020** The first conference paper on [Penrose](https://github.com/penrose/penrose), _"Penrose: From Mathematical Notation to Beautiful Diagrams,"_ was accepted by [SIGGRAPH 2020](https://s2020.siggraph.org/)! -->
 // <!-- - **Mar 2020** The CHI paper won a Best Paper Honourable Mention award🏆! -->
