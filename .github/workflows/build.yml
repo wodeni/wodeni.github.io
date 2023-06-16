@@ -1,4 +1,4 @@
-name: Build
+name: Deploy
 on:
   pull_request:
   push:
@@ -33,3 +33,20 @@ jobs:
           branch: gh-pages
           folder: dist
           clean: false
+      - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        name: Deploy to cmu server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.CMU_SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "dist/"
+          REMOTE_HOST: ${{ secrets.CMU_HOST }}
+          REMOTE_USER: ${{ secrets.CMU_USER }}
+          TARGET: ${{ secrets.CMU_TARGET }}
+          SCRIPT_BEFORE: |
+            whoami
+            ls -al
+          SCRIPT_AFTER: |
+            whoami
+            ls -al
+            echo $RSYNC_STDOUT
