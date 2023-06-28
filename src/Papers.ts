@@ -30,13 +30,11 @@ export interface Paper extends PaperMeta {
   bibtex: string;
 }
 
-const url = (path: string) => new URL(path, import.meta.url).href;
-
 const entries: Papers = {
   "recode-ni-2021": {
     icon: "",
     type: "conference",
-    pdf: url("/assets/uist-21-recode.pdf"),
+    pdf: new URL("/assets/uist-21-recode.pdf", import.meta.url).href,
     talk: "https://youtu.be/_GQ8E7EMMws",
   },
   "penrose-2020": {
@@ -48,7 +46,8 @@ const entries: Papers = {
   "diagramming-2020": {
     icon: "",
     type: "conference",
-    pdf: url("/assets/chi-20-natural-diagramming.pdf"),
+    pdf: new URL("/assets/chi-20-natural-diagramming.pdf", import.meta.url)
+      .href,
     talk: "https://youtu.be/O60RuV2gBMk",
     coauthors: ["Wode Ni", "Dor Ma'ayan"],
   },
@@ -56,19 +55,21 @@ const entries: Papers = {
     icon: "",
     type: "workshop",
     pdf: "https://2019.plateau-workshop.org/assets/papers-2019/9.pdf",
-    slides: url("/assets/plateau-19-presentation.pdf"),
+    slides: new URL("/assets/plateau-19-presentation.pdf", import.meta.url)
+      .href,
   },
   "tutorial-2019": {
     icon: "",
     type: "workshop",
     pdf: "https://drops.dagstuhl.de/opus/volltexte/2020/11958/pdf/OASIcs-PLATEAU-2019-4.pdf",
-    slides: url("/assets/plateau-19-presentation.pdf"),
+    slides: new URL("/assets/plateau-19-presentation.pdf", import.meta.url)
+      .href,
   },
   "substy-2017": {
     icon: "",
     type: "workshop",
-    pdf: url("/assets/dsldi.pdf"),
-    slides: url("/assets/dsldi-presentation.pdf"),
+    pdf: new URL("/assets/dsldi.pdf", import.meta.url).href,
+    slides: new URL("/assets/dsldi-presentation.pdf", import.meta.url).href,
   },
 };
 
