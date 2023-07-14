@@ -66,8 +66,8 @@ const entries: Papers = {
   "substy-2017": {
     icon: "",
     type: "workshop",
-    pdf: "/assets/dsldi.pdf",
-    slides: "/assets/dsldi-presentation.pdf",
+    pdf: new URL("/assets/dsldi.pdf", import.meta.url).href,
+    slides: new URL("/assets/dsldi-presentation.pdf", import.meta.url).href,
   },
 };
 
