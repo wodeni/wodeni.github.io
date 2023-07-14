@@ -7,6 +7,14 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2023-07-14"),
+    msg: (
+      <>
+        Released <A href="https://penrose.cs.cmu.edu/blog/v3">Penrose 3.0</A>!
+      </>
+    ),
+  },
+  {
     time: new Date("2023-06-01"),
     msg: (
       <>
