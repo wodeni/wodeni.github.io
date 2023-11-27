@@ -2,10 +2,11 @@ import * as THREE from "three";
 import {
   Canvas,
   MeshPhongMaterialProps,
+  extend,
   useFrame,
   useThree,
 } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
+import { Environment, OrbitControls, Stats } from "@react-three/drei";
 import { Physics, PlaneProps, usePlane, useSphere } from "@react-three/cannon";
 import { EffectComposer, N8AO, SMAA } from "@react-three/postprocessing";
 import { useRef } from "react";
@@ -140,19 +141,37 @@ export default ({ color }: { color: string }) => {
       gl={{ antialias: true }}
       camera={{ position: [0, 0, -34], fov: 20, near: 1, far: 1000 }}
     >
+      {/* <Stats />
+      <OrbitControls
+        enablePan={true}
+        minPolarAngle={1.5}
+        maxPolarAngle={1.5}
+        minDistance={0.5}
+        maxDistance={200}
+        enableZoom={true}
+      />
+      <rectAreaLight
+        intensity={10.0}
+        position={[0, 30, 0]}
+        width={10}
+        height={50}
+        castShadow
+        color={"#fff"}
+      /> */}
+
       <ambientLight intensity={1.0} />
       {/* <color attach="background" args={["#fff"]} /> */}
-      <spotLight
-        intensity={1}
-        angle={0.0}
+      {/* <spotLight
+        intensity={0.5}
+        angle={90.0}
         penumbra={1}
-        position={[0, 100, 0]}
+        position={[0, 20, -50]}
         castShadow
         shadow-mapSize={[512, 512]}
-      />
+      /> */}
       <Physics gravity={[0, -8, 0]} iterations={10}>
-        <Pointer />
-        <Clump numBalls={20} color={color} />
+        {/* <Pointer /> */}
+        <Clump numBalls={15} color={color} />
         <Room />
       </Physics>
       <Environment files={new URL("/adamsbridge.hdr", import.meta.url).href} />
