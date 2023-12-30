@@ -110,6 +110,7 @@ function Clump({
   });
   return (
     <instancedMesh
+      receiveShadow
       ref={ref as any}
       args={[undefined, undefined, numBalls]}
       geometry={sphereGeometry}
@@ -203,14 +204,6 @@ export default ({
       camera={{ position: [0, 0, -34], fov: 20, near: 1, far: 1000 }}
     >
       {/* <color attach="background" args={["#fff"]} /> */}
-      <spotLight
-        intensity={1}
-        angle={0.0}
-        penumbra={1}
-        position={[0, 100, 0]}
-        castShadow
-        shadow-mapSize={[512, 512]}
-      />
       <Physics gravity={[0, -8, 0]} iterations={10}>
         <Pointer />
         <Clump numBalls={20} color={color} />

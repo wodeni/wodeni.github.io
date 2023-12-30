@@ -22,7 +22,7 @@ import theme from "./theme";
 const NewsFeed = () => {
   const today = new Date();
   return (
-    <>
+    <div className="my-2">
       {news
         .filter(
           ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
@@ -38,7 +38,7 @@ const NewsFeed = () => {
             {msg}
           </div>
         ))}
-    </>
+    </div>
   );
 };
 export const Copy = ({
@@ -99,8 +99,7 @@ const Publications = () => (
                 <li key={`id-author-${i}`}>{a}</li>
               ))}
           </span>
-          .
-          <br />
+          .{/* <br /> */}{" "}
           <span className={styles.PaperVenue}>
             {/* {venue} ({series}) */}
             {series}
@@ -149,7 +148,7 @@ const Hero = ({ className }: { className?: string }) => (
 
 const Socials = ({ className }: { className?: string }) => (
   <div
-    className={`${className} flex items-start md:items-top ml-auto mb-0 color-primary`}
+    className={`${className} flex items-start md:items-top md:ml-auto mb-0 color-primary`}
   >
     <CV />
     <Twitter />
@@ -213,23 +212,6 @@ const Text = ({
   <p className={`${className} font-sans font-light text-lg my-2`}>{children}</p>
 );
 
-const LeftBar = () => (
-  <svg
-    height={30}
-    style={{ position: "absolute", marginTop: 10, zIndex: -1, width: "100%" }}
-  >
-    <rect
-      className={styles.LeftBar}
-      x={0}
-      y={0}
-      width={5}
-      height={50}
-      fill={theme.colors.primary}
-    ></rect>
-    <rect x={0} y={0} width={5} height={50} fill={theme.colors.primary}></rect>
-  </svg>
-);
-
 const Section = ({
   header,
   children,
@@ -239,10 +221,26 @@ const Section = ({
 }) => {
   const id = header.toLowerCase();
   return (
-    <div id={id}>
-      <span className={styles.Section}>
-        <LeftBar />
-        <HashLink className={styles.SectionHeader} smooth to={`/#${id}`}>
+    <div id={id} className="my-4 md:my-8">
+      <span className="font-bold text-3xl tracking-tight curosr-pointer relative group">
+        <svg height={30} className="absolute z-[-1] w-full translate-y-1">
+          <rect
+            x={0}
+            y={0}
+            width={5}
+            height={50}
+            fill={theme.colors.primary}
+            className="group-hover:opacity-30 group-hover:scale-x-400 transition-transform transform"
+          ></rect>
+          <rect
+            x={0}
+            y={0}
+            width={5}
+            height={50}
+            fill={theme.colors.primary}
+          ></rect>
+        </svg>
+        <HashLink className="ml-[10px] w-full" smooth to={`/#${id}`}>
           {header}
         </HashLink>
       </span>
@@ -253,7 +251,7 @@ const Section = ({
 
 const App: React.FC = () => {
   return (
-    <div className="font-sans grid md:grid-cols-3 m-4 md:m-10">
+    <div className="font-sans grid md:grid-cols-3 m-4 md:m-10 max-w-screen-xl">
       <Hero className="md:col-span-2" />
       <Socials className="mt-8" />
       <Text className="md:col-span-2 mt-8">
@@ -271,7 +269,7 @@ const App: React.FC = () => {
           <Publications />
         </Section>
         <Section header={"Tools"}>
-          <div className={styles.ProjectContainer}>
+          <div className="grid lg:grid-cols-2 gap-8 my-4">
             <Project
               name="Edgeworth"
               desc="Diagrammatic problem generation by program mutation."
