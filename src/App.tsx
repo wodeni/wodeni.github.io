@@ -2,7 +2,7 @@ import Logo from "./Logo";
 import penroseLogo from "./assets/penrose.svg";
 import Balls from "./Balls";
 import Papers, { Paper } from "./Papers";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import news from "./News";
 import A from "./A";
@@ -27,8 +27,11 @@ const NewsFeed = () => {
           ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
         )
         .map(({ time, msg }, i) => (
-          <div className="py-2 text-icon md:text-sm" key={`news-${i}`}>
-            <div className="w-fit bg-[#eee] rounded py-px px-1">
+          <div
+            className="py-2 text-icon md:text-sm dark:text-neutral-300"
+            key={`news-${i}`}
+          >
+            <div className="w-fit bg-[#eee] rounded py-px px-1 dark:bg-zinc-600">
               {time.toLocaleString("default", {
                 month: "long",
                 year: "numeric",
@@ -58,7 +61,7 @@ export const Copy = ({
   return (
     <div>
       <span
-        className={`underline decoration-primary/50 decoration-2  cursor-pointer hover:decoration-primary ease-in-out duration-100`}
+        className={`underline decoration-primary/50 dark:decoration-primary/70 decoration-2  cursor-pointer hover:decoration-primary hover:decoration-3 ease-in-out duration-100`}
         onClick={handleClick}
       >
         {children}
@@ -85,26 +88,22 @@ const Publications = () => (
       }: Paper) => (
         <div key={id} className="my-4">
           <a href={pdf}>
-            <span className="text-lg font-semibold cursor-pointer">
+            <span className="text-lg font-semibold dark:font-normal cursor-pointer">
               {title}
             </span>
           </a>
           <br />
-          <span className="text-base">
+          <span className="text-base font-light">
             {authors
               .map((a) => (coauthors?.includes(a) ? `${a}*` : a))
               .map((a) =>
                 a === "Wode Ni" || a === "Wode Ni*" ? <strong>{a}</strong> : a
               )
               .map((a, i) => (
-                <>
-                  <li className={`inline`} key={`id-author-${i}`}>
-                    {a}
-                  </li>
-                  {i !== authors.length - 1 && (
-                    <span key={`author-comma-${i}`}>, </span>
-                  )}
-                </>
+                <span key={`${id}-author-${i}`}>
+                  <li className={`inline`}>{a}</li>
+                  {i !== authors.length - 1 && <span>, </span>}
+                </span>
               ))}
           </span>
           .{/* <br /> */}{" "}
@@ -154,13 +153,22 @@ const Hero = ({ className }: { className?: string }) => (
   </div>
 );
 
-const DarkToggle = () => (
-  <div className="mx-1 w-6 h-6 text-xl flex cursor-pointer justify-center hover:opacity-50 ease-in-out duration-200 justify-self-center">
-    <MdDarkMode fill={theme.colors.icon} />
+const DarkToggle = ({ toggleDark }: { toggleDark: () => void }) => (
+  <div
+    className="mx-1 w-6 h-6 text-xl flex cursor-pointer justify-center hover:opacity-50 ease-in-out duration-200 justify-self-center"
+    onClick={toggleDark}
+  >
+    <MdDarkMode className="fill-icon dark:fill-icon-dark" />
   </div>
 );
 
-const Socials = ({ className }: { className?: string }) => (
+const Socials = ({
+  className,
+  toggleDark,
+}: {
+  className?: string;
+  toggleDark: () => void;
+}) => (
   <div
     className={`${className} flex items-start md:items-top md:ml-auto mb-0 color-primary`}
   >
@@ -169,7 +177,7 @@ const Socials = ({ className }: { className?: string }) => (
     <GitHub />
     <Email />
     <Office />
-    {/* <DarkToggle /> */}
+    <DarkToggle toggleDark={toggleDark} />
   </div>
 );
 
@@ -185,21 +193,21 @@ const Icon = ({ url, icon }: { url: string; icon: ReactNode }) => (
 const Office = () => (
   <Icon
     url="https://goo.gl/maps/Zp92ofs6ze3y8hc19"
-    icon={<MdLocationPin fill={theme.colors.icon} />}
+    icon={<MdLocationPin className="fill-icon dark:fill-icon-dark" />}
   />
 );
 
 const Twitter = () => (
   <Icon
     url="https://twitter.com/wodenimoni"
-    icon={<FaTwitter fill={theme.colors.icon} />}
+    icon={<FaTwitter className="fill-icon dark:fill-icon-dark" />}
   />
 );
 
 const GitHub = () => (
   <Icon
     url="https://github.com/wodeni"
-    icon={<FaGithub fill={theme.colors.icon} />}
+    icon={<FaGithub className="fill-icon dark:fill-icon-dark" />}
   />
 );
 
@@ -211,7 +219,10 @@ const CV = () => (
 );
 
 const Email = () => (
-  <Icon url="mailto:nimo@cmu.edu" icon={<MdEmail fill={theme.colors.icon} />} />
+  <Icon
+    url="mailto:nimo@cmu.edu"
+    icon={<MdEmail className="fill-icon dark:fill-icon-dark" />}
+  />
 );
 
 const Text = ({
@@ -221,7 +232,9 @@ const Text = ({
   className?: string;
   children: ReactNode;
 }) => (
-  <p className={`${className} font-sans font-extralight text-lg my-2`}>
+  <p
+    className={`${className} font-sans font-extralight text-lg my-2 dark:text-neutral-100`}
+  >
     {children}
   </p>
 );
@@ -237,24 +250,27 @@ const Section = ({
   return (
     <div id={id} className="my-4 md:my-8">
       <span className="font-bold text-3xl tracking-tight curosr-pointer relative group">
-        <svg height={30} className="absolute z-[-1] w-full translate-y-1">
+        <svg height={30} className="absolute  w-full translate-y-1">
           <rect
             x={0}
             y={0}
             width={5}
             height={50}
-            fill={theme.colors.primary}
-            className="group-hover:opacity-30 group-hover:scale-x-400 transition-transform transform"
+            className="group-hover:opacity-30 group-hover:scale-x-400 transition-transform transform fill-primary"
           ></rect>
           <rect
             x={0}
             y={0}
             width={5}
             height={50}
-            fill={theme.colors.primary}
+            className="fill-primary"
           ></rect>
         </svg>
-        <HashLink className="ml-[10px] w-full" smooth to={`/#${id}`}>
+        <HashLink
+          className="ml-[10px] w-full dark:text-neutral-100"
+          smooth
+          to={`/#${id}`}
+        >
           {header}
         </HashLink>
       </span>
@@ -264,17 +280,51 @@ const Section = ({
 };
 
 const App: React.FC = () => {
+  const [darkMode, setDarkMode] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+  const toggleDark = () => {
+    setDarkMode(!darkMode);
+  };
+
+  function updateTheme() {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      setDarkMode(true);
+    } else {
+      // Otherwise, remove it
+      setDarkMode(false);
+    }
+  }
+
+  useEffect(() => {
+    // Add an event listener to react to changes in the system's color scheme
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", updateTheme);
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
   return (
-    <div className="font-sans md:grid md:grid-cols-3 m-4 md:m-10 max-w-screen-xl">
+    <div
+      className={
+        "font-sans md:grid md:grid-cols-3 p-4 md:p-10 max-w-screen-xl dark:bg-zinc-800 dark:text-neutral-100"
+      }
+    >
       <Hero className="md:col-span-2" />
-      <Socials className="mt-8" />
+      <Socials className="mt-8" toggleDark={toggleDark} />
       <Text className="md:col-span-2 mt-8">
         I'm Nimo. I build ergonomic digital tools to make difficult things feel
         simple.
       </Text>
       <div className="max-w-screen-md md:col-span-2">
         <Section header={"Research"}>
-          <Text>
+          <Text className="">
             I am a Ph.D. candidate at Carnegie Mellon University, School of
             Computer Science, advised by{" "}
             <A href="http://pact.cs.cmu.edu/koedinger.html">Ken Koedinger</A>{" "}
@@ -288,12 +338,14 @@ const App: React.FC = () => {
               name="Edgeworth"
               desc="Diagrammatic problem generation by program mutation."
               link="https://github.com/penrose/penrose/tree/main/packages/edgeworth"
+              dark={darkMode}
             ></Project>
             <Project
               name="Penrose"
               desc="Create beautiful diagrams just by typing math notation in plain text."
               link="https://penrose.cs.cmu.edu/"
               logo={penroseLogo}
+              dark={darkMode}
             ></Project>
           </div>
         </Section>
