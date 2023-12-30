@@ -1,14 +1,5 @@
 /* Overall */
 
-.App {
-  font-family: "Open Sans", "Noto Sans CJK SC";
-  display: flex;
-}
-.Main {
-  padding: 0 2em 1em 2em;
-  max-width: 1000px;
-}
-
 a {
   all: unset;
 }
@@ -24,14 +15,14 @@ a {
 
 .LogoRow {
   display: flex;
-  height: 180px
+  height: 180px;
 }
 
 .logo {
   flex-basis: 50%;
   width: 50%;
   min-width: 50px;
-  margin-left: 180px
+  margin-left: 180px;
 }
 
 .balls {
@@ -39,24 +30,6 @@ a {
   width: 50%;
   padding: 0;
   overflow: hidden;
-}
-
-.Social {
-  margin-left: auto;
-  justify-self: top;
-  margin-bottom: 0;
-  display: flex;
-}
-
-.SocialIcon {
-  padding: 0 0.2em;
-  transition: opacity 0.2s ease-in-out;
-  font-size: 20px;
-  font-weight: 200;
-}
-
-.SocialIcon:hover {
-  opacity: 0.5;
 }
 
 /* sections */
@@ -71,29 +44,29 @@ a {
 
 .SectionHeader {
   margin-left: 10px;
-  width: 100%
+  width: 100%;
 }
 
 .Section:hover .LeftBar {
-  opacity: .3;
+  opacity: 0.3;
   transform: scaleX(40);
 }
 
 .LeftBar {
   margin-right: 5px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .text {
   font-weight: 300;
   font-size: 18px;
-  margin: 0.5em 0 0.5em 0
+  margin: 0.5em 0 0.5em 0;
 }
 
 /* Papers */
 
 .PaperEntry {
-  margin: 16px 0
+  margin: 16px 0;
 }
 
 .PaperTitle {
@@ -124,7 +97,7 @@ a {
 .PaperAsset {
   display: flex;
   align-items: center;
-  gap: 2px
+  gap: 2px;
 }
 
 /* News Panel */
@@ -145,7 +118,7 @@ a {
 .NewsEntry {
   padding: 0.5em 0 0.5em 0;
   color: #777;
-  font-size: 14px
+  font-size: 14px;
 }
 
 /* Links */
@@ -164,7 +137,7 @@ a {
 }
 
 .ProjectCard {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
   width: 40%;
@@ -176,11 +149,11 @@ a {
 }
 
 .ProjectCard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .ProjectLogo {
-  background-color: rgba(0, 0, 0, 0.01)
+  background-color: rgba(0, 0, 0, 0.01);
 }
 
 .ProjectName {
@@ -202,7 +175,7 @@ a {
   }
   .RightPanel {
     margin: 0;
-    padding: 0 2em 1em 2em;  
+    padding: 0 2em 1em 2em;
   }
   .Social {
     margin-left: 0;
@@ -217,10 +190,9 @@ a {
 
 @media screen and (max-width: 400px) {
   .Main {
-    padding: 1em
+    padding: 1em;
   }
   .RightPanel {
-    padding: 0 1em
+    padding: 0 1em;
   }
 }
-

@@ -158,7 +158,7 @@ const Header = () => (
 );
 
 const Socials = () => (
-  <div className={styles.Social}>
+  <div className="flex items-center ml-auto mb-0">
     <CV />
     <Twitter />
     <GitHub />
@@ -167,50 +167,59 @@ const Socials = () => (
   </div>
 );
 
-const Office = () => (
-  <a href="https://goo.gl/maps/Zp92ofs6ze3y8hc19" className={styles.SocialIcon}>
-    <MdLocationPin width={theme.sizes.icon} fill={theme.colors.icon} />
-    {/* <span style={{ fontSize: "12px", lineHeight: 3 }}>TCS 317</span> */}
+const Icon = ({ url, icon }: { url: string; icon: ReactNode }) => (
+  <a
+    href={url}
+    className="px-1 text-xl flex cursor-pointer hover:opacity-50 justify-self-center"
+  >
+    {icon}
   </a>
+);
+
+const Office = () => (
+  <Icon
+    url="https://goo.gl/maps/Zp92ofs6ze3y8hc19"
+    icon={<MdLocationPin width={theme.sizes.icon} fill={theme.colors.icon} />}
+  />
 );
 
 const Twitter = () => (
-  <a href="https://twitter.com/wodenimoni" className={styles.SocialIcon}>
-    <FaTwitter width={theme.sizes.icon} fill={theme.colors.icon} />
-  </a>
+  <Icon
+    url="https://twitter.com/wodenimoni"
+    icon={<FaTwitter width={theme.sizes.icon} fill={theme.colors.icon} />}
+  />
 );
+
 const GitHub = () => (
-  <a href="https://github.com/wodeni" className={styles.SocialIcon}>
-    <FaGithub width={theme.sizes.icon} fill={theme.colors.icon} />
-  </a>
+  <Icon
+    url="https://github.com/wodeni"
+    icon={<FaGithub width={theme.sizes.icon} fill={theme.colors.icon} />}
+  />
 );
 
 const CV = () => (
-  <a
-    href="http://wodenimoni.com/nimo-markdown-cv/"
-    className={styles.SocialIcon}
-    style={{
-      fontSize: "18px",
-      lineHeight: 1.3,
-      fontWeight: 400,
-      color: theme.colors.icon,
-    }}
-  >
-    CV
-  </a>
+  <Icon
+    url="http://wodenimoni.com/nimo-markdown-cv/"
+    icon={<span className="font-extralight">CV</span>}
+  />
 );
 
 const Email = () => (
-  <a href="mailto:nimo@cmu.edu" className={styles.SocialIcon}>
-    <MdEmail width={theme.sizes.icon} fill={theme.colors.icon} />
-  </a>
+  <Icon
+    url="mailto:nimo@cmu.edu"
+    icon={<MdEmail width={theme.sizes.icon} fill={theme.colors.icon} />}
+  />
+);
+
+const Text = ({ children }: { children: ReactNode }) => (
+  <p className="font-sans font-light text-lg my-2">{children}</p>
 );
 
 const Intro = () => (
-  <p className={styles.text}>
+  <Text>
     I'm Nimo. I build ergonomic digital tools to make difficult things feel
     simple.
-  </p>
+  </Text>
 );
 
 const LeftBar = () => (
@@ -259,17 +268,17 @@ const Divider = () => (
 
 const App: React.FC = () => {
   return (
-    <div className={styles.App}>
-      <div className={styles.Main}>
+    <div className="font-sans flex">
+      <div className="p-0 px-8 pb-4 max-w-[1000px]">
         <Header />
         <Intro />
         <Section header={"Research"}>
-          <p className={styles.text}>
+          <Text>
             I am a Ph.D. candidate at Carnegie Mellon University, School of
             Computer Science, advised by{" "}
             <A href="http://pact.cs.cmu.edu/koedinger.html">Ken Koedinger</A>{" "}
             and <A href="https://www.cs.cmu.edu/~jssunshi/">Josh Sunshine</A>.
-          </p>
+          </Text>
           <Publications />
         </Section>
         <Section header={"Tools"}>
@@ -288,15 +297,15 @@ const App: React.FC = () => {
           </div>
         </Section>
         <Section header={"About"}>
-          <p className={styles.text}>
+          <Text>
             My name is 倪沃德 (ní wò dé) in Chinese. “Nimo” has been my alias
             since my street dancing days. If you find "Wo-de" hard to pronounce,
             default to “Nimo”.
-          </p>
-          <p className={styles.text}>
+          </Text>
+          <Text>
             I am an avid pool player. I play in local leagues and national
             tournaments.
-          </p>
+          </Text>
         </Section>
       </div>
       <div className={styles.RightPanel}>

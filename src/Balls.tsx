@@ -1,16 +1,23 @@
-import * as THREE from "three";
 import {
   Canvas,
   MeshPhongMaterialProps,
   useFrame,
   useThree,
 } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
+import { useTexture } from "@react-three/drei";
 import { Physics, PlaneProps, usePlane, useSphere } from "@react-three/cannon";
 import { EffectComposer, N8AO, SMAA } from "@react-three/postprocessing";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import {
+  MathUtils,
+  Matrix4,
+  Mesh,
+  MeshStandardMaterial,
+  SphereGeometry,
+  Vector3,
+} from "three";
 
-const rfs = THREE.MathUtils.randFloatSpread;
+const rfs = MathUtils.randFloatSpread;
 
 type OurPlaneProps = Pick<MeshPhongMaterialProps, "color"> &
   Pick<PlaneProps, "position" | "rotation">;
@@ -59,8 +66,8 @@ function Room() {
 }
 
 function Clump({
-  mat = new THREE.Matrix4(),
-  vec = new THREE.Vector3(),
+  mat = new Matrix4(),
+  vec = new Vector3(),
   numBalls,
   color,
 }: {
@@ -69,8 +76,9 @@ function Clump({
   mat?: THREE.Matrix4;
   vec?: THREE.Vector3;
 }) {
-  const sphereGeometry = new THREE.SphereGeometry(1, 50, 50);
-  const baubleMaterial = new THREE.MeshStandardMaterial({
+  const sphereGeometry = new SphereGeometry(1, 50, 50);
+  // const texture = useTexture("/ball-9.jpg");
+  const baubleMaterial = new MeshStandardMaterial({
     color,
     roughness: 0,
     envMapIntensity: 1,
@@ -81,7 +89,6 @@ function Clump({
     angularDamping: 0.1,
     linearDamping: 0.65,
     position: [rfs(10), rfs(10), rfs(10)],
-    // position: [0, 0, 0],
   }));
   useFrame((state) => {
     for (let i = 0; i < numBalls; i++) {
@@ -104,11 +111,10 @@ function Clump({
   return (
     <instancedMesh
       ref={ref as any}
-      castShadow
-      receiveShadow
       args={[undefined, undefined, numBalls]}
       geometry={sphereGeometry}
       material={baubleMaterial}
+      // material-map={texture}
     />
   );
 }
@@ -122,12 +128,65 @@ function Pointer() {
   }));
   return useFrame((state) =>
     api.position.set(
-      (state.mouse.x * viewport.width) / 2,
+      -(state.mouse.x * viewport.width) / 2,
       (state.mouse.y * viewport.height) / 2,
       3
     )
   );
 }
+const PointLightRectangle = ({
+  intensity,
+  color,
+  distance,
+  width,
+  height,
+}: {
+  intensity: number;
+  color: string;
+  distance: number;
+  width: number;
+  height: number;
+}) => {
+  const positions = [];
+  const numLightsPerSide = 10;
+
+  // Generate positions for the lights
+  for (let i = 0; i < numLightsPerSide; i++) {
+    positions.push([
+      -width / 2 + (width / (numLightsPerSide - 1)) * i,
+      distance,
+      height / 2,
+    ]); // Top side
+    positions.push([
+      -width / 2 + (width / (numLightsPerSide - 1)) * i,
+      distance,
+      -height / 2,
+    ]); // Bottom side
+    positions.push([
+      width / 2,
+      distance,
+      -height / 2 + (height / (numLightsPerSide - 1)) * i,
+    ]); // Right side
+    positions.push([
+      -width / 2,
+      distance,
+      -height / 2 + (height / (numLightsPerSide - 1)) * i,
+    ]); // Left side
+  }
+
+  return (
+    <>
+      {positions.map((position, index) => (
+        <pointLight
+          key={index}
+          position={position as unknown as THREE.Vector3}
+          intensity={intensity}
+          color={color}
+        />
+      ))}
+    </>
+  );
+};
 
 export default ({ color }: { color: string }) => {
   return (
@@ -140,7 +199,6 @@ export default ({ color }: { color: string }) => {
       gl={{ antialias: true }}
       camera={{ position: [0, 0, -34], fov: 20, near: 1, far: 1000 }}
     >
-      <ambientLight intensity={1.0} />
       {/* <color attach="background" args={["#fff"]} /> */}
       <spotLight
         intensity={1}
@@ -155,7 +213,15 @@ export default ({ color }: { color: string }) => {
         <Clump numBalls={20} color={color} />
         <Room />
       </Physics>
-      <Environment files={new URL("/adamsbridge.hdr", import.meta.url).href} />
+      <ambientLight intensity={0.5} />
+      <PointLightRectangle
+        intensity={0.05}
+        color="#ffffff"
+        distance={100}
+        height={200}
+        width={100}
+      />
+
       <EffectComposer disableNormalPass multisampling={0}>
         <N8AO
           color="black"
