@@ -188,13 +188,16 @@ const PointLightRectangle = ({
   );
 };
 
-export default ({ color }: { color: string }) => {
+export default ({
+  color,
+  className,
+}: {
+  className?: string;
+  color: string;
+}) => {
   return (
     <Canvas
-      style={{
-        width: 180,
-        height: 180,
-      }}
+      className={className}
       shadows
       gl={{ antialias: true }}
       camera={{ position: [0, 0, -34], fov: 20, near: 1, far: 1000 }}
@@ -213,7 +216,7 @@ export default ({ color }: { color: string }) => {
         <Clump numBalls={20} color={color} />
         <Room />
       </Physics>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={1} />
       <PointLightRectangle
         intensity={0.05}
         color="#ffffff"

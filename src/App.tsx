@@ -6,7 +6,6 @@ import Papers, { Paper } from "./Papers";
 import { ReactNode, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import news from "./News";
-import theme from "./theme";
 import A from "./A";
 import { MdEmail, MdLocationPin } from "react-icons/md";
 import {
@@ -18,6 +17,7 @@ import {
 import { BiSlideshow } from "react-icons/bi";
 import { BsBookmarkCheck } from "react-icons/bs";
 import Project from "./Project";
+import theme from "./theme";
 
 const NewsFeed = () => {
   const today = new Date();
@@ -28,8 +28,8 @@ const NewsFeed = () => {
           ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
         )
         .map(({ time, msg }, i) => (
-          <div className={styles.NewsEntry} key={`news-${i}`}>
-            <div className={styles.Date}>
+          <div className="py-2 text-[#777] text-sm" key={`news-${i}`}>
+            <div className="w-fit bg-[#eee] rounded py-px px-1">
               {time.toLocaleString("default", {
                 month: "long",
                 year: "numeric",
@@ -48,10 +48,7 @@ export const Copy = ({
   data: string;
   children: ReactNode;
 }) => {
-  const [isHover, setIsHover] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const handleMouseEnter = () => setIsHover(true);
-  const handleMouseLeave = () => setIsHover(false);
   const handleClick = () => {
     navigator.clipboard.writeText(data);
     setClicked(true);
@@ -62,15 +59,8 @@ export const Copy = ({
   return (
     <div>
       <span
-        className={styles.A}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        className={`underline decoration-primary/50 decoration-2  cursor-pointer hover:decoration-primary ease-in-out duration-100`}
         onClick={handleClick}
-        style={{
-          textDecorationColor: isHover
-            ? theme.colors.primary
-            : `${theme.colors.primary}80`,
-        }}
       >
         {children}
       </span>
@@ -112,7 +102,8 @@ const Publications = () => (
           .
           <br />
           <span className={styles.PaperVenue}>
-            {venue} ({series})
+            {/* {venue} ({series}) */}
+            {series}
           </span>
           {"."}
           <div style={{ display: "flex", gap: "5px" }}>
@@ -145,20 +136,21 @@ const Publications = () => (
   </div>
 );
 
-const Header = () => (
-  <div className={styles.Header}>
-    <div className={styles.LogoRow}>
-      <div className={styles.balls}>
+const Hero = ({ className }: { className?: string }) => (
+  <div className={className}>
+    <div className="flex h-44">
+      <div className="w-48 h-48">
         <Balls color={theme.colors.primary} />
       </div>
-      <Logo className={styles.logo} color={theme.colors.primary} />
+      <Logo className="w-44 ml-4 mt-8" />
     </div>
-    <Socials />
   </div>
 );
 
-const Socials = () => (
-  <div className="flex items-center ml-auto mb-0">
+const Socials = ({ className }: { className?: string }) => (
+  <div
+    className={`${className} flex items-start md:items-top ml-auto mb-0 color-primary`}
+  >
     <CV />
     <Twitter />
     <GitHub />
@@ -170,7 +162,7 @@ const Socials = () => (
 const Icon = ({ url, icon }: { url: string; icon: ReactNode }) => (
   <a
     href={url}
-    className="px-1 text-xl flex cursor-pointer hover:opacity-50 justify-self-center"
+    className="px-1 text-xl flex cursor-pointer hover:opacity-50 ease-in-out duration-200 justify-self-center"
   >
     {icon}
   </a>
@@ -200,7 +192,7 @@ const GitHub = () => (
 const CV = () => (
   <Icon
     url="http://wodenimoni.com/nimo-markdown-cv/"
-    icon={<span className="font-extralight">CV</span>}
+    icon={<span className="font-extralight leading-5">CV</span>}
   />
 );
 
@@ -211,15 +203,14 @@ const Email = () => (
   />
 );
 
-const Text = ({ children }: { children: ReactNode }) => (
-  <p className="font-sans font-light text-lg my-2">{children}</p>
-);
-
-const Intro = () => (
-  <Text>
-    I'm Nimo. I build ergonomic digital tools to make difficult things feel
-    simple.
-  </Text>
+const Text = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: ReactNode;
+}) => (
+  <p className={`${className} font-sans font-light text-lg my-2`}>{children}</p>
 );
 
 const LeftBar = () => (
@@ -260,18 +251,16 @@ const Section = ({
   );
 };
 
-const Divider = () => (
-  <svg height="100%" width={80} className={styles.divider}>
-    <path d="M5 0 L0 1000" stroke={"#aaa"} strokeWidth={0.3}></path>
-  </svg>
-);
-
 const App: React.FC = () => {
   return (
-    <div className="font-sans flex">
-      <div className="p-0 px-8 pb-4 max-w-[1000px]">
-        <Header />
-        <Intro />
+    <div className="font-sans grid md:grid-cols-3 m-4 md:m-10">
+      <Hero className="md:col-span-2" />
+      <Socials className="mt-8" />
+      <Text className="md:col-span-2 mt-8">
+        I'm Nimo. I build ergonomic digital tools to make difficult things feel
+        simple.
+      </Text>
+      <div className="max-w-screen-md md:col-span-2">
         <Section header={"Research"}>
           <Text>
             I am a Ph.D. candidate at Carnegie Mellon University, School of
@@ -308,8 +297,7 @@ const App: React.FC = () => {
           </Text>
         </Section>
       </div>
-      <div className={styles.RightPanel}>
-        <Divider />
+      <div className="md:ml-10 md:max-w-60">
         <Section header={"News"}>
           <NewsFeed />
         </Section>
