@@ -7,7 +7,7 @@ import { ReactNode, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import news from "./News";
 import A from "./A";
-import { MdEmail, MdLocationPin } from "react-icons/md";
+import { MdEmail, MdLocationPin, MdDarkMode } from "react-icons/md";
 import {
   FaGithub,
   FaTwitter,
@@ -28,7 +28,7 @@ const NewsFeed = () => {
           ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
         )
         .map(({ time, msg }, i) => (
-          <div className="py-2 text-[#777] text-sm" key={`news-${i}`}>
+          <div className="py-2 text-icon md:text-sm" key={`news-${i}`}>
             <div className="w-fit bg-[#eee] rounded py-px px-1">
               {time.toLocaleString("default", {
                 month: "long",
@@ -84,46 +84,55 @@ const Publications = () => (
         id,
         bibtex,
       }: Paper) => (
-        <div key={id} className={styles.PaperEntry}>
+        <div key={id} className="my-4">
           <a href={pdf}>
-            <span className={styles.PaperTitle}>{title}</span>
+            <span className="text-lg font-semibold cursor-pointer">
+              {title}
+            </span>
           </a>
           <br />
-          <span className={styles.PaperAuthors}>
+          <span className="text-base">
             {authors
               .map((a) => (coauthors?.includes(a) ? `${a}*` : a))
               .map((a) =>
                 a === "Wode Ni" || a === "Wode Ni*" ? <strong>{a}</strong> : a
               )
               .map((a, i) => (
-                <li key={`id-author-${i}`}>{a}</li>
+                <>
+                  <li className={`inline`} key={`id-author-${i}`}>
+                    {a}
+                  </li>
+                  {i !== authors.length - 1 && (
+                    <span key={`author-comma-${i}`}>, </span>
+                  )}
+                </>
               ))}
           </span>
           .{/* <br /> */}{" "}
-          <span className={styles.PaperVenue}>
+          <span className="text-base font-light italic">
             {/* {venue} ({series}) */}
             {series}
           </span>
           {"."}
-          <div style={{ display: "flex", gap: "5px" }}>
-            <div className={styles.PaperAsset}>
+          <div className="flex gap-2">
+            <div className="flex items-center gap-0.5">
               <BsBookmarkCheck />
               <Copy data={bibtex}>bib</Copy>
             </div>
             {pdf && (
-              <div className={styles.PaperAsset}>
+              <div className="flex items-center gap-0.5">
                 <FaRegFilePdf />
                 <A href={pdf}>pdf</A>
               </div>
             )}
             {talk && (
-              <div className={styles.PaperAsset}>
+              <div className="flex items-center gap-0.5">
                 <FaRegPlayCircle />
                 <A href={talk}>talk</A>
               </div>
             )}
             {slides && (
-              <div className={styles.PaperAsset}>
+              <div className="flex items-center gap-0.5">
                 <BiSlideshow />
                 <A href={slides}>slides</A>
               </div>
@@ -146,6 +155,12 @@ const Hero = ({ className }: { className?: string }) => (
   </div>
 );
 
+const DarkToggle = () => (
+  <div className="mx-1 w-6 h-6 text-xl flex cursor-pointer justify-center hover:opacity-50 ease-in-out duration-200 justify-self-center">
+    <MdDarkMode fill={theme.colors.icon} />
+  </div>
+);
+
 const Socials = ({ className }: { className?: string }) => (
   <div
     className={`${className} flex items-start md:items-top md:ml-auto mb-0 color-primary`}
@@ -155,13 +170,14 @@ const Socials = ({ className }: { className?: string }) => (
     <GitHub />
     <Email />
     <Office />
+    {/* <DarkToggle /> */}
   </div>
 );
 
 const Icon = ({ url, icon }: { url: string; icon: ReactNode }) => (
   <a
     href={url}
-    className="px-1 text-xl flex cursor-pointer hover:opacity-50 ease-in-out duration-200 justify-self-center"
+    className="mx-1 w-6 h-6 text-xl flex cursor-pointer justify-center hover:opacity-50 ease-in-out duration-200 justify-self-center"
   >
     {icon}
   </a>
@@ -170,36 +186,33 @@ const Icon = ({ url, icon }: { url: string; icon: ReactNode }) => (
 const Office = () => (
   <Icon
     url="https://goo.gl/maps/Zp92ofs6ze3y8hc19"
-    icon={<MdLocationPin width={theme.sizes.icon} fill={theme.colors.icon} />}
+    icon={<MdLocationPin fill={theme.colors.icon} />}
   />
 );
 
 const Twitter = () => (
   <Icon
     url="https://twitter.com/wodenimoni"
-    icon={<FaTwitter width={theme.sizes.icon} fill={theme.colors.icon} />}
+    icon={<FaTwitter fill={theme.colors.icon} />}
   />
 );
 
 const GitHub = () => (
   <Icon
     url="https://github.com/wodeni"
-    icon={<FaGithub width={theme.sizes.icon} fill={theme.colors.icon} />}
+    icon={<FaGithub fill={theme.colors.icon} />}
   />
 );
 
 const CV = () => (
   <Icon
     url="http://wodenimoni.com/nimo-markdown-cv/"
-    icon={<span className="font-extralight leading-5">CV</span>}
+    icon={<span className="font-extralight leading-5 text-icon">CV</span>}
   />
 );
 
 const Email = () => (
-  <Icon
-    url="mailto:nimo@cmu.edu"
-    icon={<MdEmail width={theme.sizes.icon} fill={theme.colors.icon} />}
-  />
+  <Icon url="mailto:nimo@cmu.edu" icon={<MdEmail fill={theme.colors.icon} />} />
 );
 
 const Text = ({
@@ -209,7 +222,9 @@ const Text = ({
   className?: string;
   children: ReactNode;
 }) => (
-  <p className={`${className} font-sans font-light text-lg my-2`}>{children}</p>
+  <p className={`${className} font-sans font-extralight text-lg my-2`}>
+    {children}
+  </p>
 );
 
 const Section = ({
@@ -251,7 +266,7 @@ const Section = ({
 
 const App: React.FC = () => {
   return (
-    <div className="font-sans grid md:grid-cols-3 m-4 md:m-10 max-w-screen-xl">
+    <div className="font-sans md:grid md:grid-cols-3 m-4 md:m-10 max-w-screen-xl">
       <Hero className="md:col-span-2" />
       <Socials className="mt-8" />
       <Text className="md:col-span-2 mt-8">
