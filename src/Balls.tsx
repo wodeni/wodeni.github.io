@@ -40,19 +40,10 @@ function Plane({ color, ...props }: OurPlaneProps) {
 function Room() {
   return (
     <>
-      <Plane
-        color={"#f00"}
-        position={[-5, 0, 20]}
-        rotation={[0, Math.PI / 2, Math.PI]}
-      />
-      <Plane
-        color={"#00f"}
-        position={[5, 0, 20]}
-        rotation={[0, -Math.PI / 2, -Math.PI]}
-      />
-      <Plane color={"#0f0"} position={[0, 0, 5]} rotation={[0, Math.PI, 0]} />
+      <Plane position={[-5, 0, 20]} rotation={[0, Math.PI / 2, Math.PI]} />
+      <Plane position={[5, 0, 20]} rotation={[0, -Math.PI / 2, -Math.PI]} />
+      <Plane position={[0, 0, 5]} rotation={[0, Math.PI, 0]} />
       <Plane // bottom
-        color={"#ff0"}
         position={[0, -5, 20]}
         rotation={[Math.PI / 2, Math.PI, 0]}
       />
@@ -207,7 +198,7 @@ export default ({
       <Physics gravity={[0, -8, 0]} iterations={10}>
         <Pointer />
         <Clump numBalls={20} color={color} />
-        <Room />
+        {/* <Room /> */}
       </Physics>
       <ambientLight intensity={1} />
       <PointLightRectangle

@@ -1,7 +1,6 @@
 import Logo from "./Logo";
 import penroseLogo from "./assets/penrose.svg";
 import Balls from "./Balls";
-import styles from "./App.module.css";
 import Papers, { Paper } from "./Papers";
 import { ReactNode, useState } from "react";
 import { HashLink } from "react-router-hash-link";
