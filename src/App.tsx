@@ -313,7 +313,7 @@ const App: React.FC = () => {
   return (
     <div
       className={
-        "font-sans md:grid md:grid-cols-3 p-4 md:p-10 max-w-screen-xl dark:bg-zinc-800 dark:text-neutral-100"
+        "font-sans md:grid md:grid-cols-3 p-4 md:p-10 max-w-screen-xl dark:text-neutral-100"
       }
     >
       <Hero className="md:col-span-2" />

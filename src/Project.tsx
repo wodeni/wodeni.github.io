@@ -26,7 +26,7 @@ export default ({
           backgroundPositionX: "20%",
         }}
       >
-        <div className="text-3xl font-medium w-7/10 px-6 lg:py-6 text-primary/70 dark:text-primary">
+        <div className="text-3xl font-medium w-7/10 px-6 pt-4 lg:py-6 text-primary/70 dark:text-primary">
           {name}
         </div>
         <div className="text-lg font-extralight w-7/10 px-6 py-4 lg:py-6">
