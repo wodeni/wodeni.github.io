@@ -1,7 +1,7 @@
 import Logo from "./Logo";
 import penroseLogo from "./assets/penrose.svg";
 import edgeworth from "./assets/edgeworth.svg";
-import mathdiagrams from "./assets/mathdiagrams.png";
+import mathdiagrams from "./assets/mathdiagrams.webp";
 import Balls from "./Balls";
 import Papers, { Paper } from "./Papers";
 import { HTMLProps, ReactNode, useEffect, useState } from "react";
@@ -256,10 +256,11 @@ const Section = ({
   children?: ReactNode;
 }) => {
   const id = header.toLowerCase();
+  // NOTE: SAFARI BUG: without top-0 and left-0, the rect will be shifted down.
   return (
     <div id={id} className="my-4 md:my-8">
-      <span className="font-bold text-3xl tracking-tight curosr-pointer relative group">
-        <svg height={30} className="w-full translate-y-1 absolute">
+      <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
+        <svg height={30} className="w-full translate-y-1 absolute top-0 left-0">
           <rect
             x={0}
             y={0}
