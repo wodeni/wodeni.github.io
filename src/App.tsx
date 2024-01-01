@@ -259,7 +259,7 @@ const Section = ({
   return (
     <div id={id} className="my-4 md:my-8">
       <span className="font-bold text-3xl tracking-tight curosr-pointer relative group">
-        <svg height={30} className="absolute  w-full translate-y-1">
+        <svg height={30} className="w-full translate-y-1 absolute">
           <rect
             x={0}
             y={0}
