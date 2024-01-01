@@ -46,15 +46,18 @@ export default ({
             >
               <stop
                 offset="0%"
-                style={{ stopColor: dark ? "#333" : "#fff", stopOpacity: 0 }}
+                style={{ stopColor: dark ? "#333" : "#fff", stopOpacity: 0.3 }}
               />
-              {/* <stop
+              <stop
                 offset="50%"
-                style={{ stopColor: dark ? "#111" : "#fff", stopOpacity: 0.4 }}
-              /> */}
+                style={{
+                  stopColor: dark ? "#111" : "#fff",
+                  stopOpacity: dark ? 0.35 : 0.7,
+                }}
+              />
               <stop
                 offset="100%"
-                style={{ stopColor: dark ? "#333" : "#fff", stopOpacity: 0.9 }}
+                style={{ stopColor: dark ? "#333" : "#fff", stopOpacity: 0.95 }}
               />
             </linearGradient>
           </defs>
