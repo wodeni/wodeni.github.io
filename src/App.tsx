@@ -30,10 +30,10 @@ const NewsFeed = () => {
         )
         .map(({ time, msg }, i) => (
           <div
-            className="py-2 text-icon md:text-sm dark:text-neutral-300"
+            className="py-2 text-gray-500 md:text-sm dark:text-neutral-300"
             key={`news-${i}`}
           >
-            <div className="w-fit bg-[#eee] rounded py-px px-1 dark:bg-zinc-600">
+            <div className="w-fit bg-gray-100 text-gray-400 rounded py-px px-1 dark:text-neutral-400 dark:bg-zinc-700">
               {time.toLocaleString("default", {
                 month: "long",
                 year: "numeric",

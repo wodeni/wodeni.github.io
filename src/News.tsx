@@ -7,6 +7,24 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2024-01-02"),
+    msg: "New year, new round of rewriting this site. Used Tailwind this time and we have dark mode now!",
+  },
+  {
+    time: new Date("2023-12-08"),
+    msg: (
+      <>
+        Invited to attend an{" "}
+        <A href="https://aimath.org/pastworkshops/cyberinfrastructure.html">
+          AIM workshop
+        </A>{" "}
+        on{" "}
+        <A href="https://code4math.org/">Digital Ecosystems for Mathematics</A>{" "}
+        and started <A href="https://mathdiagrams.com">mathdiagrams.com</A>!
+      </>
+    ),
+  },
+  {
     time: new Date("2023-07-14"),
     msg: (
       <>
