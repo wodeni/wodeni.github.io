@@ -1,8 +1,10 @@
 import Logo from "./Logo";
 import penroseLogo from "./assets/penrose.svg";
+import edgeworth from "./assets/edgeworth.svg";
+import mathdiagrams from "./assets/mathdiagrams.webp";
 import Balls from "./Balls";
 import Papers, { Paper } from "./Papers";
-import { ReactNode, useEffect, useState } from "react";
+import { HTMLProps, ReactNode, useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import news from "./News";
 import A from "./A";
@@ -28,10 +30,10 @@ const NewsFeed = () => {
         )
         .map(({ time, msg }, i) => (
           <div
-            className="py-2 text-icon md:text-sm dark:text-neutral-300"
+            className="py-2 text-gray-500 md:text-sm dark:text-neutral-300"
             key={`news-${i}`}
           >
-            <div className="w-fit bg-[#eee] rounded py-px px-1 dark:bg-zinc-600">
+            <div className="w-fit bg-gray-100 text-gray-400 rounded py-px px-1 dark:text-neutral-400 dark:bg-zinc-700">
               {time.toLocaleString("default", {
                 month: "long",
                 year: "numeric",
@@ -154,12 +156,9 @@ const Hero = ({ className }: { className?: string }) => (
 );
 
 const DarkToggle = ({ toggleDark }: { toggleDark: () => void }) => (
-  <div
-    className="mx-1 w-6 h-6 text-xl flex cursor-pointer justify-center hover:opacity-50 ease-in-out duration-200 justify-self-center"
-    onClick={toggleDark}
-  >
+  <Icon onClick={toggleDark}>
     <MdDarkMode className="fill-icon dark:fill-icon-dark" />
-  </div>
+  </Icon>
 );
 
 const Socials = ({
@@ -181,47 +180,57 @@ const Socials = ({
   </div>
 );
 
-const Icon = ({ url, icon }: { url: string; icon: ReactNode }) => (
-  <a
-    href={url}
-    className="mx-1 w-6 h-6 text-xl flex cursor-pointer justify-center hover:opacity-50 ease-in-out duration-200 justify-self-center"
+const Icon = ({ children, ...props }: HTMLProps<HTMLDivElement>) => (
+  <div
+    className="mx-1 w-6 h-6 text-xl flex cursor-pointer justify-center hover:opacity-50 ease-in-out duration-200"
+    {...props}
   >
-    {icon}
-  </a>
+    {children}
+  </div>
+);
+
+const IconLink = ({ url, icon }: { url: string; icon: ReactNode }) => (
+  <Icon>
+    <a href={url}>{icon}</a>
+  </Icon>
 );
 
 const Office = () => (
-  <Icon
+  <IconLink
     url="https://goo.gl/maps/Zp92ofs6ze3y8hc19"
-    icon={<MdLocationPin className="fill-icon dark:fill-icon-dark" />}
+    icon={<MdLocationPin className="fill-icon dark:fill-icon-dark " />}
   />
 );
 
 const Twitter = () => (
-  <Icon
+  <IconLink
     url="https://twitter.com/wodenimoni"
     icon={<FaTwitter className="fill-icon dark:fill-icon-dark" />}
   />
 );
 
 const GitHub = () => (
-  <Icon
+  <IconLink
     url="https://github.com/wodeni"
     icon={<FaGithub className="fill-icon dark:fill-icon-dark" />}
   />
 );
 
 const CV = () => (
-  <Icon
+  <IconLink
     url="http://wodenimoni.com/nimo-markdown-cv/"
-    icon={<span className="font-extralight leading-5 text-icon">CV</span>}
+    icon={
+      <span className="font-extralight leading-5 text-icon top-[-4px] left-[-3px] relative">
+        CV
+      </span>
+    }
   />
 );
 
 const Email = () => (
-  <Icon
+  <IconLink
     url="mailto:nimo@cmu.edu"
-    icon={<MdEmail className="fill-icon dark:fill-icon-dark" />}
+    icon={<MdEmail className="fill-icon dark:fill-icon-dark grow" />}
   />
 );
 
@@ -247,10 +256,11 @@ const Section = ({
   children?: ReactNode;
 }) => {
   const id = header.toLowerCase();
+  // NOTE: SAFARI BUG: without top-0 and left-0, the rect will be shifted down.
   return (
     <div id={id} className="my-4 md:my-8">
-      <span className="font-bold text-3xl tracking-tight curosr-pointer relative group">
-        <svg height={30} className="absolute  w-full translate-y-1">
+      <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
+        <svg height={30} className="w-full translate-y-1 absolute top-0 left-0">
           <rect
             x={0}
             y={0}
@@ -333,19 +343,27 @@ const App: React.FC = () => {
           <Publications />
         </Section>
         <Section header={"Tools"}>
-          <div className="grid lg:grid-cols-2 gap-8 my-4">
-            <Project
-              name="Edgeworth"
-              desc="Diagrammatic problem generation by program mutation."
-              link="https://github.com/penrose/penrose/tree/main/packages/edgeworth"
-              dark={darkMode}
-            ></Project>
+          <div className="grid lg:grid-cols-2 gap-2 md:gap-4 lg:gap-8 my-4">
             <Project
               name="Penrose"
               desc="Create beautiful diagrams just by typing math notation in plain text."
               link="https://penrose.cs.cmu.edu/"
               logo={penroseLogo}
               dark={darkMode}
+            ></Project>
+            <Project
+              name="Edgeworth"
+              desc="Diagrammatic problem generation by program mutation."
+              link="https://penrose.github.io/penrose/edgeworth/develop/"
+              logo={edgeworth}
+              dark={darkMode}
+            ></Project>
+            <Project
+              name="Math Diagrams"
+              desc="A growing collection of open-source math visualizations."
+              link="https://mathdiagrams.com/"
+              dark={darkMode}
+              logo={mathdiagrams}
             ></Project>
           </div>
         </Section>
