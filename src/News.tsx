@@ -79,18 +79,112 @@ const news: News[] = [
       </>
     ),
   },
+  {
+    time: new Date("2020-05-01"),
+    msg: (
+      <>
+        I'll join <A href="https://microsoft.github.io/prose/">PROSE</A> @
+        Microsoft Research as a Research Intern this summer!
+      </>
+    ),
+  },
+  {
+    time: new Date("2020-04-01"),
+    msg: (
+      <>
+        The first conference paper on{" "}
+        <A href="https://penrose.cs.cm">Penrose</A>,{" "}
+        <i>"Penrose: From Mathematical Notation to Beautiful Diagrams,"</i> was
+        accepted by <A href="https://s2020.siggraph.org/">SIGGRAPH 2020</A>!
+      </>
+    ),
+  },
+  {
+    time: new Date("2020-03-01"),
+    msg: (
+      <>
+        The CHI paper won a <b>Best Paper Honourable Mention award</b> 🏆!
+      </>
+    ),
+  },
+  {
+    time: new Date("2020-01-01"),
+    msg: (
+      <>
+        Our paper{" "}
+        <i>
+          "How Domain Experts Create Conceptual Diagrams and Implications for
+          Tool Design"
+        </i>{" "}
+        was accepted by <A href="http://chi2020.acm.org/">CHI 2020</A> 🏖️!
+      </>
+    ),
+  },
+  {
+    time: new Date("2019-10-01"),
+    msg: (
+      <>
+        I presented our papers at{" "}
+        <A href="http://plateau-workshop.org/">PLATEAU 2019</A> with Max and
+        Anael!
+      </>
+    ),
+  },
+  {
+    time: new Date("2019-05-01"),
+    msg: (
+      <>
+        I finished 7th at the 2019{" "}
+        <A href="https://en.wikipedia.org/wiki/ACUI_Collegiate_Pocket_Billiards_National_Championship">
+          ACUI Collegiate Nine-ball National Championship
+        </A>{" "}
+        🎱!
+      </>
+    ),
+  },
+  {
+    time: new Date("2019-05-01"),
+    msg: (
+      <>
+        Anael Kuperwajs,{" "}
+        <A href="https://www.linkedin.com/in/courtney-e-miller/">
+          Courtney Miller
+        </A>
+        , <A href="https://a9.io/">Max Krieger</A> will join us as{" "}
+        <A href="https://www.cmu.edu/scs/isr/reuse/">REUSE</A> students this
+        summer. Welcome!
+      </>
+    ),
+  },
+  {
+    time: new Date("2018-04-01"),
+    msg: <>I will join CMU as a Ph.D. student!</>,
+  },
+  {
+    time: new Date("2018-01-01"),
+    msg: <>I will be one of the TAs for COMS 4115 again in Spring 2018.</>,
+  },
+  {
+    time: new Date("2017-10-01"),
+    msg: (
+      <>
+        Gave a talk at{" "}
+        <A href="https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams">
+          DSLDI 2017
+        </A>{" "}
+        in Vancouver, Canada.
+      </>
+    ),
+  },
+  {
+    time: new Date("2017-05-01"),
+    msg: (
+      <>
+        Joined <A href="http://isri.cmu.edu/education/reu-se/">REU-SE</A>, a
+        summer research program, at Carnegie Mellon University.
+      </>
+    ),
+  },
 ];
 
 export default news;
-
-// <!-- - **May 2020** I'll join [PROSE](https://microsoft.github.io/prose/) @ Microsoft Research as a Research Intern this summer! -->
-// <!-- - **Apr 2020** The first conference paper on [Penrose](https://github.com/penrose/penrose), _"Penrose: From Mathematical Notation to Beautiful Diagrams,"_ was accepted by [SIGGRAPH 2020](https://s2020.siggraph.org/)! -->
-// <!-- - **Mar 2020** The CHI paper won a Best Paper Honourable Mention award🏆! -->
-// <!-- - **Jan 2020** Our paper _"How Domain Experts Create Conceptual Diagrams and Implications for Tool Design"_ was ~~conditionally~~ accepted by [CHI 2020](http://chi2020.acm.org/)🏖️! -->
-// <!-- - **Oct 2019** I presented our papers at [PLATEAU 2019](http://plateau-workshop.org/) with Max and Anael! -->
-// <!-- - **May 2019** I finished 7th at the 2019 [ACUI Collegiate Nine-ball National Championship](https://en.wikipedia.org/wiki/ACUI_Collegiate_Pocket_Billiards_National_Championship):8ball:! -->
-// <!-- - **May 2019** Anael Kuperwajs, [Courtney Miller](https://www.linkedin.com/in/courtney-e-miller/), [Max Krieger](https://a9.io/) will join us as [REUSE](https://www.cmu.edu/scs/isr/reuse/) students this summer. Welcome! -->
-// <!-- - **April 2018** I will join CMU as a Ph.D. student! -->
-// <!-- - **January 2018** I will be one of the TAs for COMS 4115 again in Spring 2018. -->
-// <!-- - **October 2017** Gave a talk at [DSLDI 2017](https://2017.splashcon.org/event/dsldi-2017-substance-and-style-domain-specific-languages-for-mathematical-diagrams) in Vancouver, Canada. -->
-// <!-- - __May 2017__  Joined [REU-SE](http://isri.cmu.edu/education/reu-se/), a summer research program, at Carnegie Mellon University. -->

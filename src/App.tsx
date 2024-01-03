@@ -4,7 +4,7 @@ import edgeworth from "./assets/edgeworth.svg";
 import mathdiagrams from "./assets/mathdiagrams.webp";
 import Balls from "./Balls";
 import Papers, { Paper } from "./Papers";
-import { HTMLProps, ReactNode, useEffect, useState } from "react";
+import { HTMLProps, ReactNode, useEffect, useRef, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import news from "./News";
 import A from "./A";
@@ -22,26 +22,52 @@ import theme from "./theme";
 
 const NewsFeed = () => {
   const today = new Date();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const scrollableDivRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollableDivRef.current !== null) {
+        const isAtTop = scrollableDivRef.current.scrollTop === 0;
+        setIsScrolled(!isAtTop);
+      }
+    };
+    if (scrollableDivRef.current !== null) {
+      const div = scrollableDivRef.current;
+      div.addEventListener("scroll", handleScroll);
+      // Cleanup function
+      return () => {
+        div.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   return (
-    <div className="my-2">
-      {news
-        .filter(
-          ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
-        )
-        .map(({ time, msg }, i) => (
-          <div
-            className="py-2 text-gray-500 md:text-sm dark:text-neutral-300"
-            key={`news-${i}`}
-          >
-            <div className="w-fit bg-gray-100 text-gray-400 rounded py-px px-1 dark:text-neutral-400 dark:bg-zinc-700">
-              {time.toLocaleString("default", {
-                month: "long",
-                year: "numeric",
-              })}
+    <div className="my-2 relative">
+      {isScrolled && (
+        <div className="invisible md:visible absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white dark:from-zinc-800 to-transparent"></div>
+      )}
+      <div ref={scrollableDivRef} className="overflow-auto max-h-[50vh]">
+        {news
+          // .filter(
+          //   ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
+          // )
+          .map(({ time, msg }, i) => (
+            <div
+              className="py-2 text-gray-500 md:text-sm dark:text-neutral-300 "
+              key={`news-${i}`}
+            >
+              <div className="w-fit bg-gray-100 text-gray-400 rounded py-px px-1 dark:text-neutral-400 dark:bg-zinc-700">
+                {time.toLocaleString("default", {
+                  month: "long",
+                  year: "numeric",
+                })}
+              </div>
+              {msg}
             </div>
-            {msg}
-          </div>
-        ))}
+          ))}
+      </div>
+      <div className="invisible md:visible absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white dark:from-zinc-800 to-transparent"></div>
     </div>
   );
 };
@@ -288,6 +314,25 @@ const Section = ({
     </div>
   );
 };
+const Footer = () => (
+  <div className="md:col-span-3 mt-8 w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400">
+    <span className="mb-2">
+      © {new Date().getUTCFullYear()} Wode "Nimo" Ni.
+      {/* Last updated on{" "}
+      {new Date(document.lastModified).toLocaleString("default", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })}
+      . */}
+    </span>
+    <div className={`flex items-start color-primary text-sm`}>
+      <Twitter />
+      <GitHub />
+      <Email />
+    </div>
+  </div>
+);
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(
@@ -384,6 +429,7 @@ const App: React.FC = () => {
           <NewsFeed />
         </Section>
       </div>
+      <Footer />
     </div>
   );
 };
