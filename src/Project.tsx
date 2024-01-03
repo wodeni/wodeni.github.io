@@ -14,7 +14,7 @@ export default ({
   return (
     <a href={link}>
       <div
-        className="rounded drop-shadow-md hover:drop-shadow-xl w-full h-36 lg:h-48 bg-white dark:shadow-none dark:bg-zinc-700 dark:rounded-lg dark:border-primary bg-contain  bg-left-top dark:drop-shadow-none dark:hover:drop-shadow-none dark:transition-none transition-all ease-in-out duration-100 dark:hover:shadow-md dark:hover:scale-105 overflow-hidden scale-100
+        className="rounded shadow-md hover:shadow-xl w-full h-36 lg:h-48 bg-white dark:shadow-none dark:bg-zinc-700 dark:rounded-lg dark:border-primary bg-contain bg-left-top dark:drop-shadow-none dark:hover:drop-shadow-none dark:transition-none transition-all ease-in-out duration-100 dark:hover:shadow-md dark:hover:scale-105 overflow-hidden scale-100
       "
       >
         <svg className="absolute z-[-50]" width="100%" viewBox="0 0 100 100">
