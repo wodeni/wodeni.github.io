@@ -51,6 +51,11 @@ const entries: Papers = {
     talk: "https://youtu.be/O60RuV2gBMk",
     coauthors: ["Wode Ni", "Dor Ma'ayan"],
   },
+  "penrosellm-2023": {
+    icon: "",
+    type: "workshop",
+    pdf: new URL("/assets/splash-23-llm-diagrams.pdf", import.meta.url).href,
+  },
   "narrative-2019": {
     icon: "",
     type: "workshop",
