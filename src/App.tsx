@@ -47,10 +47,7 @@ const NewsFeed = () => {
       {isScrolled && (
         <div className="invisible md:visible absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white dark:from-zinc-800 to-transparent"></div>
       )}
-      <div
-        ref={scrollableDivRef}
-        className="md:overflow-auto max-h-[50vh] scrollbar-hide"
-      >
+      <div ref={scrollableDivRef} className="overflow-auto max-h-[50vh]">
         {news
           // .filter(
           //   ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
@@ -317,6 +314,25 @@ const Section = ({
     </div>
   );
 };
+const Footer = () => (
+  <div className="md:col-span-3 mt-8 w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400">
+    <span className="mb-2">
+      © {new Date().getUTCFullYear()} Wode "Nimo" Ni.
+      {/* Last updated on{" "}
+      {new Date(document.lastModified).toLocaleString("default", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })}
+      . */}
+    </span>
+    <div className={`flex items-start color-primary text-sm`}>
+      <Twitter />
+      <GitHub />
+      <Email />
+    </div>
+  </div>
+);
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(
@@ -413,6 +429,7 @@ const App: React.FC = () => {
           <NewsFeed />
         </Section>
       </div>
+      <Footer />
     </div>
   );
 };
