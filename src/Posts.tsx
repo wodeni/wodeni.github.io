@@ -53,6 +53,7 @@ export default () => {
                 {post.attributes.date}
               </span>
               <A
+                className="font-bold"
                 href={`/posts/${post.path
                   .split("/")
                   .pop()!
