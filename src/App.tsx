@@ -19,6 +19,7 @@ import { BiSlideshow } from "react-icons/bi";
 import { BsBookmarkCheck } from "react-icons/bs";
 import Project from "./Project";
 import theme from "./theme";
+import Posts from "./Posts";
 
 const NewsFeed = () => {
   const today = new Date();
@@ -334,6 +335,21 @@ const Footer = () => (
   </div>
 );
 
+const Links = () => {
+  return (
+    <div
+      className={`flex items-end md:items-top md:ml-auto mb-0 color-primary font-light md:text-lg font-mono md:mt-4 gap-2 md:flex-col`}
+    >
+      <A href="/posts">
+        <span>/Posts</span>
+      </A>
+      <A href="/pool">
+        <span>/Pool</span>
+      </A>
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(
     window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -372,7 +388,10 @@ const App: React.FC = () => {
       }
     >
       <Hero className="md:col-span-2" />
-      <Socials className="mt-8" toggleDark={toggleDark} />
+      <div className="md:col-span-1 justify-left flex flex-col">
+        <Socials className="mt-8" toggleDark={toggleDark} />
+        <Links />
+      </div>
       <Text className="md:col-span-2 mt-8">
         I'm Nimo. I build ergonomic digital tools to make difficult things feel
         simple.
