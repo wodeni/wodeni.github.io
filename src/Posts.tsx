@@ -27,10 +27,10 @@ export default () => {
     loadPosts().then((posts) => {
       setPosts(posts);
     });
-  });
+  }, []);
 
   return (
-    <Page logoOnly>
+    <Page>
       <div className="md:col-span-1 justify-left flex flex-col">
         <Socials className="mt-8" toggleDark={toggleDark} />
         <div

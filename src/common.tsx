@@ -35,7 +35,7 @@ export const Section = ({
             y={0}
             width={5}
             height={50}
-            className="group-hover:opacity-30 group-hover:scale-x-400 transition-transform transform fill-primary"
+            className="group-hover:opacity-30 group-hover:scale-x-[400] transition-transform transform fill-primary"
           ></rect>
           <rect
             x={0}

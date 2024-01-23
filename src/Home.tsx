@@ -171,9 +171,9 @@ const Links = () => {
       <A href="/posts">
         <span>/Posts</span>
       </A>
-      <A href="/pool">
+      {/* <A href="/pool">
         <span>/Pool</span>
-      </A>
+      </A> */}
     </div>
   );
 };

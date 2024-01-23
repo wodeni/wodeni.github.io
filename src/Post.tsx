@@ -7,7 +7,7 @@ import { Socials } from "./contact";
 export default ({ post }: { post: Post }) => {
   const { darkMode, toggleDark } = useContext(DarkModeContext);
   return (
-    <Page logoOnly>
+    <Page>
       <div className="md:col-span-1 justify-left flex flex-col">
         <Socials className="mt-8" toggleDark={toggleDark} />
         <div

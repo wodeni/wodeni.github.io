@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Balls from "./Balls";
 import Logo from "./Logo";
 import theme from "./theme";
@@ -11,6 +11,10 @@ export default ({
   children: ReactNode;
   logoOnly?: boolean;
 }) => {
+  const [year, setYear] = useState(0);
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
   const Hero = ({ className }: { className?: string }) => (
     <div className={className}>
       {logoOnly ? (
@@ -30,7 +34,7 @@ export default ({
   const Footer = () => (
     <div className="md:col-span-3 mt-8 w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400">
       <span className="mb-2">
-        © {new Date().getUTCFullYear()} Wode "Nimo" Ni.
+        © {year} Wode "Nimo" Ni.
         {/* Last updated on{" "}
       {new Date(document.lastModified).toLocaleString("default", {
         month: "long",
