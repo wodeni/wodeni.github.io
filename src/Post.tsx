@@ -13,10 +13,10 @@ export default ({ post }: { post: Post }) => {
         <div
           className={`flex items-end md:items-top md:ml-auto mb-0 color-primary font-light md:text-lg font-mono md:mt-4 gap-2 md:flex-col`}
         >
-          <A href="/">
+          <A href={`${import.meta.env.BASE_URL}/`}>
             <span>/Home</span>
           </A>
-          <A href="/posts">
+          <A href={`${import.meta.env.BASE_URL}/posts`}>
             <span>/Posts</span>
           </A>
         </div>

@@ -36,7 +36,7 @@ export default () => {
         <div
           className={`flex items-end md:items-top md:ml-auto mb-0 color-primary font-light md:text-lg font-mono md:mt-4 gap-2 md:flex-col`}
         >
-          <A href="/">
+          <A href={`${import.meta.env.BASE_URL}/`}>
             <span>/Home</span>
           </A>
         </div>
@@ -54,7 +54,7 @@ export default () => {
               </span>
               <A
                 className="font-bold"
-                href={`/posts/${post.path
+                href={`${import.meta.env.BASE_URL}/posts/${post.path
                   .split("/")
                   .pop()!
                   .replace(".md", "")}`}

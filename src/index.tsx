@@ -30,22 +30,27 @@ const createPostRoutes = async () => {
 // Create the router with a function to add post routes
 const createRouter = async () => {
   const postRoutes = await createPostRoutes();
-  return createBrowserRouter([
+  return createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/posts",
+        element: <Posts />,
+        // children: postRoutes,
+      },
+      {
+        path: "/pool",
+        element: <Pool />,
+      },
+      ...postRoutes,
+    ],
     {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/posts",
-      element: <Posts />,
-      // children: postRoutes,
-    },
-    {
-      path: "/pool",
-      element: <Pool />,
-    },
-    ...postRoutes,
-  ]);
+      basename: import.meta.env.BASE_URL,
+    }
+  );
 };
 
 const RootComponent = () => {
