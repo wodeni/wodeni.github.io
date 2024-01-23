@@ -17,7 +17,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
   fontFamily: {
     fontFamily: {
       sans: ['"Open Sans"'],

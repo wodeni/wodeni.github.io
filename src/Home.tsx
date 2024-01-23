@@ -1,25 +1,17 @@
-import Logo from "./Logo";
-import penroseLogo from "./assets/penrose.svg";
-import edgeworth from "./assets/edgeworth.svg";
-import mathdiagrams from "./assets/mathdiagrams.webp";
-import Balls from "./Balls";
-import Papers, { Paper } from "./Papers";
-import { HTMLProps, ReactNode, useEffect, useRef, useState } from "react";
-import { HashLink } from "react-router-hash-link";
-import news from "./News";
-import A from "./A";
-import { MdEmail, MdLocationPin, MdDarkMode } from "react-icons/md";
-import {
-  FaGithub,
-  FaTwitter,
-  FaRegFilePdf,
-  FaRegPlayCircle,
-} from "react-icons/fa";
+import { ReactNode, useContext, useEffect, useRef, useState } from "react";
 import { BiSlideshow } from "react-icons/bi";
 import { BsBookmarkCheck } from "react-icons/bs";
+import { FaRegFilePdf, FaRegPlayCircle } from "react-icons/fa";
+import DarkModeContext from "./DarkModeContext";
+import news from "./News";
+import Page from "./Page";
+import Papers, { Paper } from "./Papers";
 import Project from "./Project";
-import theme from "./theme";
-import Posts from "./Posts";
+import edgeworth from "./assets/edgeworth.svg";
+import mathdiagrams from "./assets/mathdiagrams.webp";
+import penroseLogo from "./assets/penrose.svg";
+import { A, Section, Text } from "./common";
+import { Socials } from "./contact";
 
 const NewsFeed = () => {
   const today = new Date();
@@ -171,170 +163,6 @@ const Publications = () => (
   </div>
 );
 
-const Hero = ({ className }: { className?: string }) => (
-  <div className={className}>
-    <div className="flex h-44">
-      <div className="w-48 h-48">
-        <Balls color={theme.colors.primary} />
-      </div>
-      <Logo className="w-44 ml-4 mt-8" />
-    </div>
-  </div>
-);
-
-const DarkToggle = ({ toggleDark }: { toggleDark: () => void }) => (
-  <Icon onClick={toggleDark}>
-    <MdDarkMode className="fill-icon dark:fill-icon-dark" />
-  </Icon>
-);
-
-const Socials = ({
-  className,
-  toggleDark,
-}: {
-  className?: string;
-  toggleDark: () => void;
-}) => (
-  <div
-    className={`${className} flex items-start md:items-top md:ml-auto mb-0 color-primary`}
-  >
-    <CV />
-    <Twitter />
-    <GitHub />
-    <Email />
-    <Office />
-    <DarkToggle toggleDark={toggleDark} />
-  </div>
-);
-
-const Icon = ({ children, ...props }: HTMLProps<HTMLDivElement>) => (
-  <div
-    className="mx-1 w-6 h-6 text-xl flex cursor-pointer justify-center hover:opacity-50 ease-in-out duration-200"
-    {...props}
-  >
-    {children}
-  </div>
-);
-
-const IconLink = ({ url, icon }: { url: string; icon: ReactNode }) => (
-  <Icon>
-    <a href={url}>{icon}</a>
-  </Icon>
-);
-
-const Office = () => (
-  <IconLink
-    url="https://goo.gl/maps/Zp92ofs6ze3y8hc19"
-    icon={<MdLocationPin className="fill-icon dark:fill-icon-dark " />}
-  />
-);
-
-const Twitter = () => (
-  <IconLink
-    url="https://twitter.com/wodenimoni"
-    icon={<FaTwitter className="fill-icon dark:fill-icon-dark" />}
-  />
-);
-
-const GitHub = () => (
-  <IconLink
-    url="https://github.com/wodeni"
-    icon={<FaGithub className="fill-icon dark:fill-icon-dark" />}
-  />
-);
-
-const CV = () => (
-  <IconLink
-    url="http://wodenimoni.com/nimo-markdown-cv/"
-    icon={
-      <span className="font-extralight leading-5 text-icon top-[-4px] left-[-3px] relative">
-        CV
-      </span>
-    }
-  />
-);
-
-const Email = () => (
-  <IconLink
-    url="mailto:nimo@cmu.edu"
-    icon={<MdEmail className="fill-icon dark:fill-icon-dark grow" />}
-  />
-);
-
-const Text = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: ReactNode;
-}) => (
-  <p
-    className={`${className} font-sans font-extralight text-lg my-2 dark:text-neutral-100`}
-  >
-    {children}
-  </p>
-);
-
-const Section = ({
-  header,
-  children,
-}: {
-  header: string;
-  children?: ReactNode;
-}) => {
-  const id = header.toLowerCase();
-  // NOTE: SAFARI BUG: without top-0 and left-0, the rect will be shifted down.
-  return (
-    <div id={id} className="my-4 md:my-8">
-      <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
-        <svg height={30} className="w-full translate-y-1 absolute top-0 left-0">
-          <rect
-            x={0}
-            y={0}
-            width={5}
-            height={50}
-            className="group-hover:opacity-30 group-hover:scale-x-400 transition-transform transform fill-primary"
-          ></rect>
-          <rect
-            x={0}
-            y={0}
-            width={5}
-            height={50}
-            className="fill-primary"
-          ></rect>
-        </svg>
-        <HashLink
-          className="ml-[10px] w-full dark:text-neutral-100"
-          smooth
-          to={`/#${id}`}
-        >
-          {header}
-        </HashLink>
-      </span>
-      {children}
-    </div>
-  );
-};
-const Footer = () => (
-  <div className="md:col-span-3 mt-8 w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400">
-    <span className="mb-2">
-      © {new Date().getUTCFullYear()} Wode "Nimo" Ni.
-      {/* Last updated on{" "}
-      {new Date(document.lastModified).toLocaleString("default", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      })}
-      . */}
-    </span>
-    <div className={`flex items-start color-primary text-sm`}>
-      <Twitter />
-      <GitHub />
-      <Email />
-    </div>
-  </div>
-);
-
 const Links = () => {
   return (
     <div
@@ -350,44 +178,11 @@ const Links = () => {
   );
 };
 
-const App: React.FC = () => {
-  const [darkMode, setDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
-  const toggleDark = () => {
-    setDarkMode(!darkMode);
-  };
-
-  function updateTheme() {
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      setDarkMode(true);
-    } else {
-      // Otherwise, remove it
-      setDarkMode(false);
-    }
-  }
-
-  useEffect(() => {
-    // Add an event listener to react to changes in the system's color scheme
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", updateTheme);
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
+const Home: React.FC = () => {
+  const { darkMode, toggleDark } = useContext(DarkModeContext);
 
   return (
-    <div
-      className={
-        "font-sans md:grid md:grid-cols-3 p-4 md:p-10 max-w-screen-xl dark:text-neutral-100"
-      }
-    >
-      <Hero className="md:col-span-2" />
+    <Page>
       <div className="md:col-span-1 justify-left flex flex-col">
         <Socials className="mt-8" toggleDark={toggleDark} />
         <Links />
@@ -448,9 +243,8 @@ const App: React.FC = () => {
           <NewsFeed />
         </Section>
       </div>
-      <Footer />
-    </div>
+    </Page>
   );
 };
 
-export default App;
+export default Home;
