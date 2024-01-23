@@ -21,7 +21,7 @@ export default ({ post }: { post: Post }) => {
           </A>
         </div>
       </div>
-      <div className="max-w-screen-md md:col-span-2">
+      <div className="max-w-screen-md md:col-span-2 mt-8">
         <Section header={post.attributes.title} />
         <article
           className="prose dark:prose-invert"

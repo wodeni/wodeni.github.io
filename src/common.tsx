@@ -45,6 +45,7 @@ export const Section = ({
             className="fill-primary"
           ></rect>
         </svg>
+        {/* TODO: fix link to work on all pages */}
         <HashLink
           className="ml-[10px] w-full dark:text-neutral-100"
           smooth
