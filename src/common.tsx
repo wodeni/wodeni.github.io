@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { HashLink } from "react-router-hash-link";
 import { Icon } from "./contact";
 import { MdDarkMode } from "react-icons/md";
+import { useLocation } from "react-router-dom";
 
 export const Text = ({
   className,
@@ -24,36 +25,40 @@ export const Section = ({
   header: string;
   children?: ReactNode;
 }) => {
-  const id = header.toLowerCase();
+  // genereate kabab case id
+  const id = header.toLowerCase().replace(/ /g, "-");
+  // get current route
+  const location = useLocation();
+
   // NOTE: SAFARI BUG: without top-0 and left-0, the rect will be shifted down.
   return (
     <div id={id} className="my-4 md:my-8">
-      <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
-        <svg height={30} className="w-full translate-y-1 absolute top-0 left-0">
-          <rect
-            x={0}
-            y={0}
-            width={5}
-            height={50}
-            className="group-hover:opacity-30 group-hover:scale-x-[400] transition-transform transform fill-primary"
-          ></rect>
-          <rect
-            x={0}
-            y={0}
-            width={5}
-            height={50}
-            className="fill-primary"
-          ></rect>
-        </svg>
-        {/* TODO: fix link to work on all pages */}
-        <HashLink
-          className="ml-[10px] w-full dark:text-neutral-100"
-          smooth
-          to={`/#${id}`}
-        >
-          {header}
-        </HashLink>
-      </span>
+      <HashLink smooth to={`${location.pathname}#${id}`}>
+        <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
+          <span className="ml-[10px] w-full dark:text-neutral-100">
+            {header}
+          </span>
+          <svg
+            height={30}
+            className="w-full translate-y-1 absolute top-0 left-0"
+          >
+            <rect
+              x={0}
+              y={0}
+              width={5}
+              height={50}
+              className="group-hover:opacity-30 group-hover:scale-x-[400] transition-transform transform fill-primary"
+            ></rect>
+            <rect
+              x={0}
+              y={0}
+              width={5}
+              height={50}
+              className="fill-primary"
+            ></rect>
+          </svg>
+        </span>
+      </HashLink>
       {children}
     </div>
   );
