@@ -239,7 +239,7 @@ const Home: React.FC = () => {
           </Text>
         </Section>
       </div>
-      <div className="md:ml-10 md:max-w-60">
+      <div className="md:ml-auto md:max-w-60">
         <Section header={"News"}>
           <NewsFeed />
         </Section>
