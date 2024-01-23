@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { HashLink } from "react-router-hash-link";
 import { Icon } from "./contact";
 import { MdDarkMode } from "react-icons/md";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Text = ({
   className,
@@ -88,6 +88,25 @@ export const DarkToggle = ({ toggleDark }: { toggleDark: () => void }) => (
   <Icon onClick={toggleDark}>
     <MdDarkMode className="fill-icon dark:fill-icon-dark" />
   </Icon>
+);
+
+export const InternalLink = ({
+  className,
+  children,
+  to,
+}: {
+  className?: string;
+  children: ReactNode;
+  to: string;
+}) => (
+  <Link
+    to={to}
+    className={`underline decoration-primary/50 dark:decoration-primary/70 decoration-2  cursor-pointer hover:decoration-primary hover:decoration-3 ease-in-out duration-100 ${
+      className ?? ""
+    }`}
+  >
+    {children}
+  </Link>
 );
 
 type PostMeta = {

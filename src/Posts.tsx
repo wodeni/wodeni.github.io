@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Page from "./Page";
-import { A, DarkToggle, Post, Section, Text } from "./common";
+import { A, DarkToggle, InternalLink, Post, Section, Text } from "./common";
 import DarkModeContext from "./DarkModeContext";
 import { Socials } from "./contact";
 
@@ -36,9 +36,9 @@ export default () => {
         <div
           className={`flex items-end md:items-top md:ml-auto mb-0 color-primary font-light md:text-lg font-mono md:mt-4 gap-2 md:flex-col`}
         >
-          <A href={`${import.meta.env.BASE_URL}/`}>
+          <InternalLink to="/">
             <span>/Home</span>
-          </A>
+          </InternalLink>
         </div>
       </div>
       <div className="max-w-screen-md md:col-span-2">
@@ -52,15 +52,12 @@ export default () => {
               <span className="text-gray-500 dark:text-neutral-400 font-mono text-lg mr-4">
                 {post.attributes.date}
               </span>
-              <A
+              <InternalLink
                 className="font-bold"
-                href={`${import.meta.env.BASE_URL}/posts/${post.path
-                  .split("/")
-                  .pop()!
-                  .replace(".md", "")}`}
+                to={`/posts/${post.path.split("/").pop()!.replace(".md", "")}`}
               >
                 {post.attributes.title}
-              </A>
+              </InternalLink>
             </p>
           ))}
         </Section>
