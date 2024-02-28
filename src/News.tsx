@@ -7,6 +7,15 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2024-02-28"),
+    msg: (
+      <>
+        Paper accepted at PLDI 2024:{" "}
+        <i>Syntactic Code Search with Sequence-to-Tree Matching</i>!
+      </>
+    ),
+  },
+  {
     time: new Date("2024-01-02"),
     msg: "New year, new round of rewriting this site. Used Tailwind this time and we have dark mode now!",
   },
