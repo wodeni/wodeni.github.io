@@ -48,25 +48,25 @@ const entries: Papers = {
     talk: "https://youtu.be/O60RuV2gBMk",
     coauthors: ["Wode Ni", "Dor Ma'ayan"],
   },
-  "penrosellm-2023": {
-    type: "workshop",
-    pdf: new URL("/assets/splash-23-llm-diagrams.pdf", import.meta.url).href,
-  },
-  "narrative-2019": {
-    type: "workshop",
-    pdf: "https://2019.plateau-workshop.org/assets/papers-2019/9.pdf",
-    slides: "/assets/plateau-19-presentation.pdf",
-  },
-  "tutorial-2019": {
-    type: "workshop",
-    pdf: "https://drops.dagstuhl.de/opus/volltexte/2020/11958/pdf/OASIcs-PLATEAU-2019-4.pdf",
-    slides: "/assets/plateau-19-presentation.pdf",
-  },
-  "substy-2017": {
-    type: "workshop",
-    pdf: new URL("/assets/dsldi.pdf", import.meta.url).href,
-    slides: new URL("/assets/dsldi-presentation.pdf", import.meta.url).href,
-  },
+  // "penrosellm-2023": {
+  //   type: "workshop",
+  //   pdf: new URL("/assets/splash-23-llm-diagrams.pdf", import.meta.url).href,
+  // },
+  // "narrative-2019": {
+  //   type: "workshop",
+  //   pdf: "https://2019.plateau-workshop.org/assets/papers-2019/9.pdf",
+  //   slides: "/assets/plateau-19-presentation.pdf",
+  // },
+  // "tutorial-2019": {
+  //   type: "workshop",
+  //   pdf: "https://drops.dagstuhl.de/opus/volltexte/2020/11958/pdf/OASIcs-PLATEAU-2019-4.pdf",
+  //   slides: "/assets/plateau-19-presentation.pdf",
+  // },
+  // "substy-2017": {
+  //   type: "workshop",
+  //   pdf: new URL("/assets/dsldi.pdf", import.meta.url).href,
+  //   slides: new URL("/assets/dsldi-presentation.pdf", import.meta.url).href,
+  // },
 };
 
 const getVenue = (type: PaperType, entry: BibEntry): string => {

@@ -386,6 +386,8 @@ const App: React.FC = () => {
             Computer Science, advised by{" "}
             <A href="http://pact.cs.cmu.edu/koedinger.html">Ken Koedinger</A>{" "}
             and <A href="https://www.cs.cmu.edu/~jssunshi/">Josh Sunshine</A>.
+            Here are some selected papers. Refer to the{" "}
+            <A href="http://wodenimoni.com/nimo-markdown-cv/">CV</A> for more.
           </Text>
           <Publications />
         </Section>
