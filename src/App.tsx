@@ -141,10 +141,12 @@ const Publications = () => (
           </span>
           {"."}
           <div className="flex gap-2">
-            <div className="flex items-center gap-0.5">
-              <BsBookmarkCheck />
-              <Copy data={bibtex}>bib</Copy>
-            </div>
+            {bibtex && (
+              <div className="flex items-center gap-0.5">
+                <BsBookmarkCheck />
+                <Copy data={bibtex}>bib</Copy>
+              </div>
+            )}
             {pdf && (
               <div className="flex items-center gap-0.5">
                 <FaRegFilePdf />
