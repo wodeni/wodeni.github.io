@@ -7,6 +7,30 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2024-04-10"),
+    msg: (
+      <>
+        <i>
+          "Edgeworth: Efficient and Scalable Authoring of Visual Thinking
+          Activities"
+        </i>{" "}
+        was accepted at Learning @ Scale 2024!
+      </>
+    ),
+  },
+  {
+    time: new Date("2024-04-10"),
+    msg: (
+      <>
+        <i>
+          "Minkowski Penalties: Robust Differentiable Constraint Enforcement for
+          Vector Graphics"
+        </i>{" "}
+        was accepted at SIGGRAPH 2024!
+      </>
+    ),
+  },
+  {
     time: new Date("2024-02-28"),
     msg: (
       <>
