@@ -129,16 +129,12 @@ const Publications = () => (
               )
               .map((a, i) => (
                 <span key={`${id}-author-${i}`}>
-                  <li className={`inline`}>{a}</li>
+                  <li className={`inline dark:font-thin`}>{a}</li>
                   {i !== authors.length - 1 && <span>, </span>}
                 </span>
               ))}
           </span>
-          .{/* <br /> */}{" "}
-          <span className="text-base font-light italic">
-            {/* {venue} ({series}) */}
-            {series}
-          </span>
+          . <span className="text-base font-light italic">{series}</span>
           {"."}
           <div className="flex gap-2">
             {bibtex && (

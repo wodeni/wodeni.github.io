@@ -7,6 +7,45 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2024-06-24"),
+    msg: (
+      <>
+        Always meant to submit something to{" "}
+        <A href="https://diagrams-2024.diagrams-conference.org/">
+          a conference with DIAGRAM in its name
+        </A>
+        . Well, done{" "}
+        <A
+          href={
+            new URL("/assets/diagrams-24-penrose.pdf", import.meta.url).href
+          }
+        >
+          that
+        </A>
+        .
+      </>
+    ),
+  },
+  {
+    time: new Date("2024-06-24"),
+    msg: (
+      <>
+        The <A href="https://rosejs.dev/">Rose</A> paper was accepted at ECOOP
+        2024!
+      </>
+    ),
+  },
+  {
+    time: new Date("2024-05-10"),
+    msg: (
+      <>
+        Excited to welcome summer interns{" "}
+        <A href="https://github.com/kyleleesea">Kyle</A> and{" "}
+        <A href="https://griffinteller.com/">Griffin</A> to the Penrose team!
+      </>
+    ),
+  },
+  {
     time: new Date("2024-04-10"),
     msg: (
       <>

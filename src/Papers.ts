@@ -31,6 +31,14 @@ export interface Paper extends PaperMeta {
 }
 
 const entries: Papers = {
+  "minkowski-2024": {
+    type: "conference",
+    pdf: new URL("/assets/siggraph-24-minkowski.pdf", import.meta.url).href,
+  },
+  "stsearch-2024": {
+    type: "conference",
+    pdf: "https://dl.acm.org/doi/pdf/10.1145/3656460",
+  },
   "recode-ni-2021": {
     type: "conference",
     pdf: new URL("/assets/uist-21-recode.pdf", import.meta.url).href,
@@ -48,6 +56,7 @@ const entries: Papers = {
     talk: "https://youtu.be/O60RuV2gBMk",
     coauthors: ["Wode Ni", "Dor Ma'ayan"],
   },
+
   // "penrosellm-2023": {
   //   type: "workshop",
   //   pdf: new URL("/assets/splash-23-llm-diagrams.pdf", import.meta.url).href,
@@ -139,36 +148,30 @@ const preprints: Paper[] = [
     id: "edgeworth-24",
     series: "L@S'24",
     type: "preprint",
+    pdf: new URL("/assets/las-24-edgeworth.pdf", import.meta.url).href,
   },
   {
-    title:
-      "Minkowski Penalties: Robust Differentiable Constraint Enforcement for Vector Graphics",
-    authors: ["Jiří Minarčík", "Sam Estep", "Wode Ni", "Keenan Crane"],
-    venue: "SIGGRAPH 2024",
-    series: "SIGGRAPH'24",
-    type: "preprint",
-    id: "minkowski-24",
-  },
-  {
-    id: "stsearch-24",
-    title: "Syntactic Code Search with Sequence-to-Tree Matching",
+    title: "Codifying Visual Representations",
     authors: [
-      "Gabriel Matute",
       "Wode Ni",
-      "Titus Barik",
-      "Alvin Cheung",
-      "Sarah E. Chasins",
+      "Sam Estep",
+      "Hwei-Shin Harriman",
+      "Jiří Minarčík",
+      "Joshua Sunshine",
     ],
-    venue: "PLDI 2024",
-    series: "PLDI'24",
+    venue: "DIAGRAMS 2024",
+    id: "diagrams-24",
+    series: "DIAGRAMS'24",
     type: "preprint",
+    pdf: new URL("/assets/diagrams-24-penrose.pdf", import.meta.url).href,
+    coauthors: ["Wode Ni", "Sam Estep", "Hwei-Shin Harriman"],
   },
   {
     id: "rose-24",
     title: "Rose: Efficient and Extensible Autodiff on the Web",
-    authors: ["Sam Estep", "Raven Rothkopf", "Wode Ni", "Joshua Sunshine"],
-    venue: "arXiv",
-    series: "arXiv",
+    authors: ["Sam Estep", "Wode Ni", "Raven Rothkopf", "Joshua Sunshine"],
+    venue: "ECOOP 2024",
+    series: "ECOOP'24",
     type: "preprint",
     pdf: "https://arxiv.org/pdf/2402.17743.pdf",
   },
