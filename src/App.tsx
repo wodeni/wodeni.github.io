@@ -109,6 +109,7 @@ const Publications = () => (
         authors,
         talk,
         coauthors,
+        authorDisplayNames,
         series,
         slides,
         id,
@@ -123,6 +124,7 @@ const Publications = () => (
           <br />
           <span className="text-base font-light">
             {authors
+              .map((a, i) => authorDisplayNames?.get(i) ?? a)
               .map((a) => (coauthors?.includes(a) ? `${a}*` : a))
               .map((a) =>
                 a === "Wode Ni" || a === "Wode Ni*" ? <strong>{a}</strong> : a

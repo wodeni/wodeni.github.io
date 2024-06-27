@@ -17,6 +17,8 @@ interface PaperMeta {
   talk?: string;
   slides?: string;
   coauthors?: string[];
+  // map bibtex strings to unicode strings
+  authorDisplayNames?: Map<number, string>;
   bibtex?: string;
 }
 interface Papers {
@@ -34,6 +36,7 @@ const entries: Papers = {
   "minkowski-2024": {
     type: "conference",
     pdf: new URL("/assets/siggraph-24-minkowski.pdf", import.meta.url).href,
+    authorDisplayNames: new Map([[0, "Jiří Minarčík"]]),
   },
   "stsearch-2024": {
     type: "conference",
