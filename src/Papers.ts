@@ -33,6 +33,10 @@ export interface Paper extends PaperMeta {
 }
 
 const entries: Papers = {
+  "edgeworth-2024": {
+    type: "conference",
+    pdf: new URL("/assets/las-24-edgeworth.pdf", import.meta.url).href,
+  },
   "minkowski-2024": {
     type: "conference",
     pdf: new URL("/assets/siggraph-24-minkowski.pdf", import.meta.url).href,
@@ -137,22 +141,6 @@ const parseBib = (bib: BibFilePresenter): Paper[] =>
   });
 
 const preprints: Paper[] = [
-  {
-    title:
-      "Edgeworth: Efficient and Scalable Authoring of Visual Thinking Activities",
-    authors: [
-      "Wode Ni",
-      "Sam Estep",
-      "Hwei-Shin Harriman",
-      "Kenneth Koedinger",
-      "Joshua Sunshine",
-    ],
-    venue: "Learning @ Scale 2024",
-    id: "edgeworth-24",
-    series: "L@S'24",
-    type: "preprint",
-    pdf: new URL("/assets/las-24-edgeworth.pdf", import.meta.url).href,
-  },
   {
     title: "Codifying Visual Representations",
     authors: [
