@@ -36,6 +36,7 @@ const entries: Papers = {
   "edgeworth-2024": {
     type: "conference",
     pdf: new URL("/assets/las-24-edgeworth.pdf", import.meta.url).href,
+    slides: new URL("/assets/las-24-edgeworth-talk.key", import.meta.url).href,
   },
   "minkowski-2024": {
     type: "conference",

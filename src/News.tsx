@@ -7,6 +7,23 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2024-07-18"),
+    msg: (
+      <>
+        Attending <A href="">L@S'24</A> for the first time in Atlanta. Check out
+        the{" "}
+        <A
+          href={
+            new URL("/assets/las-24-edgeworth-talk.key", import.meta.url).href
+          }
+        >
+          slides{" "}
+        </A>
+        of my talk!
+      </>
+    ),
+  },
+  {
     time: new Date("2024-06-24"),
     msg: (
       <>
