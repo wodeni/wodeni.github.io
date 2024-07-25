@@ -7,6 +7,18 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2024-07-19"),
+    msg: (
+      <>
+        The{" "}
+        <A href={new URL("assets/las-24-edgeworth.pdf", import.meta.url).href}>
+          Edgeworth paper
+        </A>{" "}
+        was nominated for the Best Paper Award at L@S'24!
+      </>
+    ),
+  },
+  {
     time: new Date("2024-07-18"),
     msg: (
       <>
