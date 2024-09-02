@@ -17,7 +17,7 @@ const news: News[] = [
     msg: (
       <>
         The{" "}
-        <A href={new URL("assets/las-24-edgeworth.pdf", import.meta.url).href}>
+        <A href={new URL("/assets/las-24-edgeworth.pdf", import.meta.url).href}>
           Edgeworth paper
         </A>{" "}
         was nominated for the Best Paper Award at L@S'24!
