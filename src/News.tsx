@@ -10,7 +10,13 @@ const news: News[] = [
     time: new Date("2024-09-26"),
     msg: (
       <>
-        Finished the <A href="/thesis">dissertation</A> document and will{" "}
+        Finished the{" "}
+        <A
+          href={new URL("/assets/nimo-dissertation.pdf", import.meta.url).href}
+        >
+          dissertation
+        </A>{" "}
+        document and will{" "}
         <A
           href={
             new URL("/assets/nimo-defense-poster.pdf", import.meta.url).href
