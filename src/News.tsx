@@ -7,6 +7,10 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2024-09-27"),
+    msg: <>I guess I'm Dr.Nimo now.</>,
+  },
+  {
     time: new Date("2024-09-26"),
     msg: (
       <>
