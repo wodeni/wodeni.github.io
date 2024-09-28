@@ -8,7 +8,15 @@ interface News {
 const news: News[] = [
   {
     time: new Date("2024-09-27"),
-    msg: <>I guess I'm Dr.Nimo now.</>,
+    msg: (
+      <>
+        I guess I'm Dr.Nimo now. Watch my{" "}
+        <A href="https://youtu.be/gVZJc7_0T14?si=tyN741CBUqDtCa3r">
+          thesis defense talk
+        </A>
+        .
+      </>
+    ),
   },
   {
     time: new Date("2024-09-26"),
