@@ -255,7 +255,7 @@ const CV = () => (
 
 const Email = () => (
   <IconLink
-    url="mailto:nimo@cmu.edu"
+    url="mailto:sup@wodenimoni.com"
     icon={<MdEmail className="fill-icon dark:fill-icon-dark grow" />}
   />
 );
