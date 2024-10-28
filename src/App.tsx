@@ -380,8 +380,10 @@ const App: React.FC = () => {
       <div className="max-w-screen-md md:col-span-2">
         <Section header={"Research"}>
           <Text className="">
-            I am a Ph.D. candidate at Carnegie Mellon University, School of
-            Computer Science, advised by{" "}
+            I recently completed my{" "}
+            <A href="https://github.com/wodeni/dissertation">Ph.D.</A> at
+            Carnegie Mellon University, School of Computer Science. I was
+            advised by{" "}
             <A href="http://pact.cs.cmu.edu/koedinger.html">Ken Koedinger</A>{" "}
             and <A href="https://www.cs.cmu.edu/~jssunshi/">Josh Sunshine</A>.
             Here are some selected papers. Refer to the{" "}
