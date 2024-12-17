@@ -13,8 +13,9 @@ const news: News[] = [
         I guess I'm Dr.Nimo now. Watch my{" "}
         <A href="https://youtu.be/gVZJc7_0T14?si=tyN741CBUqDtCa3r">
           thesis defense talk
-        </A>
-        .
+        </A>{" "}
+        and find my dissertation document{" "}
+        <A href="https://github.com/wodeni/dissertation">here</A> .
       </>
     ),
   },
