@@ -1,37 +1,76 @@
-import { ReactNode, useState } from "react";
+import Logo from "./Logo";
+import edgeworth from "./assets/edgeworth.svg";
+import mathdiagrams from "./assets/mathdiagrams.webp";
+import Balls from "./Balls";
+import { HTMLProps, ReactNode, useEffect, useRef, useState } from "react";
+import { HashLink } from "react-router-hash-link";
+import news from "./News";
+import A from "./A";
+import { MdEmail, MdLocationPin, MdDarkMode } from "react-icons/md";
+import {
+  FaGithub,
+  FaTwitter,
+  FaRegFilePdf,
+  FaRegPlayCircle,
+} from "react-icons/fa";
 import { BiSlideshow } from "react-icons/bi";
 import { BsBookmarkCheck } from "react-icons/bs";
-import { FaRegFilePdf, FaRegPlayCircle } from "react-icons/fa";
-import { HashLink } from "react-router-hash-link";
-import A from "./A";
-import styles from "./App.module.css";
-import news from "./News";
 import Papers, { Paper } from "./Papers";
 import Project from "./Project";
 import penroseLogo from "./assets/penrose.svg";
-import theme from "./theme";
 import Header from "./Header";
+import theme from "./theme";
+import Tabs from "./Tabs";
 
 export const NewsFeed = () => {
   const today = new Date();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const scrollableDivRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollableDivRef.current !== null) {
+        const isAtTop = scrollableDivRef.current.scrollTop === 0;
+        setIsScrolled(!isAtTop);
+      }
+    };
+    if (scrollableDivRef.current !== null) {
+      const div = scrollableDivRef.current;
+      div.addEventListener("scroll", handleScroll);
+      // Cleanup function
+      return () => {
+        div.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   return (
-    <>
-      {news
-        .filter(
-          ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
-        )
-        .map(({ time, msg }, i) => (
-          <div className={styles.NewsEntry} key={`news-${i}`}>
-            <div className={styles.Date}>
-              {time.toLocaleString("default", {
-                month: "long",
-                year: "numeric",
-              })}
+    <div className="my-2 relative">
+      {isScrolled && (
+        <div className="invisible md:visible absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white dark:from-zinc-800 to-transparent"></div>
+      )}
+      <div ref={scrollableDivRef} className="overflow-auto max-h-[50vh]">
+        {news
+          // .filter(
+          //   ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
+          // )
+          .map(({ time, msg }, i) => (
+            <div
+              className="py-2 text-gray-500 md:text-sm dark:text-neutral-300 "
+              key={`news-${i}`}
+            >
+              <div className="w-fit bg-gray-100 text-gray-400 rounded py-px px-1 dark:text-neutral-400 dark:bg-zinc-700">
+                {time.toLocaleString("default", {
+                  month: "long",
+                  year: "numeric",
+                })}
+              </div>
+              {msg}
             </div>
-            {msg}
-          </div>
-        ))}
-    </>
+          ))}
+      </div>
+      <div className="invisible md:visible absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white dark:from-zinc-800 to-transparent"></div>
+    </div>
   );
 };
 export const Copy = ({
@@ -41,10 +80,7 @@ export const Copy = ({
   data: string;
   children: ReactNode;
 }) => {
-  const [isHover, setIsHover] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const handleMouseEnter = () => setIsHover(true);
-  const handleMouseLeave = () => setIsHover(false);
   const handleClick = () => {
     navigator.clipboard.writeText(data);
     setClicked(true);
@@ -55,15 +91,8 @@ export const Copy = ({
   return (
     <div>
       <span
-        className={styles.A}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        className={`underline decoration-primary/50 dark:decoration-primary/70 decoration-2  cursor-pointer hover:decoration-primary hover:decoration-3 ease-in-out duration-100`}
         onClick={handleClick}
-        style={{
-          textDecorationColor: isHover
-            ? theme.colors.primary
-            : `${theme.colors.primary}80`,
-        }}
       >
         {children}
       </span>
@@ -72,93 +101,187 @@ export const Copy = ({
   );
 };
 
-const Publications = () => (
-  <div>
-    {Papers.map(
-      ({
-        pdf,
-        title,
-        venue,
-        authors,
-        talk,
-        coauthors,
-        series,
-        slides,
-        id,
-        bibtex,
-      }: Paper) => (
-        <div key={id} className={styles.PaperEntry}>
-          <a href={pdf}>
-            <span className={styles.PaperTitle}>{title}</span>
-          </a>
-          <br />
-          <span className={styles.PaperAuthors}>
-            {authors
-              .map((a) => (coauthors?.includes(a) ? `${a}*` : a))
-              .map((a) =>
-                a === "Wode Ni" || a === "Wode Ni*" ? <strong>{a}</strong> : a
-              )
-              .map((a, i) => (
-                <li key={`id-author-${i}`}>{a}</li>
-              ))}
-          </span>
-          .
-          <br />
-          <span className={styles.PaperVenue}>
-            {venue} ({series})
-          </span>
-          {"."}
-          <div style={{ display: "flex", gap: "5px" }}>
-            <div className={styles.PaperAsset}>
-              <BsBookmarkCheck />
-              <Copy data={bibtex}>bib</Copy>
-            </div>
-            {pdf && (
-              <div className={styles.PaperAsset}>
-                <FaRegFilePdf />
-                <A href={pdf}>pdf</A>
-              </div>
-            )}
-            {talk && (
-              <div className={styles.PaperAsset}>
-                <FaRegPlayCircle />
-                <A href={talk}>talk</A>
-              </div>
-            )}
-            {slides && (
-              <div className={styles.PaperAsset}>
-                <BiSlideshow />
-                <A href={slides}>slides</A>
-              </div>
-            )}
-          </div>
-        </div>
-      )
+const PubMeta = ({ pdf, talk, slides, bibtex }: Paper) => (
+  <div className="flex gap-2">
+    {bibtex && (
+      <div className="flex items-center gap-0.5">
+        <BsBookmarkCheck />
+        <Copy data={bibtex}>bib</Copy>
+      </div>
+    )}
+    {pdf && (
+      <div className="flex items-center gap-0.5">
+        <FaRegFilePdf />
+        <A href={pdf}>pdf</A>
+      </div>
+    )}
+    {talk && (
+      <div className="flex items-center gap-0.5">
+        <FaRegPlayCircle />
+        <A href={talk}>talk</A>
+      </div>
+    )}
+    {slides && (
+      <div className="flex items-center gap-0.5">
+        <BiSlideshow />
+        <A href={slides}>slides</A>
+      </div>
     )}
   </div>
 );
-const Intro = () => (
-  <p className={styles.text}>
-    I'm Nimo. I build ergonomic digital tools to make difficult things feel
-    simple.
-  </p>
+
+const PubAuthors = ({ authors, coauthors, authorDisplayNames, id }: Paper) => (
+  <span className="text-base font-light">
+    {authors
+      .map((a, i) => authorDisplayNames?.get(i) ?? a)
+      .map((a) => (coauthors?.includes(a) ? `${a}*` : a))
+      .map((a) =>
+        a === "Wode Ni" || a === "Wode Ni*" ? <strong>{a}</strong> : a
+      )
+      .map((a, i) => (
+        <span key={`${id}-author-${i}`}>
+          <li className={`inline dark:font-thin`}>{a}</li>
+          {i !== authors.length - 1 && <span>, </span>}
+        </span>
+      ))}
+    .{" "}
+  </span>
 );
 
-const LeftBar = () => (
-  <svg
-    height={30}
-    style={{ position: "absolute", marginTop: 10, zIndex: -1, width: "100%" }}
+const PubVenue = ({ venue, series, type }: Paper) => {
+  switch (type) {
+    case "thesis":
+      return (
+        <>
+          <span className="text-base font-light">{venue}. </span>
+          <span className="text-base font-light italic">{series}.</span>
+        </>
+      );
+    default:
+      return <span className="text-base font-light italic">{series}.</span>;
+  }
+};
+
+const Publications = () => (
+  <div>
+    {Papers.map((p: Paper) => (
+      <div key={p.id} className="my-4">
+        <a href={p.pdf}>
+          <span className="text-lg font-semibold dark:font-normal cursor-pointer">
+            {p.title}
+          </span>
+        </a>
+        <br />
+        <PubAuthors {...p} />
+        <PubVenue {...p} />
+        <PubMeta {...p} />
+      </div>
+    ))}
+  </div>
+);
+
+export const Hero = ({ className }: { className?: string }) => (
+  <div className={className}>
+    <div className="flex h-44">
+      <div className="w-48 h-48">
+        <Balls color={theme.colors.primary} />
+      </div>
+      <Logo className="w-44 ml-4 mt-8" />
+    </div>
+  </div>
+);
+
+const DarkToggle = ({ toggleDark }: { toggleDark: () => void }) => (
+  <Icon onClick={toggleDark}>
+    <MdDarkMode className="fill-icon dark:fill-icon-dark" />
+  </Icon>
+);
+
+export const Socials = ({
+  className,
+  toggleDark,
+}: {
+  className?: string;
+  toggleDark: () => void;
+}) => (
+  <div
+    className={`${className} flex items-start md:items-top md:ml-auto mb-0 color-primary`}
   >
-    <rect
-      className={styles.LeftBar}
-      x={0}
-      y={0}
-      width={5}
-      height={50}
-      fill={theme.colors.primary}
-    ></rect>
-    <rect x={0} y={0} width={5} height={50} fill={theme.colors.primary}></rect>
-  </svg>
+    <CV />
+    <Twitter />
+    <GitHub />
+    <Email />
+    <Office />
+    <DarkToggle toggleDark={toggleDark} />
+  </div>
+);
+
+const Icon = ({ children, ...props }: HTMLProps<HTMLDivElement>) => (
+  <div
+    className="mx-1 w-6 h-6 text-xl flex cursor-pointer justify-center hover:opacity-50 ease-in-out duration-200"
+    {...props}
+  >
+    {children}
+  </div>
+);
+
+const IconLink = ({ url, icon }: { url: string; icon: ReactNode }) => (
+  <Icon>
+    <a href={url}>{icon}</a>
+  </Icon>
+);
+
+const Office = () => (
+  <IconLink
+    url="https://goo.gl/maps/Zp92ofs6ze3y8hc19"
+    icon={<MdLocationPin className="fill-icon dark:fill-icon-dark " />}
+  />
+);
+
+const Twitter = () => (
+  <IconLink
+    url="https://twitter.com/wodenimoni"
+    icon={<FaTwitter className="fill-icon dark:fill-icon-dark" />}
+  />
+);
+
+const GitHub = () => (
+  <IconLink
+    url="https://github.com/wodeni"
+    icon={<FaGithub className="fill-icon dark:fill-icon-dark" />}
+  />
+);
+
+const CV = () => (
+  <IconLink
+    url="http://wodenimoni.com/nimo-markdown-cv/"
+    icon={
+      <span className="font-extralight leading-5 text-icon top-[-4px] left-[-3px] relative">
+        CV
+      </span>
+    }
+  />
+);
+
+const Email = () => (
+  <IconLink
+    url="mailto:nimo@cmu.edu"
+    icon={<MdEmail className="fill-icon dark:fill-icon-dark grow" />}
+  />
+);
+
+export const Text = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: ReactNode;
+}) => (
+  <p
+    className={`${className} font-sans font-extralight text-lg my-2 dark:text-neutral-100`}
+  >
+    {children}
+  </p>
 );
 
 export const Section = ({
@@ -169,11 +292,31 @@ export const Section = ({
   children?: ReactNode;
 }) => {
   const id = header.toLowerCase();
+  // NOTE: SAFARI BUG: without top-0 and left-0, the rect will be shifted down.
   return (
-    <div id={id}>
-      <span className={styles.Section}>
-        <LeftBar />
-        <HashLink className={styles.SectionHeader} smooth to={`/#${id}`}>
+    <div id={id} className="my-4 md:my-8">
+      <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
+        <svg height={30} className="w-full translate-y-1 absolute top-0 left-0">
+          <rect
+            x={0}
+            y={0}
+            width={5}
+            height={50}
+            className="group-hover:opacity-30 group-hover:scale-x-400 transition-transform transform fill-primary"
+          ></rect>
+          <rect
+            x={0}
+            y={0}
+            width={5}
+            height={50}
+            className="fill-primary"
+          ></rect>
+        </svg>
+        <HashLink
+          className="ml-[10px] w-full dark:text-neutral-100"
+          smooth
+          to={`/#${id}`}
+        >
           {header}
         </HashLink>
       </span>
@@ -181,59 +324,132 @@ export const Section = ({
     </div>
   );
 };
-
-export const Divider = () => (
-  <svg height="100%" width={80} className={styles.divider}>
-    <path d="M5 0 L0 1000" stroke={"#aaa"} strokeWidth={0.3}></path>
-  </svg>
-);
-
-export default () => (
-  <div className={styles.App}>
-    <div className={styles.Main}>
-      <Header />
-      <Intro />
-      <Section header={"Research"}>
-        <p className={styles.text}>
-          I am a Ph.D. candidate at Carnegie Mellon University, School of
-          Computer Science, advised by{" "}
-          <A href="http://pact.cs.cmu.edu/koedinger.html">Ken Koedinger</A> and{" "}
-          <A href="https://www.cs.cmu.edu/~jssunshi/">Josh Sunshine</A>.
-        </p>
-        <Publications />
-      </Section>
-      <Section header={"Tools"}>
-        <div className={styles.ProjectContainer}>
-          <Project
-            name="Edgeworth"
-            desc="Diagrammatic problem generation by program mutation."
-            link="https://github.com/penrose/penrose/tree/main/packages/edgeworth"
-          ></Project>
-          <Project
-            name="Penrose"
-            desc="Create beautiful diagrams just by typing math notation in plain text."
-            link="https://penrose.cs.cmu.edu/"
-            logo={penroseLogo}
-          ></Project>
-        </div>
-      </Section>
-      <Section header={"About"}>
-        <p className={styles.text}>
-          My name is 倪沃德 (ní wò dé) in Chinese. “Nimo” has been my alias
-          since my street dancing days. If you find "Wo-de" hard to pronounce,
-          default to “Nimo”.
-        </p>
-        <p className={styles.text}>
-          I am an avid pool player. I play in local leagues and national
-          tournaments.
-        </p>
-      </Section>
-    </div>
-    <div className={styles.RightPanel}>
-      <Divider />
-      <Section header={"News"}>
-        <NewsFeed />
-      </Section>
+const Footer = () => (
+  <div className="md:col-span-3 mt-8 w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400">
+    <span className="mb-2">
+      © {new Date().getUTCFullYear()} Wode "Nimo" Ni.
+      {/* Last updated on{" "}
+      {new Date(document.lastModified).toLocaleString("default", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })}
+      . */}
+    </span>
+    <div className={`flex items-start color-primary text-sm`}>
+      <Twitter />
+      <GitHub />
+      <Email />
     </div>
   </div>
 );
+
+export default () => {
+  const [darkMode, setDarkMode] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+  const toggleDark = () => {
+    setDarkMode(!darkMode);
+  };
+
+  function updateTheme() {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      setDarkMode(true);
+    } else {
+      // Otherwise, remove it
+      setDarkMode(false);
+    }
+  }
+
+  useEffect(() => {
+    // Add an event listener to react to changes in the system's color scheme
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", updateTheme);
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
+  return (
+    <div
+      className={
+        "font-sans md:grid md:grid-cols-3 p-4 md:p-10 max-w-screen-xl dark:text-neutral-100"
+      }
+    >
+      <Hero className="md:col-span-2" />
+      <div className="flex flex-col">
+        <Socials className="mt-8" toggleDark={toggleDark} />
+        <Tabs />
+      </div>
+      <Text className="md:col-span-2 mt-8">
+        I'm Nimo. I build ergonomic digital tools to make difficult things feel
+        simple.
+      </Text>
+      <div className="max-w-screen-md md:col-span-2">
+        <Section header={"Research"}>
+          <Text className="">
+            I recently received my{" "}
+            <A href={"/assets/nimo-dissertation.pdf"}>Ph.D.</A> from Carnegie
+            Mellon University, School of Computer Science, advised by{" "}
+            <A href="http://pact.cs.cmu.edu/koedinger.html">Ken Koedinger</A>{" "}
+            and <A href="https://www.cs.cmu.edu/~jssunshi/">Josh Sunshine</A>.
+            Here are some selected papers. Refer to the{" "}
+            <A href="http://wodenimoni.com/nimo-markdown-cv/">CV</A> for more.
+          </Text>
+          <Publications />
+        </Section>
+        <Section header={"Tools"}>
+          <div className="grid lg:grid-cols-2 gap-2 md:gap-4 lg:gap-8 my-4">
+            <Project
+              name="Penrose"
+              desc="Create beautiful diagrams just by typing math notation in plain text."
+              link="https://penrose.cs.cmu.edu/"
+              logo={penroseLogo}
+              dark={darkMode}
+            ></Project>
+            <Project
+              name="Edgeworth"
+              desc="Diagrammatic problem generation by program mutation."
+              link="https://penrose.github.io/penrose/edgeworth/develop/"
+              logo={edgeworth}
+              dark={darkMode}
+            ></Project>
+            <Project
+              name="Math Diagrams"
+              desc="A growing collection of open-source math visualizations."
+              link="https://mathdiagrams.com/"
+              dark={darkMode}
+              logo={mathdiagrams}
+            ></Project>
+          </div>
+        </Section>
+        <Section header={"About"}>
+          <Text>
+            My name is 倪沃德 (ní wò dé) in Chinese. “Nimo” has been my alias
+            since my street dancing days. If you find "Wo-de" hard to pronounce,
+            default to “Nimo”.
+          </Text>
+          <Text>
+            I am an avid pool player. I play in local leagues and national
+            tournaments.
+          </Text>
+          <Text>
+            Right now I'm working on interactive diagramming at{" "}
+            <A href="https://brilliant.org/drnimo">Brilliant</A>.
+          </Text>
+        </Section>
+      </div>
+      <div className="md:ml-10 md:max-w-60">
+        <Section header={"News"}>
+          <NewsFeed />
+        </Section>
+      </div>
+      <Footer />
+    </div>
+  );
+};

@@ -1,47 +1,82 @@
-import { ReactNode } from "react";
-import styles from "./App.module.css";
-import theme from "./theme";
 export default ({
   name,
   desc,
   link,
   logo,
+  dark,
 }: {
+  dark?: boolean;
   name: string;
   desc: string;
   link: string;
   logo?: string;
 }) => {
-  const color = theme.colors.primary + "77";
   return (
-    <a
-      href={link}
-      className={styles.ProjectCard}
-      data-tilt
-      data-tilt-speed="250"
-      data-tilt-max="10"
-      data-tilt-perspective="500"
-    >
+    <a href={link}>
       <div
-        className={styles.ProjectLogo}
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 1), 80%, rgba(255, 255, 255, 0)), 
-            url(${logo})`,
-          backgroundPosition: "left",
-          backgroundSize: "700px 250px",
-        }}
+        className="rounded shadow-md hover:shadow-xl w-full h-36 lg:h-48 bg-white dark:shadow-none dark:bg-zinc-700 dark:rounded-lg dark:border-primary bg-contain bg-left-top dark:drop-shadow-none dark:hover:drop-shadow-none dark:transition-none transition-all ease-in-out duration-100 dark:hover:shadow-md dark:hover:scale-105 overflow-hidden scale-100
+      "
       >
-        <div
-          className={styles.ProjectName}
-          style={{
-            color: theme.colors.primary,
-            opacity: 0.7,
-          }}
-        >
+        <svg className="absolute z-[-50]" width="100%" viewBox="0 0 100 100">
+          <defs>
+            <filter id="grayscale-filter">
+              <feColorMatrix type="saturate" values="0" />
+            </filter>
+            <filter id="color-tint-filter">
+              <feColorMatrix
+                type="matrix"
+                values="0.7725 0 0 0 0 0 0.3490 0 0 0 0 0 0.9569 0 0 0 0 0 1 0"
+              />
+              <feComponentTransfer>
+                <feFuncR type="table" tableValues="0 0.7725" />
+                <feFuncG type="table" tableValues="0 0.3490" />
+                <feFuncB type="table" tableValues="0 0.9569" />
+              </feComponentTransfer>
+            </filter>
+            <linearGradient
+              id="gradient-overlay"
+              x1="0%"
+              y1="50%"
+              x2="100%"
+              y2="50%"
+            >
+              <stop
+                offset="0%"
+                style={{ stopColor: dark ? "#333" : "#fff", stopOpacity: 0.3 }}
+              />
+              <stop
+                offset="50%"
+                style={{
+                  stopColor: dark ? "#111" : "#fff",
+                  stopOpacity: dark ? 0.35 : 0.7,
+                }}
+              />
+              <stop
+                offset="100%"
+                style={{ stopColor: dark ? "#333" : "#fff", stopOpacity: 0.95 }}
+              />
+            </linearGradient>
+          </defs>
+
+          <image
+            href={logo}
+            x={50}
+            y={-8}
+            width={80}
+            filter={dark ? "url(#grayscale-filter) " : ""}
+          />
+          <rect
+            width="100"
+            height="100"
+            style={{ fill: "url(#gradient-overlay)" }}
+          />
+        </svg>
+        <div className="text-3xl -font-medium w-7/10 px-6 pt-4 lg:py-6 text-primary/70 dark:text-primary">
           {name}
         </div>
-        <div className={styles.ProjectDesc}>{desc}</div>
+        <div className="text-lg font-extralight w-7/10 px-6 py-4 lg:py-6">
+          {desc}
+        </div>
       </div>
     </a>
   );

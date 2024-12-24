@@ -1,17 +1,21 @@
-import styles from "./App.module.css";
 import { useLocation } from "react-router-dom";
+import A from "./A";
 
 const Computers = () => (
-  <a href={"/"}>
-    <div>Computers</div>
-  </a>
+  <A href={"/"}>
+    <div>/Computers</div>
+  </A>
 );
 
-const Pool = () => <div>Pool</div>;
+const Pool = () => (
+  <A href={"/pool"}>
+    <div>/Pool</div>
+  </A>
+);
 
 export default () => {
   return (
-    <div className={styles.tabs}>
+    <div className="mt-4 md:ml-auto color-primary font-mono">
       {useLocation().pathname === "/pool" ? <Computers /> : <Pool />}
     </div>
   );

@@ -1,22 +1,10 @@
-import { ReactNode, useState } from "react";
-import styles from "./App.module.css";
-import theme from "./theme";
+import { ReactNode } from "react";
 
 export default ({ href, children }: { href: string; children: ReactNode }) => {
-  const [isHover, setIsHover] = useState(false);
-  const handleMouseEnter = () => setIsHover(true);
-  const handleMouseLeave = () => setIsHover(false);
   return (
     <a
-      className={styles.A}
+      className={`underline decoration-primary/50 dark:decoration-primary/70 decoration-2  cursor-pointer hover:decoration-primary hover:decoration-3 ease-in-out duration-100`}
       href={href}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        textDecorationColor: isHover
-          ? theme.colors.primary
-          : `${theme.colors.primary}80`,
-      }}
     >
       {children}
     </a>
