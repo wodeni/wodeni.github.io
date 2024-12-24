@@ -99,74 +99,94 @@ export const Copy = ({
   );
 };
 
+const PubMeta = ({ pdf, talk, slides, bibtex }: Paper) => (
+  <div className="flex gap-2">
+    {bibtex && (
+      <div className="flex items-center gap-0.5">
+        <BsBookmarkCheck />
+        <Copy data={bibtex}>bib</Copy>
+      </div>
+    )}
+    {pdf && (
+      <div className="flex items-center gap-0.5">
+        <FaRegFilePdf />
+        <A href={pdf}>pdf</A>
+      </div>
+    )}
+    {talk && (
+      <div className="flex items-center gap-0.5">
+        <FaRegPlayCircle />
+        <A href={talk}>talk</A>
+      </div>
+    )}
+    {slides && (
+      <div className="flex items-center gap-0.5">
+        <BiSlideshow />
+        <A href={slides}>slides</A>
+      </div>
+    )}
+  </div>
+);
+
+const PubAuthors = ({
+  pdf,
+  title,
+  venue,
+  authors,
+  talk,
+  coauthors,
+  authorDisplayNames,
+  series,
+  slides,
+  id,
+  bibtex,
+}: Paper) => (
+  <span className="text-base font-light">
+    {authors
+      .map((a, i) => authorDisplayNames?.get(i) ?? a)
+      .map((a) => (coauthors?.includes(a) ? `${a}*` : a))
+      .map((a) =>
+        a === "Wode Ni" || a === "Wode Ni*" ? <strong>{a}</strong> : a
+      )
+      .map((a, i) => (
+        <span key={`${id}-author-${i}`}>
+          <li className={`inline dark:font-thin`}>{a}</li>
+          {i !== authors.length - 1 && <span>, </span>}
+        </span>
+      ))}
+    .{" "}
+  </span>
+);
+
+const PubVenue = ({ venue, series, type }: Paper) => {
+  switch (type) {
+    case "thesis":
+      return (
+        <>
+          <span className="text-base font-light">{venue}. </span>
+          <span className="text-base font-light italic">{series}.</span>
+        </>
+      );
+    default:
+      return <span className="text-base font-light italic">{series}.</span>;
+  }
+};
+
 const Publications = () => (
   <div>
-    {Papers.map(
-      ({
-        pdf,
-        title,
-        venue,
-        authors,
-        talk,
-        coauthors,
-        authorDisplayNames,
-        series,
-        slides,
-        id,
-        bibtex,
-      }: Paper) => (
-        <div key={id} className="my-4">
-          <a href={pdf}>
-            <span className="text-lg font-semibold dark:font-normal cursor-pointer">
-              {title}
-            </span>
-          </a>
-          <br />
-          <span className="text-base font-light">
-            {authors
-              .map((a, i) => authorDisplayNames?.get(i) ?? a)
-              .map((a) => (coauthors?.includes(a) ? `${a}*` : a))
-              .map((a) =>
-                a === "Wode Ni" || a === "Wode Ni*" ? <strong>{a}</strong> : a
-              )
-              .map((a, i) => (
-                <span key={`${id}-author-${i}`}>
-                  <li className={`inline dark:font-thin`}>{a}</li>
-                  {i !== authors.length - 1 && <span>, </span>}
-                </span>
-              ))}
+    {Papers.map((p: Paper) => (
+      <div key={p.id} className="my-4">
+        <a href={p.pdf}>
+          <span className="text-lg font-semibold dark:font-normal cursor-pointer">
+            {p.title}
           </span>
-          . <span className="text-base font-light italic">{series}</span>
-          {"."}
-          <div className="flex gap-2">
-            {bibtex && (
-              <div className="flex items-center gap-0.5">
-                <BsBookmarkCheck />
-                <Copy data={bibtex}>bib</Copy>
-              </div>
-            )}
-            {pdf && (
-              <div className="flex items-center gap-0.5">
-                <FaRegFilePdf />
-                <A href={pdf}>pdf</A>
-              </div>
-            )}
-            {talk && (
-              <div className="flex items-center gap-0.5">
-                <FaRegPlayCircle />
-                <A href={talk}>talk</A>
-              </div>
-            )}
-            {slides && (
-              <div className="flex items-center gap-0.5">
-                <BiSlideshow />
-                <A href={slides}>slides</A>
-              </div>
-            )}
-          </div>
-        </div>
-      )
-    )}
+        </a>
+        <br />
+        <PubAuthors {...p} />
+        <PubVenue {...p} />
+        <PubMeta {...p} />
+      </div>
+    ))}
   </div>
 );
 
@@ -380,8 +400,9 @@ const App: React.FC = () => {
       <div className="max-w-screen-md md:col-span-2">
         <Section header={"Research"}>
           <Text className="">
-            I am a Ph.D. candidate at Carnegie Mellon University, School of
-            Computer Science, advised by{" "}
+            I recently received my{" "}
+            <A href={"/assets/nimo-dissertation.pdf"}>Ph.D.</A> from Carnegie
+            Mellon University, School of Computer Science, advised by{" "}
             <A href="http://pact.cs.cmu.edu/koedinger.html">Ken Koedinger</A>{" "}
             and <A href="https://www.cs.cmu.edu/~jssunshi/">Josh Sunshine</A>.
             Here are some selected papers. Refer to the{" "}
@@ -423,6 +444,10 @@ const App: React.FC = () => {
           <Text>
             I am an avid pool player. I play in local leagues and national
             tournaments.
+          </Text>
+          <Text>
+            Right now I'm working on interactive diagramming at{" "}
+            <A href="https://brilliant.org/drnimo">Brilliant</A>.
           </Text>
         </Section>
       </div>

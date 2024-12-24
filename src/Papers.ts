@@ -9,7 +9,7 @@ import {
 
 const bibliography = parseBibFile(bib);
 
-type PaperType = "conference" | "journal" | "workshop" | "preprint";
+type PaperType = "conference" | "journal" | "workshop" | "preprint" | "thesis";
 interface PaperMeta {
   type: PaperType;
   icon?: string;
@@ -29,23 +29,40 @@ export interface Paper extends PaperMeta {
   authors: string[];
   venue: string;
   id: string;
-  series: string;
+  series?: string;
 }
 
 const entries: Papers = {
+  "ni-thesis-2024": {
+    type: "thesis",
+    pdf: new URL("/assets/nimo-dissertation.pdf", import.meta.url).href,
+    talk: "https://youtu.be/gVZJc7_0T14?si=tyN741CBUqDtCa3r",
+  },
   "edgeworth-2024": {
     type: "conference",
     pdf: new URL("/assets/las-24-edgeworth.pdf", import.meta.url).href,
     slides: new URL("/assets/las-24-edgeworth-talk.key", import.meta.url).href,
   },
+  "diagrams-2024": {
+    type: "conference",
+    pdf: new URL("/assets/diagrams-24-penrose.pdf", import.meta.url).href,
+    coauthors: ["Wode Ni", "Sam Estep", "Hwei-Shin Harriman"],
+    authorDisplayNames: new Map([[3, "Jiří Minarčík"]]),
+  },
+  "rose-2024": {
+    type: "conference",
+    pdf: "https://drops.dagstuhl.de/storage/00lipics/lipics-vol313-ecoop2024/LIPIcs.ECOOP.2024.15/LIPIcs.ECOOP.2024.15.pdf",
+  },
   "minkowski-2024": {
     type: "conference",
     pdf: new URL("/assets/siggraph-24-minkowski.pdf", import.meta.url).href,
+    talk: "https://youtu.be/kNp-eY-kKq0?si=HvHFsq1RaUUQNPpg",
     authorDisplayNames: new Map([[0, "Jiří Minarčík"]]),
   },
   "stsearch-2024": {
     type: "conference",
     pdf: "https://dl.acm.org/doi/pdf/10.1145/3656460",
+    talk: "https://youtu.be/M_wXlm_xmlc?si=vufu-clOuuSmO6SC",
   },
   "recode-ni-2021": {
     type: "conference",
@@ -95,6 +112,23 @@ const getVenue = (type: PaperType, entry: BibEntry): string => {
       return normalizeFieldValue(entry.getField("journal")!) as string;
     case "preprint":
       throw new Error("cannot get venue for preprint");
+    case "thesis":
+      return "Ph.D. Dissertation";
+  }
+};
+
+const getSeries = (type: PaperType, entry: BibEntry): string => {
+  switch (type) {
+    case "workshop":
+    case "conference":
+    case "journal":
+    case "preprint":
+      return (normalizeFieldValue(entry.getField("series")) as string).replace(
+        /\s/g,
+        ""
+      );
+    case "thesis":
+      return normalizeFieldValue(entry.getField("school")) as string;
   }
 };
 
@@ -109,7 +143,7 @@ ${Object.entries(entry.fields)
 const parseEntry = (id: string, entry: BibEntry, meta: PaperMeta): Paper => {
   const author: any = entry.getField("author");
   const title: any = entry.getField("title");
-  const series: any = entry.getField("series");
+  const series: any = getSeries(meta.type, entry);
   if (author && title && series) {
     return {
       title: normalizeFieldValue(title) as string,
@@ -120,7 +154,7 @@ const parseEntry = (id: string, entry: BibEntry, meta: PaperMeta): Paper => {
           .concat(author.jrs)
           .join(" ")
       ),
-      series: (normalizeFieldValue(series) as string).replace(/\s/g, ""),
+      series: series,
       venue: getVenue(meta.type, entry),
       id,
       bibtex: unparseEntry(entry),
@@ -141,32 +175,6 @@ const parseBib = (bib: BibFilePresenter): Paper[] =>
     }
   });
 
-const preprints: Paper[] = [
-  {
-    title: "Codifying Visual Representations",
-    authors: [
-      "Wode Ni",
-      "Sam Estep",
-      "Hwei-Shin Harriman",
-      "Jiří Minarčík",
-      "Joshua Sunshine",
-    ],
-    venue: "DIAGRAMS 2024",
-    id: "diagrams-24",
-    series: "DIAGRAMS'24",
-    type: "preprint",
-    pdf: new URL("/assets/diagrams-24-penrose.pdf", import.meta.url).href,
-    coauthors: ["Wode Ni", "Sam Estep", "Hwei-Shin Harriman"],
-  },
-  {
-    id: "rose-24",
-    title: "Rose: Efficient and Extensible Autodiff on the Web",
-    authors: ["Sam Estep", "Wode Ni", "Raven Rothkopf", "Joshua Sunshine"],
-    venue: "ECOOP 2024",
-    series: "ECOOP'24",
-    type: "preprint",
-    pdf: "https://arxiv.org/pdf/2402.17743.pdf",
-  },
-];
+const preprints: Paper[] = [];
 
 export default [...preprints, ...parseBib(bibliography)];
