@@ -1,11 +1,18 @@
 import Logo from "./Logo";
 import edgeworth from "./assets/edgeworth.svg";
 import mathdiagrams from "./assets/mathdiagrams.webp";
-import Balls from "./Balls";
-import { HTMLProps, ReactNode, useEffect, useRef, useState } from "react";
+import Balls from "./components/Balls";
+import {
+  HTMLProps,
+  ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { HashLink } from "react-router-hash-link";
 import news from "./News";
-import A from "./A";
+import A from "./components/A";
 import { MdEmail, MdLocationPin, MdDarkMode } from "react-icons/md";
 import {
   FaGithub,
@@ -16,11 +23,11 @@ import {
 import { BiSlideshow } from "react-icons/bi";
 import { BsBookmarkCheck } from "react-icons/bs";
 import Papers, { Paper } from "./Papers";
-import Project from "./Project";
+import Project from "./components/Project";
 import penroseLogo from "./assets/penrose.svg";
-import Header from "./Header";
 import theme from "./theme";
-import Tabs from "./Tabs";
+import Tabs from "./components/Tabs";
+import { DarkModeContext } from "./context/DarkModeContext";
 
 export const NewsFeed = () => {
   const today = new Date();
@@ -191,19 +198,16 @@ export const Hero = ({ className }: { className?: string }) => (
   </div>
 );
 
-const DarkToggle = ({ toggleDark }: { toggleDark: () => void }) => (
-  <Icon onClick={toggleDark}>
-    <MdDarkMode className="fill-icon dark:fill-icon-dark" />
-  </Icon>
-);
+const DarkToggle = () => {
+  const { toggleDark } = useContext(DarkModeContext);
+  return (
+    <Icon onClick={toggleDark}>
+      <MdDarkMode className="fill-icon dark:fill-icon-dark" />
+    </Icon>
+  );
+};
 
-export const Socials = ({
-  className,
-  toggleDark,
-}: {
-  className?: string;
-  toggleDark: () => void;
-}) => (
+export const Socials = ({ className }: { className?: string }) => (
   <div
     className={`${className} flex items-start md:items-top md:ml-auto mb-0 color-primary`}
   >
@@ -212,7 +216,7 @@ export const Socials = ({
     <GitHub />
     <Email />
     <Office />
-    <DarkToggle toggleDark={toggleDark} />
+    <DarkToggle />
   </div>
 );
 
@@ -324,8 +328,8 @@ export const Section = ({
     </div>
   );
 };
-const Footer = () => (
-  <div className="md:col-span-3 mt-8 w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400">
+export const Footer = () => (
+  <div className="md:col-span-3 mt-auto w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400">
     <span className="mb-2">
       © {new Date().getUTCFullYear()} Wode "Nimo" Ni.
       {/* Last updated on{" "}
@@ -345,47 +349,9 @@ const Footer = () => (
 );
 
 export default () => {
-  const [darkMode, setDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
-  const toggleDark = () => {
-    setDarkMode(!darkMode);
-  };
-
-  function updateTheme() {
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      setDarkMode(true);
-    } else {
-      // Otherwise, remove it
-      setDarkMode(false);
-    }
-  }
-
-  useEffect(() => {
-    // Add an event listener to react to changes in the system's color scheme
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", updateTheme);
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
-
+  const { darkMode } = useContext(DarkModeContext);
   return (
-    <div
-      className={
-        "font-sans md:grid md:grid-cols-3 p-4 md:p-10 max-w-screen-xl dark:text-neutral-100"
-      }
-    >
-      <Hero className="md:col-span-2" />
-      <div className="flex flex-col">
-        <Socials className="mt-8" toggleDark={toggleDark} />
-        <Tabs />
-      </div>
+    <>
       <Text className="md:col-span-2 mt-8">
         I'm Nimo. I build ergonomic digital tools to make difficult things feel
         simple.
@@ -449,7 +415,6 @@ export default () => {
           <NewsFeed />
         </Section>
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };

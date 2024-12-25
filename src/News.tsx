@@ -1,4 +1,4 @@
-import A from "./A";
+import A from "./components/A";
 
 interface News {
   time: Date;
