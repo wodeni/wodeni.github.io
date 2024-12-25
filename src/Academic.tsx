@@ -269,7 +269,7 @@ const CV = () => (
 
 const Email = () => (
   <IconLink
-    url="mailto:nimo@cmu.edu"
+    url="mailto:sup@wodenimoni.com"
     icon={<MdEmail className="fill-icon dark:fill-icon-dark grow" />}
   />
 );
@@ -410,7 +410,7 @@ export default () => {
           </Text>
         </Section>
       </div>
-      <div className="md:ml-10 md:max-w-60">
+      <div className="md:ml-10 md:max-w-60 md:row-start-3 md:col-start-3">
         <Section header={"News"}>
           <NewsFeed />
         </Section>

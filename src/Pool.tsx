@@ -10,16 +10,14 @@ const Intro = () => (
 
 export default () => {
   return (
-    <>
-      <div className="flex flex-col md:col-span-2">
-        <Intro />
+    <div className="flex flex-col md:col-span-3">
+      <Intro />
+      <div className="flex flex-col">
         <div>
           <Section header={"Posts"}></Section>
-          <Text className="md:col-span-2 mt-8">
-            Sometimes I write about pool.
-          </Text>
+          <Text className="mt-8">Sometimes I write about pool.</Text>
         </div>
       </div>
-    </>
+    </div>
   );
 };
