@@ -3,9 +3,10 @@ import {
   MeshPhongMaterialProps,
   extend,
   useFrame,
+  useLoader,
   useThree,
 } from "@react-three/fiber";
-import { useTexture } from "@react-three/drei";
+import { OrbitControls, useTexture } from "@react-three/drei";
 import { Physics, PlaneProps, usePlane, useSphere } from "@react-three/cannon";
 import { EffectComposer, N8AO, SMAA } from "@react-three/postprocessing";
 import { useRef, useEffect } from "react";
@@ -15,6 +16,8 @@ import {
   Mesh,
   MeshStandardMaterial,
   SphereGeometry,
+  SRGBColorSpace,
+  TextureLoader,
   Vector3,
 } from "three";
 
@@ -112,6 +115,73 @@ function Clump({
   );
 }
 
+function Rack({
+  mat = new Matrix4(),
+  vec = new Vector3(),
+  color,
+}: {
+  color: string;
+  mat?: Matrix4;
+  vec?: Vector3;
+}) {
+  const sphereGeometry = new SphereGeometry(1, 50, 50);
+  const objectBallMaterial = new MeshStandardMaterial({
+    color: "#999",
+    roughness: 0,
+  });
+  const nineBallMaterial = new MeshStandardMaterial({
+    color,
+    roughness: 0,
+  });
+
+  const [ref, api] = useSphere(() => ({
+    args: [1],
+    mass: 1,
+    angularDamping: 0.1,
+    linearDamping: 0.65,
+    position: [rfs(10), rfs(10), rfs(10)],
+  }));
+
+  // Precompute the diamond-shaped rack positions
+  const d = 2;
+  const h = (Math.sqrt(3) * d) / 2;
+  const diamondPositions = [
+    [0, 2 * h, 0],
+    [-d / 2, h, 0],
+    [d / 2, h, 0],
+    [d, 0, 0],
+    [-d, 0, 0],
+    [-d / 2, -h, 0],
+    [d / 2, -h, 0],
+    [0, -2 * h, 0],
+  ];
+
+  // Initialize ball positions
+  useFrame(() => {
+    diamondPositions.forEach((pos, i) => {
+      api.at(i).position.set(pos[0], pos[1], pos[2]);
+    });
+  });
+
+  return (
+    <>
+      <instancedMesh
+        receiveShadow
+        ref={ref as any}
+        args={[undefined, undefined, 8]}
+        geometry={sphereGeometry}
+        material={objectBallMaterial}
+      />
+      <instancedMesh
+        receiveShadow
+        args={[undefined, undefined, 1]}
+        geometry={sphereGeometry}
+        material={nineBallMaterial}
+      />
+    </>
+  );
+}
+
 function Pointer() {
   const viewport = useThree((state) => state.viewport);
   const [, api] = useSphere(() => ({
@@ -183,11 +253,16 @@ const PointLightRectangle = ({
 
 export default ({
   color,
+  mode,
   className,
 }: {
   className?: string;
+  mode: "pool" | "clump";
   color: string;
 }) => {
+  const texture = useLoader(TextureLoader, "/tournament-blue.webp");
+  texture.colorSpace = SRGBColorSpace;
+
   return (
     <Canvas
       className={className}
@@ -196,9 +271,10 @@ export default ({
       camera={{ position: [0, 0, -34], fov: 20, near: 1, far: 1000 }}
     >
       {/* <color attach="background" args={["#fff"]} /> */}
-      <Physics gravity={[0, -8, 0]} iterations={10}>
-        <Pointer />
-        <Clump numBalls={20} color={color} />
+      <Physics gravity={[0, 0, 0]} iterations={10}>
+        {mode === "clump" && <Clump numBalls={20} color={color} />}
+        {mode === "clump" && <Pointer />}
+        {mode === "pool" && <Rack color={color} />}
         {/* <Room /> */}
       </Physics>
       <ambientLight intensity={1} />
@@ -220,6 +296,7 @@ export default ({
         />
         <SMAA />
       </EffectComposer>
+      {mode === "pool" && <OrbitControls />}
     </Canvas>
   );
 };

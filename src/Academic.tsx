@@ -191,7 +191,7 @@ export const Hero = ({ className }: { className?: string }) => (
   <div className={className}>
     <div className="flex h-44">
       <div className="w-48 h-48">
-        <Balls color={theme.colors.primary} />
+        <Balls color={theme.colors.primary} mode={"clump"} />
       </div>
       <Logo className="w-44 ml-4 mt-8" />
     </div>
@@ -352,6 +352,11 @@ export default () => {
   const { darkMode } = useContext(DarkModeContext);
   return (
     <>
+      <Hero className="md:col-span-2" />
+      <div className="flex flex-col">
+        <Socials className="mt-8" />
+        <Tabs />
+      </div>
       <Text className="md:col-span-2 mt-8">
         I'm Nimo. I build ergonomic digital tools to make difficult things feel
         simple.
@@ -410,7 +415,7 @@ export default () => {
           </Text>
         </Section>
       </div>
-      <div className="md:ml-10 md:max-w-60 md:row-start-3 md:col-start-3">
+      <div className="md:ml-auto md:max-w-60 md:row-start-3 md:col-start-3">
         <Section header={"News"}>
           <NewsFeed />
         </Section>
