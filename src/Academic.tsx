@@ -28,6 +28,7 @@ import penroseLogo from "./assets/penrose.svg";
 import theme from "./theme";
 import Tabs from "./components/Tabs";
 import { DarkModeContext } from "./context/DarkModeContext";
+import { useLocation } from "react-router-dom";
 
 export const NewsFeed = () => {
   const today = new Date();
@@ -295,37 +296,40 @@ export const Section = ({
   header: string;
   children?: ReactNode;
 }) => {
+  const location = useLocation();
+
   const id = header.toLowerCase();
   // NOTE: SAFARI BUG: without top-0 and left-0, the rect will be shifted down.
   return (
-    <div id={id} className="my-4 md:my-8">
-      <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
-        <svg height={30} className="w-full translate-y-1 absolute top-0 left-0">
-          <rect
-            x={0}
-            y={0}
-            width={5}
-            height={50}
-            className="group-hover:opacity-30 group-hover:scale-x-400 transition-transform transform fill-primary"
-          ></rect>
-          <rect
-            x={0}
-            y={0}
-            width={5}
-            height={50}
-            className="fill-primary"
-          ></rect>
-        </svg>
-        <HashLink
-          className="ml-[10px] w-full dark:text-neutral-100"
-          smooth
-          to={`/#${id}`}
-        >
-          {header}
-        </HashLink>
-      </span>
-      {children}
-    </div>
+    <HashLink smooth to={`${location.pathname}#${id}`}>
+      <div id={id} className="my-4 md:my-8">
+        <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
+          <svg
+            height={30}
+            className="w-full translate-y-1 absolute top-0 left-0"
+          >
+            <rect
+              x={0}
+              y={0}
+              width={5}
+              height={50}
+              className="group-hover:opacity-30 group-hover:scale-x-400 transition-transform transform fill-primary"
+            ></rect>
+            <rect
+              x={0}
+              y={0}
+              width={5}
+              height={50}
+              className="fill-primary"
+            ></rect>
+          </svg>
+          <span className="ml-[10px] w-full dark:text-neutral-100 pointer-events-auto">
+            {header}
+          </span>
+        </span>
+        {children}
+      </div>
+    </HashLink>
   );
 };
 export const Footer = () => (
