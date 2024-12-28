@@ -72,7 +72,6 @@ function Clump({
   vec?: THREE.Vector3;
 }) {
   const sphereGeometry = new SphereGeometry(1, 50, 50);
-  // const texture = useTexture("/ball-9.jpg");
   const baubleMaterial = new MeshStandardMaterial({
     color,
     roughness: 0,
@@ -391,9 +390,6 @@ export default ({
   mode: "pool" | "clump";
   color: string;
 }) => {
-  const texture = useLoader(TextureLoader, "/tournament-blue.webp");
-  texture.colorSpace = SRGBColorSpace;
-
   return (
     <Canvas
       className={className}
