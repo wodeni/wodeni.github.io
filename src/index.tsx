@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./Academic.js";
 import "./index.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Academic from "./Academic.js";
 import Pool from "./Pool.js";
 import Layout from "./Layout.js";
 import NoPage from "./NoPage.js";
-import { DarkModeProvider } from "./context/DarkModeContext.js";
+import NotesIndex from "./components/NoteIndex.js";
+import NotePage from "./components/NotePage.js";
 
 function RedirectToPDF({ link }: { link: string }) {
   useEffect(() => {
@@ -24,8 +25,12 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Academic />} />
-          <Route path="/Pool" element={<Pool />} />
+          <Route path="/pool" element={<Pool />} />
           <Route path="*" element={<NoPage />} />
+          {/* An index page listing all notes */}
+          <Route path="/pool/notes" element={<NotesIndex />} />
+          {/* A dynamic route for each individual note */}
+          <Route path="/pool/notes/:slug" element={<NotePage />} />
         </Route>
         <Route
           path="/thesis"

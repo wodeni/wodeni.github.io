@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import theme from "./theme";
 import Balls from "./components/Balls";
 import Logo from "./Logo";
+import A from "./components/A";
+import NotesIndex from "./components/NoteIndex";
 
 export const Hero = ({ className }: { className?: string }) => (
   <div className={className}>
@@ -22,6 +24,15 @@ const Intro = () => (
   </Text>
 );
 
+const Background = () => (
+  <Text>
+    I got into billiards as a teenager, first playing Chinese 8-ball and then
+    snooker. I didn't play much during undergrad and finally switched to
+    American pool at the start of my Ph.D. in 2018. Since then, I've been mostly
+    focused on rotation games like 9-ball and 10-ball.
+  </Text>
+);
+
 export default () => {
   return (
     <>
@@ -30,14 +41,16 @@ export default () => {
         <Socials className="mt-8" />
         <Tabs />
       </div>
-      <div className="flex flex-col md:col-span-3">
+      <div className="flex flex-col md:col-span-2">
         <Intro />
-        <div className="flex flex-col">
-          <div>
-            <Section header={"Posts"}></Section>
-            <Text className="mt-8">Sometimes I write about pool.</Text>
-          </div>
-        </div>
+        <Section header={"Notes"}></Section>
+        <Text>
+          I keep some Obsidian notes on pool, including practice sessions,
+          drills, and reflections on past competitions.{" "}
+        </Text>
+        <NotesIndex />
+        <Section header={"Background"}></Section>
+        <Background />
       </div>
     </>
   );
