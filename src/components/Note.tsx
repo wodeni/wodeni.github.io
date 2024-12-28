@@ -1,6 +1,5 @@
 import { Socials } from "../Academic";
 import Tabs from "./Tabs";
-import "./Note.css";
 import { Hero } from "../Pool";
 import { NoteEntry } from "../notes";
 

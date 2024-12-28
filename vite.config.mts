@@ -9,8 +9,8 @@ export default defineConfig({
     plainText(),
     markdownToHtmlPlugin({
       publicDir: "public", // defaults to 'public'
-      imagesDir: "images", // defaults to 'images'
-      hash: true, // defaults to true, adds a short hash to filenames
+      imageDir: "images", // defaults to 'images'
+      mdGlob: "pool-notes/public/**/*.md", // defaults to '**/*.md'
     }),
   ],
   server: {

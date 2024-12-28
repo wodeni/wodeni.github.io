@@ -1,4 +1,4 @@
-// plugins/vite-plugin-remark.mjs
+// plugins/vite-plugin-remark-wikilinks.mjs
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
@@ -15,126 +15,134 @@ import { visit } from "unist-util-visit";
 import fs from "fs/promises";
 import path from "path";
 import chalk from "chalk";
+import fastGlob from "fast-glob";
 
-// Utility to detect external URLs
+// Utility: Check if URL is external (http or //)
 function isUrl(url) {
   return /^https?:\/\//.test(url) || url.startsWith("//");
 }
 
-// Cross-platform normalization (e.g. on Windows)
-function normalizePath(str) {
-  return str.replace(/\\/g, "/");
+function normalizePath(str: string): string {
+  return str.replace(/\ /g, "-").toLowerCase();
 }
 
-/**
- * A Vite plugin that:
- *  1) Parses frontmatter in .md via `remark-frontmatter` + `remark-parse-frontmatter`.
- *  2) Processes Wiki links, GFM, raw HTML, slug/heading autolinks, etc.
- *  3) Copies local images into a designated folder in your "public" or output structure.
- *  4) Rewrites local `.md` links to `.html`.
- *  5) Exports a JSON object: { frontmatter: { ... }, html: "<h1>…</h1>" }
- *
- * @param {object} options
- * @param {string} [options.imageDir='images']  - Subfolder in `public` to copy images. E.g. "images" => "/public/images"
- * @param {string} [options.publicDir='public'] - The root public folder
- * @returns {import('vite').Plugin}
- */
 export default function vitePluginRemarkMarkdown(
-  options: { imageDir?: string; publicDir?: string } = {}
+  options: { imageDir?: string; publicDir?: string; mdGlob?: string } = {}
 ) {
-  const { imageDir = "images", publicDir = "public" } = options;
+  const {
+    imageDir = "images",
+    publicDir = "public",
+    mdGlob = "**/*.md", // you can customize the glob
+  } = options;
 
-  // We’ll copy images to:  <projectRoot>/<publicDir>/<imageDir>
+  // The absolute folder where we copy images
   const absPublicImages = path.resolve(process.cwd(), publicDir, imageDir);
 
-  // Ensure that folder exists
-  fs.mkdir(absPublicImages, { recursive: true }).catch(() => {
-    /* ignore errors in creation */
-  });
+  // This will hold all known .md “slugs” (so remarkWikiLink doesn’t mark them as new)
+  let knownPages = [];
 
   return {
     name: "vite-plugin-remark-markdown",
 
-    // Only transform .md files
+    // 1) In buildStart (or configResolved), gather all .md files
+    async buildStart() {
+      // Use fastGlob to find all .md files
+      const allMdPaths = await fastGlob(mdGlob, {
+        cwd: process.cwd(), // or a subfolder if you want
+        absolute: false, // we just need relative
+      });
+
+      // Convert something like "docs/intro.md" -> "docs/intro"
+      knownPages = allMdPaths.map((file) => {
+        const base = path.basename(file, ".md");
+        return normalizePath(base);
+      });
+      console.log(knownPages);
+    },
+
     async transform(code, id) {
+      // Only run on .md files
       if (!id.endsWith(".md")) return null;
 
-      // The directory where the MD file actually lives
+      // Create the output folder for images if needed
+      await fs.mkdir(absPublicImages, { recursive: true }).catch(() => {});
+
       const mdDir = path.dirname(id);
 
-      // 1) Build a `unified` processor with all your remark/rehype plugins
+      // 2) Build the unified pipeline
       const processor = unified()
-        // Parse the raw Markdown text
         .use(remarkParse)
-        // Parse frontmatter into `file.data.frontmatter`
         .use(remarkFrontmatter)
         .use(remarkParseFrontmatter)
-        // Wiki links => transforms [[Page]] into links
+
+        // Tell remarkWikiLink about your known pages
         .use(remarkWikiLink, {
-          pageResolver: (name) => [normalizePath(name)],
-          hrefTemplate: (permalink) => permalink.replace(/\.md$/, ""),
+          // If a user writes [[SomePage]], check if 'SomePage' is in knownPages
+          // If it is, remark-wiki-link won't mark it as new.
+          permalinks: knownPages,
+
+          // For the .md -> .html rewriting
+          pageResolver: (name) => {
+            // returns an array of possible matches
+            // e.g. if user wrote [[docs/intro]], we might have 'docs/intro' in knownPages
+            const normalizedName = normalizePath(name);
+            return [normalizedName];
+          },
+          // If the final link is "docs/intro", produce "docs/intro.html" in the href
+          hrefTemplate: (permalink) => `${permalink}`,
         })
-        // GFM (GitHub-Flavored Markdown: tables, strikethrough, etc.)
         .use(remarkGfm)
-        // Custom plugin: rewrite `.md` links => `.html`
+
+        // Rewrites .md links -> .html
         .use(() => (tree) => {
           visit(tree, "link", (node) => {
-            if (!isUrl(node.url) && node.url.endsWith(".md")) {
-              node.url = normalizePath(node.url).replace(/\.md$/, ".html");
+            const u = node.url;
+            if (!isUrl(u) && u.endsWith(".md")) {
+              node.url = normalizePath(u).replace(/\.md$/, ".html");
             }
           });
         })
-        // Convert Markdown (MDAST) => HTML (HAST)
+
         .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypeRaw)
         .use(rehypeSlug)
-        // Custom plugin: copy local images and rewrite <img src="...">
+        // Copy local images -> public/images
         .use(() => async (tree) => {
           const promises = [];
           visit(tree, ["image", "element"], (node) => {
-            // If node.tagName === 'img' or type === 'image', handle the node
-            if (
+            const isImg =
               (node.type === "element" && node.tagName === "img") ||
-              node.type === "image"
-            ) {
-              const src = node.properties?.src || node.url;
-              if (src && !isUrl(src)) {
-                // We have a local image path
-                const decodedUrl = decodeURI(src);
-                // Final path (relative) in the public folder
-                const publicPathRel = path.join(imageDir, decodedUrl);
-                const absPublicPath = path.join(absPublicImages, decodedUrl);
+              node.type === "image";
 
-                // The original file (absolute)
-                // If code is from `id`, we need to make sure we remove 'file://' if present.
-                const originalFile = path.join(
-                  mdDir.replace(/^file:\/\//, ""),
-                  decodedUrl
-                );
+            if (!isImg) return;
 
-                promises.push(
-                  fs
-                    .mkdir(path.dirname(absPublicPath), { recursive: true })
-                    .then(() => fs.copyFile(originalFile, absPublicPath))
-                    .catch((err) => {
-                      console.error(
-                        chalk.red(
-                          `[vite-plugin-remark-markdown] Error copying image from ${originalFile} to ${absPublicPath}: ${err.message}`
-                        )
-                      );
-                    })
-                );
+            const src = node.properties?.src || node.url;
+            if (src && !isUrl(src)) {
+              const decodedUrl = decodeURI(src);
+              const publicPathRel = path.join(imageDir, decodedUrl);
+              const absPublicPath = path.join(absPublicImages, decodedUrl);
+              const originalFile = path.join(
+                mdDir.replace(/^file:\/\//, ""),
+                decodedUrl
+              );
 
-                // Rewrite <img src=...> to the new relative path from final HTML
-                // We typically reference them with a leading slash or relative path
-                // For a .md-based route, you might do `./${imageDir}/...`
-                // but using an absolute slash /images is also common.
-                // Here, let's do a relative path:  "./images/something.png"
-                if (node.properties) {
-                  node.properties.src = `/${publicPathRel}`;
-                } else {
-                  node.url = `/${publicPathRel}`;
-                }
+              promises.push(
+                fs
+                  .mkdir(path.dirname(absPublicPath), { recursive: true })
+                  .then(() => fs.copyFile(originalFile, absPublicPath))
+                  .catch((err) => {
+                    console.error(
+                      chalk.red(
+                        `[vite-plugin-remark-markdown] Error copying image from ${originalFile} to ${absPublicPath}: ${err.message}`
+                      )
+                    );
+                  })
+              );
+              // Rewrite <img src> to a path from the final HTML
+              if (node.properties) {
+                node.properties.src = `/${publicPathRel}`;
+              } else {
+                node.url = `/${publicPathRel}`;
               }
             }
           });
@@ -144,23 +152,18 @@ export default function vitePluginRemarkMarkdown(
         .use(rehypeInferTitleMeta)
         .use(rehypeStringify, { allowDangerousHtml: true });
 
-      // 2) Process the Markdown content
+      // 3) Process the content
       const file = await processor.process(code);
-
-      // frontmatter is in `file.data.frontmatter`
       const frontmatter = file.data.frontmatter || {};
-
-      // The final HTML is in file.value
       const html = String(file.value);
 
-      // If you’d like to rename or unify these fields, feel free.
-      // We'll return: { frontmatter: {...}, html: "..." }
+      // Return a JSON object with frontmatter + html
       const output = {
         frontmatter,
         html,
       };
 
-      // 3) Export as ESM code: `export default { frontmatter: {...}, html: "..." }`
+      // Export as ESM
       return {
         code: `export default ${JSON.stringify(output)}`,
         map: null,
