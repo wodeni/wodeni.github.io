@@ -14,7 +14,7 @@ interface MdExport {
 export type NoteEntry = {
   slug: string;
   html: string;
-  frontmatter?: Record<string, string>;
+  frontmatter?: Record<string, any>;
 };
 
 function pathToSlug(filePath: string) {

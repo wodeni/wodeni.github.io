@@ -57,7 +57,6 @@ export default function vitePluginRemarkMarkdown(
         const base = path.basename(file, ".md");
         return normalizePath(base);
       });
-      console.log(knownPages);
     },
 
     async transform(code, id) {

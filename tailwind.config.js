@@ -49,6 +49,13 @@ module.exports = {
           blockquote: {
             "@apply border-l-4 border-blue-500 pl-4 italic": {},
           },
+          ul: {
+            "@apply list-disc ml-6 my-4": {},
+          },
+          ol: {
+            "@apply list-decimal ml-6 my-4": {},
+          },
+
           // If you wanted code/pre fences, you could add them too:
           // "pre, code": {
           //   "@apply rounded bg-gray-100 text-sm": {},

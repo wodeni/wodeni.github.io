@@ -33,6 +33,10 @@ const Background = () => (
   </Text>
 );
 
+const NoteHeader = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="text-2xl font-bold">{children}</h2>
+);
+
 export default () => {
   return (
     <>
@@ -43,14 +47,19 @@ export default () => {
       </div>
       <div className="flex flex-col md:col-span-2">
         <Intro />
-        <Section header={"Notes"}></Section>
-        <Text>
-          I keep some Obsidian notes on pool, including practice sessions,
-          drills, and reflections on past competitions.{" "}
-        </Text>
-        <NotesIndex />
-        <Section header={"Background"}></Section>
-        <Background />
+        <Section header={"Notes"}>
+          <Text>
+            I keep some Obsidian notes on pool, including practice sessions,
+            drills, and reflections on past competitions.
+          </Text>
+          <NoteHeader>Drills</NoteHeader>
+          <NotesIndex tag="drill" />
+          <NoteHeader>Tournaments</NoteHeader>
+          <NotesIndex tag="tournament" />
+        </Section>
+        <Section header={"Background"}>
+          <Background />
+        </Section>
       </div>
     </>
   );

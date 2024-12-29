@@ -302,7 +302,7 @@ export const Section = ({
   // NOTE: SAFARI BUG: without top-0 and left-0, the rect will be shifted down.
   return (
     <HashLink smooth to={`${location.pathname}#${id}`}>
-      <div id={id} className="my-4 md:my-8">
+      <div id={id} className="mt-4 md:mt-8">
         <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
           <svg
             height={30}
@@ -333,7 +333,7 @@ export const Section = ({
   );
 };
 export const Footer = () => (
-  <div className="md:col-span-3 mt-auto w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400">
+  <div className="md:col-span-3 mt-auto w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400 mt-4 md:mt-8">
     <span className="mb-2">
       © {new Date().getUTCFullYear()} Wode "Nimo" Ni.
       {/* Last updated on{" "}
