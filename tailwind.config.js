@@ -51,7 +51,7 @@ module.exports = {
           },
           // Nested p
           p: {
-            "@apply mt-0 mb-4": {},
+            "@apply mt-0 mb-4 text-wrap break-words": {},
           },
           // Nested blockquote
           blockquote: {

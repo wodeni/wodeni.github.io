@@ -12,7 +12,7 @@ export default function ({ note }: { note: NoteEntry }) {
         <Socials className="mt-8" />
         <Tabs />
       </div>
-      <main className="note-content prose lg:prose-xl dark:prose-invert max-w-screen-lg p-4 md:col-span-3">
+      <main className="note-content prose lg:prose-xl dark:prose-invert max-w-screen-lg px-2 py-4 md:col-span-3">
         <div className="mb-8">
           <h1 className="text-bold text-3xl">
             {note.frontmatter?.title ?? ""}
