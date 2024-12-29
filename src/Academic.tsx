@@ -333,7 +333,7 @@ export const Section = ({
   );
 };
 export const Footer = () => (
-  <div className="md:col-span-3 mt-auto w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400 mt-10 md:mt-8">
+  <div className="md:col-span-3 mt-auto w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400 mt-12 md:mt-8">
     <span className="mb-2">
       © {new Date().getUTCFullYear()} Wode "Nimo" Ni.
       {/* Last updated on{" "}

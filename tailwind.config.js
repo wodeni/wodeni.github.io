@@ -32,6 +32,14 @@ module.exports = {
           h2: {
             "@apply text-2xl font-semibold mt-8 mb-3": {},
           },
+          // Nested h3
+          h3: {
+            "@apply text-xl font-semibold mt-6 mb-2": {},
+          },
+          // Nested h4
+          h4: {
+            "@apply text-lg font-semibold mt-4 mb-2": {},
+          },
           // Nested a
           a: {
             "@apply text-primary hover:opacity-70 ease-in-out duration-100": {},
@@ -54,6 +62,13 @@ module.exports = {
           },
           ol: {
             "@apply list-decimal ml-6 my-4": {},
+          },
+          img: {
+            "@apply rounded": {},
+          },
+          blockquote: {
+            "@apply border-l-4 border-gray-500 dark:border-gray-400 pl-4 italic":
+              {},
           },
 
           // If you wanted code/pre fences, you could add them too:
