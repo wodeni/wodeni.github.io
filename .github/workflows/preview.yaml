@@ -20,14 +20,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
-          path: main
 
       - name: Checkout Obsidian Pool Notes
         uses: actions/checkout@v4
         with:
           repository: wodeni/nimo-obsidian-notes-pool
           token: ${{ secrets.GH_PAT_OBSIDIAN_POOL }}
-          path: main/pool-notes/
+          path: ./pool-notes/
 
       - name: Install and Build
         run: |
@@ -38,5 +37,5 @@ jobs:
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
-          source-dir: main/dist/
+          source-dir: ./dist/
         
