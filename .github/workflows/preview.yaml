@@ -32,7 +32,6 @@ jobs:
         run: |
           yarn
           yarn build -- --base /pr-preview/pr-${{ github.event.pull_request.number }}/
-        working-directory: main
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
