@@ -28,6 +28,11 @@ jobs:
           token: ${{ secrets.GH_PAT_OBSIDIAN_POOL }}
           path: ./pool-notes/
 
+      - name: Log directory structure
+        run: |
+          ls -al
+          ls -al pool-notes/
+
       - name: Install and Build
         run: |
           yarn
