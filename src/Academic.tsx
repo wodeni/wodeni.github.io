@@ -301,8 +301,8 @@ export const Section = ({
   const id = header.toLowerCase();
   // NOTE: SAFARI BUG: without top-0 and left-0, the rect will be shifted down.
   return (
-    <HashLink smooth to={`${location.pathname}#${id}`}>
-      <div id={id} className="mt-4 md:mt-8">
+    <div id={id} className="mt-4 md:mt-8">
+      <HashLink smooth to={`${location.pathname}#${id}`}>
         <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
           <svg
             height={30}
@@ -327,9 +327,9 @@ export const Section = ({
             {header}
           </span>
         </span>
-        {children}
-      </div>
-    </HashLink>
+      </HashLink>
+      {children}
+    </div>
   );
 };
 export const Footer = () => (
