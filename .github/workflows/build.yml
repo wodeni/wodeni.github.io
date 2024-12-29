@@ -11,6 +11,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          path: main
+      - name: Checkout private tools
+        uses: actions/checkout@v4
+        with:
+          repository: wodeni/nimo-obsidian-notes-pool
+          token: ${{ secrets.GH_PAT_OBSIDIAN_POOL }} # `GH_PAT` is a secret that contains your PAT
+          path: main/pool-notes/
       - name: Build deps
         run: yarn
       - name: Build the website
