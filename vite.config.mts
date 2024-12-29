@@ -9,7 +9,7 @@ export default defineConfig({
     plainText(),
     markdownToHtmlPlugin({
       publicDir: "public", // defaults to 'public'
-      imageDir: "images", // defaults to 'images'
+      imageDir: "pool-notes-images", // defaults to 'images'
       mdGlob: "pool-notes/public/**/*.md", // defaults to '**/*.md'
     }),
   ],

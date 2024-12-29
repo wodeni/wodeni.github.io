@@ -34,6 +34,7 @@ export default function vitePluginRemarkMarkdown(
     publicDir = "public",
     mdGlob = "**/*.md", // you can customize the glob
   } = options;
+  let baseUrl = "/"; // fallback
 
   // The absolute folder where we copy images
   const absPublicImages = path.resolve(process.cwd(), publicDir, imageDir);
@@ -43,6 +44,11 @@ export default function vitePluginRemarkMarkdown(
 
   return {
     name: "vite-plugin-remark-markdown",
+    configResolved(config) {
+      // At this stage, you have the final resolved Vite config
+      baseUrl = config.base;
+      console.log("Resolved base:", baseUrl);
+    },
 
     // 1) In buildStart (or configResolved), gather all .md files
     async buildStart() {
@@ -118,7 +124,7 @@ export default function vitePluginRemarkMarkdown(
             const src = node.properties?.src || node.url;
             if (src && !isUrl(src)) {
               const decodedUrl = decodeURI(src);
-              const publicPathRel = path.join(imageDir, decodedUrl);
+              const publicPathRel = path.join(baseUrl, imageDir, decodedUrl);
               const absPublicPath = path.join(absPublicImages, decodedUrl);
               const originalFile = path.join(
                 mdDir.replace(/^file:\/\//, ""),
@@ -139,7 +145,7 @@ export default function vitePluginRemarkMarkdown(
               );
               // Rewrite <img src> to a path from the final HTML
               if (node.properties) {
-                node.properties.src = `/${publicPathRel}`;
+                node.properties.src = `${publicPathRel}`;
               } else {
                 node.url = `/${publicPathRel}`;
               }
