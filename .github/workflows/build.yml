@@ -30,6 +30,10 @@ jobs:
         run: |
           yarn
           yarn build 
+        
+      - name: Copy index.html to 404.html for routing
+        run: |
+          cp dist/index.html dist/404.html
 
       - name: Deploy website
         uses: JamesIves/github-pages-deploy-action@4.1.4
