@@ -18,7 +18,7 @@ export default function NotesIndex({ tag }: { tag?: string }) {
             <li key={note.slug}>
               <Link
                 to={`/pool/notes/${note.slug}`}
-                className="text-primary text-xl font-bold"
+                className="text-primary text-xl font-bold hover:text-primary/70"
               >
                 <span className="flex flex-row gap-2">
                   {note.frontmatter?.title ?? note.slug}
