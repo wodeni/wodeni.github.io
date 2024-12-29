@@ -1,13 +1,18 @@
 import Logo from "./Logo";
-import penroseLogo from "./assets/penrose.svg";
 import edgeworth from "./assets/edgeworth.svg";
 import mathdiagrams from "./assets/mathdiagrams.webp";
-import Balls from "./Balls";
-import Papers, { Paper } from "./Papers";
-import { HTMLProps, ReactNode, useEffect, useRef, useState } from "react";
+import Balls from "./components/Balls";
+import {
+  HTMLProps,
+  ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { HashLink } from "react-router-hash-link";
 import news from "./News";
-import A from "./A";
+import A from "./components/A";
 import { MdEmail, MdLocationPin, MdDarkMode } from "react-icons/md";
 import {
   FaGithub,
@@ -17,10 +22,15 @@ import {
 } from "react-icons/fa";
 import { BiSlideshow } from "react-icons/bi";
 import { BsBookmarkCheck } from "react-icons/bs";
-import Project from "./Project";
+import Papers, { Paper } from "./Papers";
+import Project from "./components/Project";
+import penroseLogo from "./assets/penrose.svg";
 import theme from "./theme";
+import Tabs from "./components/Tabs";
+import { DarkModeContext } from "./context/DarkModeContext";
+import { useLocation } from "react-router-dom";
 
-const NewsFeed = () => {
+export const NewsFeed = () => {
   const today = new Date();
   const [isScrolled, setIsScrolled] = useState(false);
   const scrollableDivRef = useRef<HTMLDivElement>(null);
@@ -128,19 +138,7 @@ const PubMeta = ({ pdf, talk, slides, bibtex }: Paper) => (
   </div>
 );
 
-const PubAuthors = ({
-  pdf,
-  title,
-  venue,
-  authors,
-  talk,
-  coauthors,
-  authorDisplayNames,
-  series,
-  slides,
-  id,
-  bibtex,
-}: Paper) => (
+const PubAuthors = ({ authors, coauthors, authorDisplayNames, id }: Paper) => (
   <span className="text-base font-light">
     {authors
       .map((a, i) => authorDisplayNames?.get(i) ?? a)
@@ -190,30 +188,27 @@ const Publications = () => (
   </div>
 );
 
-const Hero = ({ className }: { className?: string }) => (
+export const Hero = ({ className }: { className?: string }) => (
   <div className={className}>
     <div className="flex h-44">
       <div className="w-48 h-48">
-        <Balls color={theme.colors.primary} />
+        <Balls color={theme.colors.primary} mode={"clump"} />
       </div>
       <Logo className="w-44 ml-4 mt-8" />
     </div>
   </div>
 );
 
-const DarkToggle = ({ toggleDark }: { toggleDark: () => void }) => (
-  <Icon onClick={toggleDark}>
-    <MdDarkMode className="fill-icon dark:fill-icon-dark" />
-  </Icon>
-);
+const DarkToggle = () => {
+  const { toggleDark } = useContext(DarkModeContext);
+  return (
+    <Icon onClick={toggleDark}>
+      <MdDarkMode className="fill-icon dark:fill-icon-dark" />
+    </Icon>
+  );
+};
 
-const Socials = ({
-  className,
-  toggleDark,
-}: {
-  className?: string;
-  toggleDark: () => void;
-}) => (
+export const Socials = ({ className }: { className?: string }) => (
   <div
     className={`${className} flex items-start md:items-top md:ml-auto mb-0 color-primary`}
   >
@@ -222,7 +217,7 @@ const Socials = ({
     <GitHub />
     <Email />
     <Office />
-    <DarkToggle toggleDark={toggleDark} />
+    <DarkToggle />
   </div>
 );
 
@@ -275,12 +270,12 @@ const CV = () => (
 
 const Email = () => (
   <IconLink
-    url="mailto:nimo@cmu.edu"
+    url="mailto:sup@wodenimoni.com"
     icon={<MdEmail className="fill-icon dark:fill-icon-dark grow" />}
   />
 );
 
-const Text = ({
+export const Text = ({
   className,
   children,
 }: {
@@ -294,48 +289,51 @@ const Text = ({
   </p>
 );
 
-const Section = ({
+export const Section = ({
   header,
   children,
 }: {
   header: string;
   children?: ReactNode;
 }) => {
+  const location = useLocation();
+
   const id = header.toLowerCase();
   // NOTE: SAFARI BUG: without top-0 and left-0, the rect will be shifted down.
   return (
-    <div id={id} className="my-4 md:my-8">
-      <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
-        <svg height={30} className="w-full translate-y-1 absolute top-0 left-0">
-          <rect
-            x={0}
-            y={0}
-            width={5}
-            height={50}
-            className="group-hover:opacity-30 group-hover:scale-x-400 transition-transform transform fill-primary"
-          ></rect>
-          <rect
-            x={0}
-            y={0}
-            width={5}
-            height={50}
-            className="fill-primary"
-          ></rect>
-        </svg>
-        <HashLink
-          className="ml-[10px] w-full dark:text-neutral-100"
-          smooth
-          to={`/#${id}`}
-        >
-          {header}
-        </HashLink>
-      </span>
-      {children}
-    </div>
+    <HashLink smooth to={`${location.pathname}#${id}`}>
+      <div id={id} className="mt-4 md:mt-8">
+        <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
+          <svg
+            height={30}
+            className="w-full translate-y-1 absolute top-0 left-0"
+          >
+            <rect
+              x={0}
+              y={0}
+              width={5}
+              height={50}
+              className="group-hover:opacity-30 group-hover:scale-x-400 transition-transform transform fill-primary"
+            ></rect>
+            <rect
+              x={0}
+              y={0}
+              width={5}
+              height={50}
+              className="fill-primary"
+            ></rect>
+          </svg>
+          <span className="ml-[10px] w-full dark:text-neutral-100 pointer-events-auto">
+            {header}
+          </span>
+        </span>
+        {children}
+      </div>
+    </HashLink>
   );
 };
-const Footer = () => (
-  <div className="md:col-span-3 mt-8 w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400">
+export const Footer = () => (
+  <div className="md:col-span-3 mt-auto w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400 mt-10 md:mt-8">
     <span className="mb-2">
       © {new Date().getUTCFullYear()} Wode "Nimo" Ni.
       {/* Last updated on{" "}
@@ -354,45 +352,15 @@ const Footer = () => (
   </div>
 );
 
-const App: React.FC = () => {
-  const [darkMode, setDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
-  const toggleDark = () => {
-    setDarkMode(!darkMode);
-  };
-
-  function updateTheme() {
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      setDarkMode(true);
-    } else {
-      // Otherwise, remove it
-      setDarkMode(false);
-    }
-  }
-
-  useEffect(() => {
-    // Add an event listener to react to changes in the system's color scheme
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", updateTheme);
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
-
+export default () => {
+  const { darkMode } = useContext(DarkModeContext);
   return (
-    <div
-      className={
-        "font-sans md:grid md:grid-cols-3 p-4 md:p-10 max-w-screen-xl dark:text-neutral-100"
-      }
-    >
+    <>
       <Hero className="md:col-span-2" />
-      <Socials className="mt-8" toggleDark={toggleDark} />
+      <div className="flex flex-col">
+        <Socials className="mt-8" />
+        <Tabs />
+      </div>
       <Text className="md:col-span-2 mt-8">
         I'm Nimo. I build ergonomic digital tools to make difficult things feel
         simple.
@@ -451,14 +419,11 @@ const App: React.FC = () => {
           </Text>
         </Section>
       </div>
-      <div className="md:ml-10 md:max-w-60">
+      <div className="md:ml-auto md:max-w-60 md:row-start-3 md:col-start-3">
         <Section header={"News"}>
           <NewsFeed />
         </Section>
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
-
-export default App;

@@ -15,10 +15,23 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
           submodules: true
+
+      - name: Checkout Obsidian Pool Notes
+        uses: actions/checkout@v4
+        with:
+          repository: wodeni/nimo-obsidian-notes-pool
+          token: ${{ secrets.GH_PAT_OBSIDIAN_POOL }}
+          path: ./pool-notes/
+
+      - name: Log directory structure
+        run: |
+          ls -al
+          ls -al pool-notes/
 
       - name: Install and Build
         run: |
@@ -29,3 +42,4 @@ jobs:
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./dist/
+        

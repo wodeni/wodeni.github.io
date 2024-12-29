@@ -1,6 +1,5 @@
 name: Deploy
 on:
-  pull_request:
   push:
     branches:
       - main
@@ -9,44 +8,46 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Build deps
-        run: yarn
-      - name: Build the website
-        run: yarn build
-      - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        name: Deploy website
+        with:
+          submodules: true
+
+      - name: Checkout Obsidian Pool Notes
+        uses: actions/checkout@v4
+        with:
+          repository: wodeni/nimo-obsidian-notes-pool
+          token: ${{ secrets.GH_PAT_OBSIDIAN_POOL }}
+          path: ./pool-notes/
+
+      - name: Log directory structure
+        run: |
+          ls -al
+          ls -al pool-notes/
+
+      - name: Install and Build
+        run: |
+          yarn
+          yarn build -- --base /pr-preview/pr-${{ github.event.pull_request.number }}/
+
+      - name: Deploy website
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
+          working-directory: main
           branch: gh-pages
           folder: dist
           target-folder: .
+
       - name: Add .nojekyll
         run: |
           mkdir extra/
           touch extra/.nojekyll
-      - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        name: Deploy .nojekyll
+
+      - name: Deploy .nojekyll
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
           folder: dist
           clean: false
-      - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        name: Deploy to cmu server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.CMU_SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i"
-          SOURCE: "dist/"
-          REMOTE_HOST: ${{ secrets.CMU_HOST }}
-          REMOTE_USER: ${{ secrets.CMU_USER }}
-          TARGET: ${{ secrets.CMU_TARGET }}
-          SCRIPT_BEFORE: |
-            whoami
-            ls -al
-          SCRIPT_AFTER: |
-            whoami
-            ls -al
-            echo $RSYNC_STDOUT
+          working-directory: main
