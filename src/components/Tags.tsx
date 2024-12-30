@@ -1,5 +1,5 @@
 const Tags = ({ tags, className }: { className?: string; tags: string[] }) => (
-  <div className="flex flex-wrap gap-2">
+  <div className="flex flex-wrap gap-2 content-center">
     {tags.map((tag: string) => (
       <span
         key={tag}

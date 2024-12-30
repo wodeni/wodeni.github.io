@@ -1,12 +1,15 @@
 // src/NotesIndex.tsx
 import { Link } from "react-router-dom";
 import { notes } from "../notes"; // from step #2
-import Tabs from "./Tabs";
-import { Socials } from "../Academic";
-import { Hero } from "../Pool";
 import Tags from "./Tags";
 
-export default function NotesIndex({ tag }: { tag?: string }) {
+export default function NotesIndex({
+  tag,
+  showTags,
+}: {
+  tag?: string;
+  showTags?: boolean;
+}) {
   const filtered = tag
     ? notes.filter((note) => note.frontmatter?.tags?.includes(tag))
     : notes;
@@ -16,14 +19,16 @@ export default function NotesIndex({ tag }: { tag?: string }) {
         <ul>
           {filtered.map((note) => (
             <li key={note.slug}>
-              <Link
-                to={`/pool/notes/${note.slug}`}
-                className="text-primary text-xl font-bold hover:text-primary/70"
-              >
-                <span className="flex flex-row gap-2">
-                  {note.frontmatter?.title ?? note.slug}
-                </span>
-              </Link>
+              <div className="flex flex-row align-center gap-2">
+                <Link to={`/pool/notes/${note.slug}`}>
+                  <span className="text-primary text-xl font-bold hover:text-primary/70">
+                    {note.frontmatter?.title ?? note.slug}
+                  </span>
+                </Link>
+                {showTags && note.frontmatter?.tags && (
+                  <Tags tags={note.frontmatter.tags} className="text-xs" />
+                )}
+              </div>
             </li>
           ))}
         </ul>
