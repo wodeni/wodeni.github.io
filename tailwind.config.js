@@ -70,7 +70,26 @@ module.exports = {
             "@apply border-l-4 border-gray-500 dark:border-gray-400 pl-4 italic":
               {},
           },
-
+          // table formatting
+          table: {
+            "@apply border-collapse border dark:border-gray-300 text-left text-sm my-8":
+              {},
+          },
+          thead: {
+            "@apply bg-gray-100 dark:bg-zinc-700 uppercase font-medium": {},
+          },
+          th: {
+            "@apply border border-gray-300 px-4 py-2": {},
+          },
+          td: {
+            "@apply border border-gray-300 px-4 py-2": {},
+          },
+          "tbody tr:nth-child(even)": {
+            "@apply bg-zinc-50 dark:bg-zinc-700": {},
+          },
+          iframe: {
+            "@apply max-w-full rounded py-4": {},
+          },
           // If you wanted code/pre fences, you could add them too:
           // "pre, code": {
           //   "@apply rounded bg-gray-100 text-sm": {},

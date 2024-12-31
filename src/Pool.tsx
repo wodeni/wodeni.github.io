@@ -6,6 +6,7 @@ import Balls from "./components/Balls";
 import Logo from "./Logo";
 import A from "./components/A";
 import NotesIndex from "./components/NoteIndex";
+import { Link } from "react-router-dom";
 
 export const Hero = ({ className }: { className?: string }) => (
   <div className={className}>
@@ -50,12 +51,19 @@ export default () => {
         <Section header={"Notes"}>
           <Text>
             I keep some Obsidian notes on pool, including practice sessions,
-            drills, and reflections on past competitions.
+            drills, and reflections on past competitions. Here are some more
+            organized ones, see{" "}
+            <Link to="/pool/notes">
+              <A>here for all the notes </A>
+            </Link>
+            .
           </Text>
           <NoteHeader>Drills</NoteHeader>
           <NotesIndex tag="drill" />
           <NoteHeader>Tournaments</NoteHeader>
           <NotesIndex tag="tournament" />
+          <NoteHeader>Practice notes</NoteHeader>
+          <NotesIndex tag="journal" />
         </Section>
         <Section header={"Background"}>
           <Background />

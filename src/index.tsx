@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import App from "./Academic.js";
-import "./index.css";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Academic from "./Academic.js";
-import Pool from "./Pool.js";
+import AllNotes from "./AllNotes.js";
 import Layout from "./Layout.js";
 import NoPage from "./NoPage.js";
-import NotesIndex from "./components/NoteIndex.js";
+import Pool from "./Pool.js";
 import NotePage from "./components/NotePage.js";
+import "./index.css";
 
 function RedirectToPDF({ link }: { link: string }) {
   useEffect(() => {
@@ -28,7 +27,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Route path="/pool" element={<Pool />} />
           <Route path="*" element={<NoPage />} />
           {/* An index page listing all notes */}
-          <Route path="/pool/notes" element={<NotesIndex />} />
+          <Route path="/pool/notes" element={<AllNotes />} />
           {/* A dynamic route for each individual note */}
           <Route path="/pool/notes/:slug" element={<NotePage />} />
         </Route>
