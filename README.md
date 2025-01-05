@@ -1,6 +1,6 @@
 # Personal site
 
-This is the repo for my [personal site](https://www.cs.cmu.edu/~woden/). 
+This is the repo for my [personal site](https://wodenimoni.com/). 
 ## Getting started
 
 * Run `yarn` to install dependencies.
