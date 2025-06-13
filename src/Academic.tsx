@@ -203,7 +203,9 @@ export const BlogPost = ({
   date: Date;
 }) => (
   <div className="my-4">
-    <DatePill date={date} />
+    <span className="text-sm">
+      <DatePill date={date} />
+    </span>
     <a href={link}>
       <span className="text-lg font-semibold dark:font-normal cursor-pointer">
         {title}
