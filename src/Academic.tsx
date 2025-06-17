@@ -67,12 +67,7 @@ export const NewsFeed = () => {
               className="py-2 text-gray-500 md:text-sm dark:text-neutral-300 "
               key={`news-${i}`}
             >
-              <div className="w-fit bg-gray-100 text-gray-400 rounded py-px px-1 dark:text-neutral-400 dark:bg-zinc-700">
-                {time.toLocaleString("default", {
-                  month: "long",
-                  year: "numeric",
-                })}
-              </div>
+              <DatePill date={time} />
               {msg}
             </div>
           ))}
@@ -81,6 +76,16 @@ export const NewsFeed = () => {
     </div>
   );
 };
+
+export const DatePill = ({ date }: { date: Date }) => (
+  <div className="w-fit bg-gray-100 text-gray-400 rounded py-px px-1 dark:text-neutral-400 dark:bg-zinc-700">
+    {date.toLocaleString("default", {
+      month: "long",
+      year: "numeric",
+    })}
+  </div>
+);
+
 export const Copy = ({
   data,
   children,
@@ -185,6 +190,27 @@ const Publications = () => (
         <PubMeta {...p} />
       </div>
     ))}
+  </div>
+);
+
+export const BlogPost = ({
+  title,
+  link,
+  date,
+}: {
+  title: string;
+  link: string;
+  date: Date;
+}) => (
+  <div className="my-4">
+    <span className="text-sm">
+      <DatePill date={date} />
+    </span>
+    <a href={link}>
+      <span className="text-lg font-semibold dark:font-normal cursor-pointer">
+        {title}
+      </span>
+    </a>
   </div>
 );
 
@@ -373,10 +399,31 @@ export default () => {
             Mellon University, School of Computer Science, advised by{" "}
             <A href="http://pact.cs.cmu.edu/koedinger.html">Ken Koedinger</A>{" "}
             and <A href="https://www.cs.cmu.edu/~jssunshi/">Josh Sunshine</A>.
-            Here are some selected papers. Refer to the{" "}
-            <A href="http://wodenimoni.com/nimo-markdown-cv/">CV</A> for more.
+            Most of my research is on building interactive systems for
+            diagramming and programming. Here are some selected papers. Refer to
+            the <A href="http://wodenimoni.com/nimo-markdown-cv/">CV</A> for
+            more.
           </Text>
           <Publications />
+        </Section>
+        <Section header={"Work"}>
+          <Text>
+            Continuing the thread of building diagramming systems, I'm working
+            on interactive diagramming at{" "}
+            <A href="https://brilliant.org/drnimo">Brilliant</A>, an education
+            tech company known for learning by doing in STEM and YouTube
+            sponsorships. Here are some latest projects:
+            <BlogPost
+              title="When Almost Right is Catastrophically Wrong: Evaluating AI-Generated Learning Games"
+              link="https://blog.brilliant.org/when-almost-right-is-catastrophically-wrong-evals-for-ai-learning-games/"
+              date={new Date("2025-02-27")}
+            />
+            <BlogPost
+              title="Hand-Crafted, Machine-Made: A Case Study of the Brilliant Math Editor"
+              link="https://blog.brilliant.org/hand-crafted-machine-made/"
+              date={new Date("2025-01-30")}
+            />
+          </Text>
         </Section>
         <Section header={"Tools"}>
           <div className="grid lg:grid-cols-2 gap-2 md:gap-4 lg:gap-8 my-4">
@@ -412,10 +459,6 @@ export default () => {
           <Text>
             I am an avid pool player. I play in local leagues and national
             tournaments.
-          </Text>
-          <Text>
-            Right now I'm working on interactive diagramming at{" "}
-            <A href="https://brilliant.org/drnimo">Brilliant</A>.
           </Text>
         </Section>
       </div>

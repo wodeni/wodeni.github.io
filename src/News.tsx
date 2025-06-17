@@ -7,6 +7,16 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2024-11-11"),
+    msg: (
+      <>
+        I started a new position at{" "}
+        <A href="https://brilliant.org/drnimo">Brilliant</A>! Look forward to
+        working on some cool interactive diagrams.
+      </>
+    ),
+  },
+  {
     time: new Date("2024-09-27"),
     msg: (
       <>
