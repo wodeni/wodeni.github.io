@@ -58,12 +58,12 @@ export default () => {
             </Link>
             .
           </Text>
-          <NoteHeader>Drills</NoteHeader>
-          <NotesIndex tag="drill" />
           <NoteHeader>Tournaments</NoteHeader>
           <NotesIndex tag="tournament" />
           <NoteHeader>Practice notes</NoteHeader>
           <NotesIndex tag="journal" />
+          <NoteHeader>Drills</NoteHeader>
+          <NotesIndex tag="drill" />
         </Section>
         <Section header={"Background"}>
           <Background />
