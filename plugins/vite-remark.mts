@@ -2,7 +2,7 @@
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
-import remarkWikiLink from "remark-wiki-link";
+import remarkWikiLink from "@flowershow/remark-wiki-link";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkParseFrontmatter from "remark-parse-frontmatter";
 import remarkRehype from "remark-rehype";
@@ -47,7 +47,6 @@ export default function vitePluginRemarkMarkdown(
     configResolved(config) {
       // At this stage, you have the final resolved Vite config
       baseUrl = config.base;
-      console.log("Resolved base:", baseUrl);
     },
 
     // 1) In buildStart (or configResolved), gather all .md files
@@ -59,9 +58,10 @@ export default function vitePluginRemarkMarkdown(
       });
 
       // Convert something like "docs/intro.md" -> "docs/intro"
-      knownPages = allMdPaths.map((file) => {
+      allMdPaths.forEach((file) => {
         const base = path.basename(file, ".md");
-        return normalizePath(base);
+        const normalized = normalizePath(base);
+        knownPages[file] = `/pool/notes/${normalized}`;
       });
     },
 
@@ -84,17 +84,19 @@ export default function vitePluginRemarkMarkdown(
         .use(remarkWikiLink, {
           // If a user writes [[SomePage]], check if 'SomePage' is in knownPages
           // If it is, remark-wiki-link won't mark it as new.
-          permalinks: knownPages,
+          files: Object.keys(knownPages),
+          format: "shortestPossible",
 
           // For the .md -> .html rewriting
-          pageResolver: (name) => {
+          urlResolver: ({ filePath }: { filePath: string }) => {
             // returns an array of possible matches
             // e.g. if user wrote [[docs/intro]], we might have 'docs/intro' in knownPages
-            const normalizedName = normalizePath(name);
-            return [normalizedName];
+            if (knownPages[filePath]) {
+              return knownPages[filePath];
+            } else {
+              return filePath; // fallback to original
+            }
           },
-          // If the final link is "docs/intro", produce "docs/intro.html" in the href
-          hrefTemplate: (permalink) => `${permalink}`,
         })
         .use(remarkGfm)
 
