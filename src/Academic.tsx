@@ -28,7 +28,7 @@ import penroseLogo from "./assets/penrose.svg";
 import theme from "./theme";
 import Tabs from "./components/Tabs";
 import { DarkModeContext } from "./context/DarkModeContext";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const NewsFeed = () => {
   const today = new Date();
@@ -220,7 +220,9 @@ export const Hero = ({ className }: { className?: string }) => (
       <div className="w-48 h-48">
         <Balls color={theme.colors.primary} mode={"clump"} />
       </div>
-      <Logo className="w-44 ml-4 mt-8" />
+      <Link to="/">
+        <Logo className="w-44 ml-4 mt-8" />
+      </Link>
     </div>
   </div>
 );
