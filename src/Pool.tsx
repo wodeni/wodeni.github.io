@@ -15,7 +15,7 @@ export const Hero = ({ className }: { className?: string }) => (
         <Balls color={theme.colors.primary} mode={"pool"} />
       </div>
       <Link to="/pool">
-        <Logo className="w-44 ml-4 mt-8" />
+        <Logo className="w-44 mt-8" />
       </Link>
     </div>
   </div>
