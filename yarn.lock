@@ -552,9 +552,9 @@
     suspend-react "^0.0.8"
     zustand "^3.7.1"
 
-"@react-three/postprocessing@^2.14.6":
+"@react-three/postprocessing@2.14.6":
   version "2.14.6"
-  resolved "https://registry.npmjs.org/@react-three/postprocessing/-/postprocessing-2.14.6.tgz"
+  resolved "https://registry.yarnpkg.com/@react-three/postprocessing/-/postprocessing-2.14.6.tgz#efa4357ff8a1154f790dc6f09476065879ac0e95"
   integrity sha512-KKpAFCtpRWdGgHHdPnFvi2c4n1pnzSs4suH4exX4OgEZ5s9YLPBXYxwzv/KkA8gjOhf3FawhwkwqIl1wZDC9ag==
   dependencies:
     maath "^0.5.3"
@@ -2958,9 +2958,9 @@ revalidator@^0.3.1:
   integrity sha512-orq+Nw+V5pDpQwGEuN2n1AgJ+0A8WqhFHKt5KgkxfAowUKgO1CWV32IR3TNB4g9/FX3gJt9qBJO8DYlwonnB0Q==
 
 rollup@^3.27.1:
-  version "3.29.4"
-  resolved "https://registry.npmjs.org/rollup/-/rollup-3.29.4.tgz"
-  integrity sha512-oWzmBZwvYrU0iJHtDmhsm662rC15FRXmcjCk1xD771dFDx5jJ02ufAQQTn0etB2emNk4J9EZg/yWKpsn9BWGRw==
+  version "3.30.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-3.30.0.tgz#3fa506fee2c5ba9d540a38da87067376cd55966d"
+  integrity sha512-kQvGasUgN+AlWGliFn2POSajRQEsULVYFGTvOZmK06d7vCD+YhZztt70kGk3qaeAXeWYL5eO7zx+rAubBc55eA==
   optionalDependencies:
     fsevents "~2.3.2"
 
