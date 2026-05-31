@@ -7,6 +7,18 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2026-05-29"),
+    msg: (
+      <>
+        We released{" "}
+        <A href="https://x.com/suekhim/status/2060378988606878147?s=20">
+          Koji, Brilliant's graphical tutor
+        </A>
+        . It's been a few months in the making. Enjoy!
+      </>
+    ),
+  },
+  {
     time: new Date("2024-11-11"),
     msg: (
       <>

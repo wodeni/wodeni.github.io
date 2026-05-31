@@ -149,7 +149,7 @@ const PubAuthors = ({ authors, coauthors, authorDisplayNames, id }: Paper) => (
       .map((a, i) => authorDisplayNames?.get(i) ?? a)
       .map((a) => (coauthors?.includes(a) ? `${a}*` : a))
       .map((a) =>
-        a === "Wode Ni" || a === "Wode Ni*" ? <strong>{a}</strong> : a
+        a === "Wode Ni" || a === "Wode Ni*" ? <strong>{a}</strong> : a,
       )
       .map((a, i) => (
         <span key={`${id}-author-${i}`}>
@@ -415,6 +415,11 @@ export default () => {
             <A href="https://brilliant.org/drnimo">Brilliant</A>, an education
             tech company known for learning by doing in STEM and YouTube
             sponsorships. Here are some latest projects:
+            <BlogPost
+              title="Introducing Koji: A world-class tutor in every home"
+              link="https://blog.brilliant.org/a-world-class-tutor-in-every-home/"
+              date={new Date("2026-05-29")}
+            />
             <BlogPost
               title="When Almost Right is Catastrophically Wrong: Evaluating AI-Generated Learning Games"
               link="https://blog.brilliant.org/when-almost-right-is-catastrophically-wrong-evals-for-ai-learning-games/"

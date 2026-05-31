@@ -1,23 +1,17 @@
 import {
   Canvas,
   MeshPhongMaterialProps,
-  extend,
   useFrame,
-  useLoader,
   useThree,
 } from "@react-three/fiber";
-import { OrbitControls, useTexture } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { Physics, PlaneProps, usePlane, useSphere } from "@react-three/cannon";
-import { EffectComposer, N8AO, SMAA } from "@react-three/postprocessing";
-import { useRef, useEffect, useState, useMemo } from "react";
+import { useRef, useState, useMemo } from "react";
 import {
   MathUtils,
   Matrix4,
-  Mesh,
   MeshStandardMaterial,
   SphereGeometry,
-  SRGBColorSpace,
-  TextureLoader,
   Vector3,
 } from "three";
 
@@ -413,17 +407,6 @@ export default ({
         height={200}
         width={100}
       />
-
-      <EffectComposer disableNormalPass multisampling={0}>
-        <N8AO
-          color="black"
-          aoRadius={2}
-          intensity={1}
-          aoSamples={6}
-          denoiseSamples={4}
-        />
-        <SMAA />
-      </EffectComposer>
       {mode === "pool" && <OrbitControls />}
     </Canvas>
   );
