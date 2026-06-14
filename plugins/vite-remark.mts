@@ -26,6 +26,21 @@ function normalizePath(str: string): string {
   return str.replace(/\ /g, "-").toLowerCase();
 }
 
+function pathToNoteSlug(filePath: string): string {
+  return normalizePath(
+    filePath
+      .replace(/^pool-notes\/public\//, "")
+      .replace(/\.md$/, "")
+      .replace(/\//g, "-")
+  );
+}
+
+function splitUrlHash(url: string): [string, string] {
+  const hashIndex = url.indexOf("#");
+  if (hashIndex === -1) return [url, ""];
+  return [url.slice(0, hashIndex), url.slice(hashIndex)];
+}
+
 export default function vitePluginRemarkMarkdown(
   options: { imageDir?: string; publicDir?: string; mdGlob?: string } = {}
 ) {
@@ -39,8 +54,9 @@ export default function vitePluginRemarkMarkdown(
   // The absolute folder where we copy images
   const absPublicImages = path.resolve(process.cwd(), publicDir, imageDir);
 
-  // This will hold all known .md “slugs” (so remarkWikiLink doesn’t mark them as new)
-  let knownPages = [];
+  // This will hold all known public .md pages (so private wikilinks stay unresolved).
+  let knownPages: Record<string, string> = {};
+  let knownPageAliases: Record<string, string> = {};
 
   return {
     name: "vite-plugin-remark-markdown",
@@ -59,9 +75,18 @@ export default function vitePluginRemarkMarkdown(
 
       // Convert something like "docs/intro.md" -> "docs/intro"
       allMdPaths.forEach((file) => {
-        const base = path.basename(file, ".md");
-        const normalized = normalizePath(base);
-        knownPages[file] = `/pool/notes/${normalized}`;
+        const url = `/pool/notes/${pathToNoteSlug(file)}`;
+        const aliases = [
+          file,
+          normalizePath(file),
+          path.basename(file),
+          normalizePath(path.basename(file)),
+        ];
+
+        knownPages[file] = url;
+        aliases.forEach((alias) => {
+          knownPageAliases[alias] = url;
+        });
       });
     },
 
@@ -100,18 +125,76 @@ export default function vitePluginRemarkMarkdown(
         })
         .use(remarkGfm)
 
-        // Rewrites .md links -> .html
+        // Private Obsidian links are not in the public note graph. Keep the
+        // internal-link styling, but remove the destination so they do not
+        // navigate anywhere.
+        .use(() => (tree) => {
+          visit(tree, "wikiLink", (node) => {
+            if (node.data?.existing === false) {
+              delete node.data.hProperties?.href;
+            }
+          });
+        })
+
+        // Rewrites Markdown note links to the React note route.
         .use(() => (tree) => {
           visit(tree, "link", (node) => {
             const u = node.url;
-            if (!isUrl(u) && u.endsWith(".md")) {
-              node.url = normalizePath(u).replace(/\.md$/, ".html");
+            const [urlPath, hash] = splitUrlHash(u);
+            if (!isUrl(u) && urlPath.endsWith(".md")) {
+              const decodedUrlPath = decodeURI(urlPath);
+              const currentPublicDir = path.dirname(
+                path.relative(process.cwd(), mdDir.replace(/^file:\/\//, ""))
+              );
+              const targetPath = path.normalize(
+                path.join(currentPublicDir, decodedUrlPath)
+              );
+              const publicNoteUrl =
+                knownPageAliases[targetPath] ??
+                knownPageAliases[normalizePath(targetPath)] ??
+                knownPageAliases[decodedUrlPath] ??
+                knownPageAliases[normalizePath(decodedUrlPath)] ??
+                knownPageAliases[path.basename(decodedUrlPath)] ??
+                knownPageAliases[normalizePath(path.basename(decodedUrlPath))];
+
+              if (publicNoteUrl !== undefined) {
+                node.url = `${publicNoteUrl}${hash}`;
+              } else {
+                node.url = "";
+                node.data = {
+                  hName: "a",
+                  hProperties: {
+                    className: ["internal", "new"],
+                  },
+                  hChildren: node.children,
+                };
+              }
             }
           });
         })
 
         .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypeRaw)
+        .use(() => (tree) => {
+          visit(tree, "element", (node) => {
+            if (node.tagName !== "a") return;
+
+            const className = node.properties?.className;
+            const classes = Array.isArray(className)
+              ? className
+              : typeof className === "string"
+              ? className.split(/\s+/)
+              : [];
+
+            if (
+              classes.includes("internal") &&
+              classes.includes("new") &&
+              node.properties?.href === ""
+            ) {
+              delete node.properties.href;
+            }
+          });
+        })
         .use(rehypeSlug)
         // Copy local images -> public/images
         .use(() => async (tree) => {
