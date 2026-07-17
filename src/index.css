@@ -3,6 +3,20 @@
 @import "tailwindcss/utilities";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Open+Sans");
 
+html {
+  min-height: 100%;
+  background-color: #f4f4f5;
+}
+
+html.dark {
+  background-color: #27272a;
+}
+
+body {
+  min-height: 100%;
+  background-color: inherit;
+}
+
 .schema-link {
   font-family: "Inter", sans-serif;
   color: inherit;
