@@ -19,6 +19,7 @@ interface PaperMeta {
   coauthors?: string[];
   // map bibtex strings to unicode strings
   authorDisplayNames?: Map<number, string>;
+  seriesDisplayName?: string;
   bibtex?: string;
 }
 interface Papers {
@@ -42,12 +43,8 @@ const entries: Papers = {
     type: "conference",
     pdf: new URL("/assets/las-24-edgeworth.pdf", import.meta.url).href,
     slides: new URL("/assets/las-24-edgeworth-talk.key", import.meta.url).href,
-  },
-  "diagrams-2024": {
-    type: "conference",
-    pdf: new URL("/assets/diagrams-24-penrose.pdf", import.meta.url).href,
-    coauthors: ["Wode Ni", "Sam Estep", "Hwei-Shin Harriman"],
-    authorDisplayNames: new Map([[3, "Jiří Minarčík"]]),
+    // The BibTeX parser treats @ inside a field value as entry syntax.
+    seriesDisplayName: "L@S'24",
   },
   "rose-2024": {
     type: "conference",
@@ -58,11 +55,6 @@ const entries: Papers = {
     pdf: new URL("/assets/siggraph-24-minkowski.pdf", import.meta.url).href,
     talk: "https://youtu.be/kNp-eY-kKq0?si=HvHFsq1RaUUQNPpg",
     authorDisplayNames: new Map([[0, "Jiří Minarčík"]]),
-  },
-  "stsearch-2024": {
-    type: "conference",
-    pdf: "https://dl.acm.org/doi/pdf/10.1145/3656460",
-    talk: "https://youtu.be/M_wXlm_xmlc?si=vufu-clOuuSmO6SC",
   },
   "recode-ni-2021": {
     type: "conference",
@@ -144,6 +136,7 @@ const parseEntry = (id: string, entry: BibEntry, meta: PaperMeta): Paper => {
   const author: any = entry.getField("author");
   const title: any = entry.getField("title");
   const series: any = getSeries(meta.type, entry);
+  const { seriesDisplayName, ...paperMeta } = meta;
   if (author && title && series) {
     return {
       title: normalizeFieldValue(title) as string,
@@ -154,11 +147,11 @@ const parseEntry = (id: string, entry: BibEntry, meta: PaperMeta): Paper => {
           .concat(author.jrs)
           .join(" ")
       ),
-      series: series,
+      series: seriesDisplayName ?? series,
       venue: getVenue(meta.type, entry),
       id,
       bibtex: unparseEntry(entry),
-      ...meta,
+      ...paperMeta,
     };
   } else {
     throw new Error(`cannot read field from entry ${entry._id}`);

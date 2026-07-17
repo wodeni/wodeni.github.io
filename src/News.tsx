@@ -7,6 +7,20 @@ interface News {
 
 const news: News[] = [
   {
+    time: new Date("2026-07-17"),
+    msg: (
+      <>
+        Excited to release{" "}
+        <a className="schema-link" href="https://schema-harness.github.io/">
+          <span className="font-light text-primary">[</span>
+          <span className="font-bold">schema</span>
+          <span className="font-light text-primary">]</span>
+        </a>
+        , an agent harness exceeding 99% on ARC-AGI-3 public set.
+      </>
+    ),
+  },
+  {
     time: new Date("2026-05-29"),
     msg: (
       <>

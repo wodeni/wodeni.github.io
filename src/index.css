@@ -1,7 +1,132 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Open+Sans");
+
+.schema-link {
+  font-family: "Inter", sans-serif;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 rgba(197, 89, 244, 0);
+  transition: box-shadow 140ms ease-out;
+}
+
+.schema-link:hover,
+.schema-link:focus-visible {
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 0 -1.15em 0 rgba(197, 89, 244, 0.2);
+}
+
+.schema-link:focus-visible {
+  outline: 2px solid rgba(197, 89, 244, 0.7);
+  outline-offset: 2px;
+}
+
+.schema-wordmark {
+  font-family: "Inter", sans-serif;
+}
+
+.project-card-link {
+  perspective: 900px;
+}
+
+.project-card {
+  transform: translateY(0) rotateX(0) rotateY(0);
+  transform-origin: center;
+  box-shadow: 0 8px 20px rgba(24, 24, 27, 0.1), 0 2px 5px rgba(24, 24, 27, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 180ms ease-out, box-shadow 180ms ease-out;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 -1px 0 rgba(24, 24, 27, 0.06);
+}
+
+.project-card-gloss {
+  inset: -24%;
+  opacity: 0.72;
+  background: linear-gradient(
+      118deg,
+      rgba(255, 255, 255, 0.68) 5%,
+      rgba(255, 255, 255, 0.22) 24%,
+      rgba(255, 255, 255, 0) 42%
+    ),
+    linear-gradient(
+      150deg,
+      rgba(255, 255, 255, 0) 58%,
+      rgba(255, 255, 255, 0.2) 73%,
+      rgba(255, 255, 255, 0) 88%
+    );
+  transform: translate3d(-3%, -2%, 0);
+  transition: transform 220ms ease-out, opacity 220ms ease-out;
+}
+
+.project-card-link:hover .project-card,
+.project-card-link:focus-visible .project-card {
+  transform: translateY(-3px) rotateX(var(--card-rotate-x, 1.2deg))
+    rotateY(var(--card-rotate-y, -1.4deg));
+  box-shadow: 0 18px 34px rgba(24, 24, 27, 0.14),
+    0 5px 10px rgba(24, 24, 27, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.project-card-link:hover .project-card-gloss,
+.project-card-link:focus-visible .project-card-gloss {
+  opacity: 0.92;
+  transform: translate3d(var(--card-gloss-x, 3%), var(--card-gloss-y, 1%), 0);
+}
+
+.project-card-link:focus-visible {
+  outline: none;
+}
+
+.project-card-link:focus-visible .project-card {
+  box-shadow: 0 0 0 2px rgba(197, 89, 244, 0.72),
+    0 18px 34px rgba(24, 24, 27, 0.14);
+}
+
+.dark .project-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3), 0 2px 5px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.dark .project-card::after {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dark .project-card-gloss {
+  opacity: 0.42;
+}
+
+.dark .project-card-link:hover .project-card,
+.dark .project-card-link:focus-visible .project-card {
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.42), 0 6px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card-gloss {
+    transition: none;
+  }
+
+  .project-card-link:hover .project-card,
+  .project-card-link:focus-visible .project-card {
+    transform: none;
+  }
+}
 
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
 .scrollbar-hide::-webkit-scrollbar {
@@ -12,6 +137,15 @@
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.news-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.news-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .dark {

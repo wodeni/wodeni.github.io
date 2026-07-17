@@ -9,7 +9,7 @@ export default () => {
     <DarkModeProvider>
       <div
         className={
-          "font-sans md:grid md:grid-cols-3 p-4 md:p-10 max-w-screen-xl dark:text-neutral-100 min-h-screen md:grid-rows-[200px]"
+          "min-h-screen max-w-screen-xl px-5 py-6 font-sans dark:text-neutral-100 md:grid md:grid-cols-3 md:grid-rows-[200px] md:p-10 lg:p-12"
         }
       >
         <Outlet />

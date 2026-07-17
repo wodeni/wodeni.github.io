@@ -3,7 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta
+      name="theme-color"
+      content="#f4f4f5"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#27272a"
+      media="(prefers-color-scheme: dark)"
+    />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="57x57"
@@ -76,7 +85,10 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root" class="bg-white dark:bg-zinc-800"></div>
+    <div
+      id="root"
+      class="min-h-screen bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-neutral-100"
+    ></div>
 
     <script src="/src/index.tsx" type="module"></script>
   </body>

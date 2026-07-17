@@ -1,6 +1,7 @@
 import Logo from "./Logo";
 import edgeworth from "./assets/edgeworth.svg";
 import mathdiagrams from "./assets/mathdiagrams.webp";
+import schemaGames from "./assets/schema-games.png";
 import Balls from "./components/Balls";
 import {
   HTMLProps,
@@ -32,6 +33,8 @@ import { Link, useLocation } from "react-router-dom";
 
 export const NewsFeed = () => {
   const today = new Date();
+  const newsCutoff = new Date(today);
+  newsCutoff.setFullYear(today.getFullYear() - 2);
   const [isScrolled, setIsScrolled] = useState(false);
   const scrollableDivRef = useRef<HTMLDivElement>(null);
 
@@ -53,18 +56,19 @@ export const NewsFeed = () => {
   }, []);
 
   return (
-    <div className="my-2 relative">
+    <div className="relative">
       {isScrolled && (
-        <div className="invisible md:visible absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white dark:from-zinc-800 to-transparent"></div>
+        <div className="pointer-events-none invisible absolute left-0 right-0 top-0 z-30 h-10 bg-gradient-to-b from-zinc-100 to-transparent md:visible dark:from-zinc-800"></div>
       )}
-      <div ref={scrollableDivRef} className="overflow-auto max-h-[50vh]">
+      <div
+        ref={scrollableDivRef}
+        className="news-scrollbar max-h-[50vh] overflow-y-auto pr-2"
+      >
         {news
-          // .filter(
-          //   ({ time }) => time.getUTCFullYear() >= today.getUTCFullYear() - 1
-          // )
+          .filter(({ time }) => time >= newsCutoff)
           .map(({ time, msg }, i) => (
             <div
-              className="py-2 text-gray-500 md:text-sm dark:text-neutral-300 "
+              className="py-3 text-gray-500 md:text-sm dark:text-neutral-300"
               key={`news-${i}`}
             >
               <DatePill date={time} />
@@ -72,13 +76,13 @@ export const NewsFeed = () => {
             </div>
           ))}
       </div>
-      <div className="invisible md:visible absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white dark:from-zinc-800 to-transparent"></div>
+      <div className="pointer-events-none invisible absolute bottom-0 left-0 right-0 z-30 h-12 bg-gradient-to-t from-zinc-100 to-transparent md:visible dark:from-zinc-800"></div>
     </div>
   );
 };
 
 export const DatePill = ({ date }: { date: Date }) => (
-  <div className="w-fit bg-gray-100 text-gray-400 rounded py-px px-1 dark:text-neutral-400 dark:bg-zinc-700">
+  <div className="w-fit rounded bg-zinc-300/50 px-1 py-px font-medium text-zinc-600 shadow-[0_1px_2px_rgba(24,24,27,0.08),inset_0_1px_0_rgba(255,255,255,0.65)] ring-1 ring-inset ring-zinc-900/5 backdrop-blur-md dark:bg-white/10 dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] dark:ring-white/10">
     {date.toLocaleString("default", {
       month: "long",
       year: "numeric",
@@ -176,11 +180,11 @@ const PubVenue = ({ venue, series, type }: Paper) => {
 };
 
 const Publications = () => (
-  <div>
+  <div className="my-6 space-y-4 border-y border-zinc-400/25 py-4 dark:border-white/10 md:my-8 md:py-5">
     {Papers.map((p: Paper) => (
-      <div key={p.id} className="my-4">
+      <div key={p.id}>
         <a href={p.pdf}>
-          <span className="text-lg font-semibold dark:font-normal cursor-pointer">
+          <span className="cursor-pointer text-lg font-semibold text-zinc-500 dark:font-normal dark:text-neutral-100">
             {p.title}
           </span>
         </a>
@@ -190,27 +194,6 @@ const Publications = () => (
         <PubMeta {...p} />
       </div>
     ))}
-  </div>
-);
-
-export const BlogPost = ({
-  title,
-  link,
-  date,
-}: {
-  title: string;
-  link: string;
-  date: Date;
-}) => (
-  <div className="my-4">
-    <span className="text-sm">
-      <DatePill date={date} />
-    </span>
-    <a href={link}>
-      <span className="text-lg font-semibold dark:font-normal cursor-pointer">
-        {title}
-      </span>
-    </a>
   </div>
 );
 
@@ -311,7 +294,7 @@ export const Text = ({
   children: ReactNode;
 }) => (
   <p
-    className={`${className} font-sans font-extralight text-lg my-2 dark:text-neutral-100`}
+    className={`${className} my-3 font-sans text-lg font-extralight leading-relaxed dark:text-neutral-100`}
   >
     {children}
   </p>
@@ -329,7 +312,7 @@ export const Section = ({
   const id = header.toLowerCase();
   // NOTE: SAFARI BUG: without top-0 and left-0, the rect will be shifted down.
   return (
-    <div id={id} className="mt-4 md:mt-8">
+    <div id={id} className="mt-8 md:mt-12">
       <HashLink smooth to={`${location.pathname}#${id}`}>
         <span className="group font-bold text-3xl tracking-tight curosr-pointer relative ">
           <svg
@@ -356,12 +339,12 @@ export const Section = ({
           </span>
         </span>
       </HashLink>
-      {children}
+      <div className="pt-3 md:pt-4">{children}</div>
     </div>
   );
 };
 export const Footer = () => (
-  <div className="md:col-span-3 mt-auto w-full flex flex-col text-sm justify-center items-center text-gray-500 dark:text-neutral-400 mt-12 md:mt-8">
+  <div className="mt-16 flex w-full flex-col items-center justify-center text-sm text-gray-500 dark:text-neutral-400 md:col-span-3 md:mt-12">
     <span className="mb-2">
       © {new Date().getUTCFullYear()} Wode "Nimo" Ni.
       {/* Last updated on{" "}
@@ -395,45 +378,62 @@ export default () => {
       </Text>
       <div className="max-w-screen-md md:col-span-2">
         <Section header={"Research"}>
-          <Text className="">
-            I recently received my{" "}
+          <Text>I'm currently working in stealth.</Text>
+          <Text>
+            Previously, I received my{" "}
             <A href={"/assets/nimo-dissertation.pdf"}>Ph.D.</A> from Carnegie
-            Mellon University, School of Computer Science, advised by{" "}
+            Mellon University, advised by{" "}
             <A href="http://pact.cs.cmu.edu/koedinger.html">Ken Koedinger</A>{" "}
             and <A href="https://www.cs.cmu.edu/~jssunshi/">Josh Sunshine</A>.
             Most of my research is on building interactive systems for
-            diagramming and programming. Here are some selected papers. Refer to
-            the <A href="http://wodenimoni.com/nimo-markdown-cv/">CV</A> for
-            more.
+            diagramming and programming. Here are some selected papers.
           </Text>
           <Publications />
-        </Section>
-        <Section header={"Work"}>
           <Text>
-            Continuing the thread of building diagramming systems, I'm working
-            on interactive diagramming at{" "}
-            <A href="https://brilliant.org/drnimo">Brilliant</A>, an education
-            tech company known for learning by doing in STEM and YouTube
-            sponsorships. Here are some latest projects:
-            <BlogPost
-              title="Introducing Koji: A world-class tutor in every home"
-              link="https://blog.brilliant.org/a-world-class-tutor-in-every-home/"
-              date={new Date("2026-05-29")}
-            />
-            <BlogPost
-              title="When Almost Right is Catastrophically Wrong: Evaluating AI-Generated Learning Games"
-              link="https://blog.brilliant.org/when-almost-right-is-catastrophically-wrong-evals-for-ai-learning-games/"
-              date={new Date("2025-02-27")}
-            />
-            <BlogPost
-              title="Hand-Crafted, Machine-Made: A Case Study of the Brilliant Math Editor"
-              link="https://blog.brilliant.org/hand-crafted-machine-made/"
-              date={new Date("2025-01-30")}
-            />
+            After the Ph.D., I spent time at{" "}
+            <A href="https://brilliant.org/drnimo">Brilliant</A>, where I worked
+            on interactive diagramming tooling (
+            <A href="https://blog.brilliant.org/hand-crafted-machine-made/">
+              diagram generation
+            </A>{" "}
+            and{" "}
+            <A href="https://blog.brilliant.org/when-almost-right-is-catastrophically-wrong-evals-for-ai-learning-games/">
+              evaluation
+            </A>
+            ) and{" "}
+            <A href="https://blog.brilliant.org/a-world-class-tutor-in-every-home/">
+              Koji
+            </A>
+            , a tutor that perceives and interacts with said diagrams.
           </Text>
         </Section>
         <Section header={"Tools"}>
-          <div className="grid lg:grid-cols-2 gap-2 md:gap-4 lg:gap-8 my-4">
+          <div className="mb-4 mt-3 grid gap-4 md:gap-6 lg:grid-cols-2 lg:gap-8">
+            <Project
+              name={
+                <span className="schema-wordmark">
+                  <span className="font-light text-primary/60 dark:text-primary">
+                    [
+                  </span>
+                  <span className="font-bold text-zinc-500 dark:text-white">
+                    schema
+                  </span>
+                  <span className="font-light text-primary/60 dark:text-primary">
+                    ]
+                  </span>
+                </span>
+              }
+              desc={
+                <>
+                  Frontier Models with Our Harness Achieve{" "}
+                  <strong className="font-bold text-primary">~99%</strong> on
+                  ARC‑AGI‑3 Public
+                </>
+              }
+              link="https://schema-harness.github.io/"
+              logo={schemaGames}
+              dark={darkMode}
+            />
             <Project
               name="Penrose"
               desc="Create beautiful diagrams just by typing math notation in plain text."
@@ -464,8 +464,8 @@ export default () => {
             default to “Nimo”.
           </Text>
           <Text>
-            I am an avid pool player. I play in local leagues and national
-            tournaments.
+            I am an avid pool player. See my <A href="/pool">pool</A> page for
+            more.
           </Text>
         </Section>
       </div>
