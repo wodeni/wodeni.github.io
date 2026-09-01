@@ -552,9 +552,9 @@
     suspend-react "^0.0.8"
     zustand "^3.7.1"
 
-"@react-three/postprocessing@^2.14.6":
+"@react-three/postprocessing@2.14.6":
   version "2.14.6"
-  resolved "https://registry.npmjs.org/@react-three/postprocessing/-/postprocessing-2.14.6.tgz"
+  resolved "https://registry.yarnpkg.com/@react-three/postprocessing/-/postprocessing-2.14.6.tgz#efa4357ff8a1154f790dc6f09476065879ac0e95"
   integrity sha512-KKpAFCtpRWdGgHHdPnFvi2c4n1pnzSs4suH4exX4OgEZ5s9YLPBXYxwzv/KkA8gjOhf3FawhwkwqIl1wZDC9ag==
   dependencies:
     maath "^0.5.3"
@@ -2476,9 +2476,9 @@ n8ao@^1.4.2:
   integrity sha512-+XeZc1jv4EbGaz0fhxPnfxn+KcHLRaZu3rkh9RqlQalN425JtXOAtG0N29P2whntwe6+5SEFdufMVhEPYKDYBg==
 
 nanoid@^3.3.7:
-  version "3.3.7"
-  resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.3.7.tgz"
-  integrity sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==
+  version "3.3.18"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.18.tgz#f66a2de1199ffde0fcf21c8a5f13106b1c081913"
+  integrity sha512-DTg4MJbGMWkfi6VZFdNt2/caMbQy4Ou+Op/hJQvGEWcnVfoA1QA+xzRKAzw9jD6+GVOOeYr/mIcuDSdug6F6+w==
 
 node-releases@^2.0.14:
   version "2.0.14"
